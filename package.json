@@ -1,0 +1,25 @@
+{
+  "name": "arcade-hub-v4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "Arcade Hub v4",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arcadehubgaming/v4.git"
+  },
+  "keywords": [
+    "unblocked",
+    "games",
+    "movies",
+    "proxy"
+  ],
+  "bugs": {
+    "url": "https://github.com/arcadehubgaming/v4/issues"
+  },
+  "homepage": "https://github.com/arcadehubgaming/v4#readme"
+}
