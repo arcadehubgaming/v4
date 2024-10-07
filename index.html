@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Arcade Hub v4</title>
+    <!-- Meta -->
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+    <div class="header">
+        <span class="header-title">Arcade Hub</span>
+        <input type="text" class="textbox" id="item-search" style="width: 45%;" placeholder="Search for Items..." oninput="searchItem()"/>
+        <div class="btn btn-dynamic" onclick="document.querySelector('.arcadehub-settings-wrapper').style = 'display: block; pointer-events: all;'; document.querySelector('.arcadehub-settings-wrapper').style.backdropFilter = `blur(${ArcadeHubSettings.blurAmount}px)`;">Settings</div>
+    </div>
+    <div class="body">
+        <div class="vdiv"></div>
+        <div class="toggle-group" style="display: flex; flex-direction: row; justify-content: center;">
+            <label class="btn-radio">
+                <input type="radio" class="btn-radio-input" name="toggle" value="1" checked>
+                <div class="btn btn-radio">Games</div>
+            </label>
+            <label class="btn-radio">
+                <input type="radio" class="btn-radio-input" name="toggle" value="2">
+                <div class="btn btn-radio">Movies</div>
+            </label>
+            <label class="btn-radio">
+                <input type="radio" class="btn-radio-input" name="toggle" value="3">
+                <div class="btn btn-radio">Proxies</div>
+            </label>
+        </div>
+        <br/>
+        <div class="games-wrapper">
+            <div class="item-list"></div>
+        </div>
+        <div class="movies-wrapper" style="display: none;">
+            <div class="item-list"></div>
+        </div>
+        <div class="proxies-wrapper" style="display: none;">
+            <div class="item-list"></div>
+        </div>              
+    </div>
+    <div class="arcadehub-settings-wrapper" style="display: none">
+        <div class="arcadehub-settings">
+            <div class="btn btn-dynamic" style="width: 100px; position: absolute; right: 16px;" onclick="document.querySelector('.arcadehub-settings-wrapper').style = 'display: none; pointer-events: none;';">Close</div>
+            <br/>
+            <br/>
+            <!--
+            <div class="btn" data-game-url="">
+                hiiiiiiiiii
+            </div>
+            -->
+            <label class="toggle">
+                <input type="checkbox" data-toggle="openInAboutBlank">
+                <span class="slider"></span>
+                <span class="toggle-label">Open Arcade Hub in about:blank (Refresh on Update)</span>
+            </label>
+            <div class="vdiv"></div>
+            <label class="toggle">
+                <input type="checkbox" data-toggle="darkMode">
+                <span class="slider"></span>
+                <span class="toggle-label">Dark Mode</span>
+            </label>
+            <div class="vdiv"></div>
+            <label>
+                Keybind: 
+                <input type="text" class="textbox" style="width: 30px; padding-left: 4px;" id="keybind-input" maxlength="1" value="`"/>
+                URL: 
+                <input type="text" class="textbox" id="url-input" value="https://www.google.com" />
+                <div class="btn btn-dynamic" style="width: 100px; display:inline-block" id="save-keybind">Save</div>
+            </label>
+            <div class="vdiv"></div>
+            <label>
+                Blur Amount: 
+                <input type="range" class="textbox" id="blur-slider" min="0" max="10" value="2" />
+            </label>                    
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>var ArcadeHubItems = {};</script>
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+    <script src="js/items/games.js"></script>
+    <script src="js/items/movies.js"></script>
+    <script src="js/items/proxies.js"></script>
+    <script src="js/common.js"></script>
+</body>
+</html>
