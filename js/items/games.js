@@ -32,6 +32,10 @@ ArcadeHubItems.Games = [
         "url": "games/Drift Hunters/index.html"
     },
     {
+        "name": "Friday Night Funkin",
+        "url": "games/"
+    },
+    {
         "name": "Subway Surfers (Barcelona)",
         "url": "games/subway surfers unity/barcelona.html"
     },
