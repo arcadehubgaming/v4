@@ -144,6 +144,7 @@ function populate(searchTerm = "", element) {
     });
 
     const items = ArcadeHubItems[category];
+    items.sort((a, b) => a.name.localeCompare(b.name));
 
     items.forEach(item => {
         if (item.name.toLowerCase().includes(searchTerm)) {
