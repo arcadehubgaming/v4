@@ -33,6 +33,30 @@ ArcadeHubItems.Movies = [
     },
     {
         "name": "Spider-Man Full Movie",
-        "url": "https://drive.google.com/file/d/14BaJhmDRr3veoH436CKdPDp9r-j5214I/view"
+        "url": "https://drive.google.com/file/d/14BaJhmDRr3veoH436CKdPDp9r-j5214I/preview"
+    },
+    {
+        "name": "Spider-Man - Into the Spider-Verse (2018)",
+        "url": "https://drive.google.com/file/d/1vySCIV8edudaZpnVqZVPBZTE7R0BsICR/preview"
+    },
+    {
+        "name": "Deadpool (2016)",
+        "url": "https://drive.google.com/file/d/1VH_yELQQxJxhuyxsU80q8eMsEeaxNomz/preview"
+    },
+    {
+        "name": "Deadpool 2 (2018)",
+        "url": "https://drive.google.com/file/d/1byr1rz9UkYusbAWUfuDcSHhmDUEHSGCI/preview"
+    },
+    {
+        "name": "Transformers - Age of Extinction (2014)",
+        "url": "https://drive.google.com/file/d/1TP3PH5br78DxrdNUDoH0J0ciJQJl804q/preview"
+    },
+    {
+        "name": "Transformers - The Last Night (2017)",
+        "url": "https://drive.google.com/file/d/1TP3PH5br78DxrdNUDoH0J0ciJQJl804q/preview"
+    },
+    {
+        "name": "Transformers - Revenge of the Fallen (2019)",
+        "url": "https://drive.google.com/file/d/16W1mt5pR2E0_4DXhvHCpBabnTnMbCRTY/preview"
     }
 ];  
