@@ -28,6 +28,10 @@ ArcadeHubItems.Games = [
         "url": "games/Cookie Clicker/index.html"
     },
     {
+        "name": "Cut The Rope",
+        "url": "games/Cut The Rope/index.html"
+    },
+    {
         "name": "Drift Hunters",
         "url": "games/Drift Hunters/index.html"
     },
@@ -188,6 +192,30 @@ ArcadeHubItems.Games = [
         "url": "games/fnf/dusttale"
     },
     {
+        "name": "Geometry Dash",
+        "url": "games/geodash/index.html"
+    },
+    {
+        "name": "Geometry Dash 2",
+        "url": "games/geodash 2/index.html"
+    },
+    {
+        "name": "Stick Duel Battle",
+        "url": "games/stick duel battle/"
+    },
+    {
+        "name": "Stickman Boost",
+        "url": "games/stickman boost/"
+    },
+    {
+        "name": "Stickman Dismount",
+        "url": "games/stickman dismount/"
+    },
+    {
+        "name": "Stickman Hook",
+        "url": "games/stickman hook/"
+    },
+    {
         "name": "Subway Surfers (Barcelona)",
         "url": "games/subway surfers unity/barcelona.html"
     },
@@ -228,7 +256,15 @@ ArcadeHubItems.Games = [
         "url": "games/subway surfers unity/winterholiday.html"
     },
     {
+        "name": "Temple Run 2",
+        "url": "games/temple run 2/"
+    },
+    {
         "name": "Territorial.io",
         "url": "games/territorial.io/index.html"
+    },
+    {
+        "name": "Wordle",
+        "url": "games/wordle/index.html"
     }
 ];
