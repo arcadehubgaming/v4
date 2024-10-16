@@ -44,10 +44,6 @@ ArcadeHubItems.Games = [
         "url": "games/crossy-road/index.html"
     },
     {
-        "name": "Cut The Rope (1080p)",
-        "url": "games/ctr-1080p/index.html"
-    },
-    {
         "name": "Cut The Rope (Holiday)",
         "url": "games/ctr-holiday/index.html"
     },
@@ -69,7 +65,7 @@ ArcadeHubItems.Games = [
     },
     {
         "name": "Cut The Rope",
-        "url": "games/CutTheRope/index.html"
+        "url": "games/ctr-1080p/index.html"
     },
     {
         "name": "Drift Hunters",

@@ -1,27 +1,28 @@
 ﻿<!DOCTYPE html>
 <html>
-
-<!-- Mirrored from yell0wsuit.github.io/html5-games/games/ctr-TimeTravel/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 May 2022 18:17:15 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <title>Cut the Rope: Time Travel</title>
+    <link rel="canonical" href="http://windyboy.freevnn.com/games/ctr-tt" />
     <meta name="description" content="Play Cut the Rope: Time Travel! Join Om Nom as he travels back in time to feed his ancestors with candy. Cut the Rope: Time Travel is a completely new adventure filled with time-traveling, candy-crunching, physics-based action!">
+
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
     <meta property="og:title" content="Cut the Rope: Time Travel" />
     <meta property="og:type" content="game" />
     <meta property="og:description" content="Join Om Nom as he travels back in time to feed his ancestors with candy. Cut the Rope: Time Travel is a completely new adventure filled with time-traveling, candy-crunching, physics-based action!">
+    <meta property="og:url" content="http://windyboy.freevnn.com/games/ctr-tt" />
+    <meta property="og:image" content="http://windyboy.freevnn.com/games/ctr-tt/fb.png" />
     <meta property="og:site_name" content="Cut the Rope: Time Travel" />
-	<script type="text/javascript" src="scripts/detectmobilebrowser.html" ></script>
-    <link href="css/ctrac1d.css?238" rel="stylesheet" type="text/css">
-    <script src="scripts/sm2ac1d.js?238" type="text/javascript"></script>
-    <script src="scripts/librariesac1d.js?238" type="text/javascript"></script>
-    <script src="scripts/ctr-timeac1d.js?238" type="text/javascript"></script>
+	<script type="text/javascript" src="/js/detectmobilebrowser.js" ></script>
+    <link href="css/ctr.css?238" rel="stylesheet" type="text/css">
+    <script src="scripts/sm2.js?238" type="text/javascript"></script>
+    <script src="scripts/libraries.js?238" type="text/javascript"></script>
+    <script src="scripts/ctr-time.js?238" type="text/javascript"></script>
     <noscript>
-        <link href="css/nojavascriptac1d.css?238" rel="stylesheet" type="text/css">
+        <link href="css/nojavascript.css?238" rel="stylesheet" type="text/css">
     </noscript>
 </head>
 <body class="ctrCursor">
@@ -49,8 +50,8 @@
                 <div class="panelContent">
                     <div id="menuLogo" ></div>
                     <div id="menuBtnVbox" class="fBtnVBox">
-                        <div id="playBtn" class="fBtn"><img src="#" /></div>
-                        <div id="optionsBtn" class="fBtn"><img src="#" /></div>
+                        <div id="playBtn" class="fBtn"><img src="" /></div>
+                        <div id="optionsBtn" class="fBtn"><img src="" /></div>
                     </div>
                 </div>
                 <div id="miniOptionsMenu">
@@ -65,7 +66,7 @@
                 
                 <canvas id="boxCanvas" width="1024" height="576"></canvas>
                 <div id="boxEnterCodeButton" class="fBtn ctrPointer"></div>
-                <div id="boxScore" class="hideFromMouse"><img src="#" /></div>
+                <div id="boxScore" class="hideFromMouse"><img src="" /></div>
 
                 <div id="boxNavBack">
                     <div class="boxNavDisabled">
@@ -86,12 +87,12 @@
             </div>
             <div id="levelPanel" class="panel">
                 <div id="levelScore">
-                    <img src="#" /></div>
+                    <img src="" /></div>
                 <div id="levelBack" class="bBtn">
                 </div>
                 <div id="levelOptions"></div>
                 <div id="levelResults">
-                    <div id="resultStatus"><img src="#" /></div>
+                    <div id="resultStatus"><img src="" /></div>
                     <div class="starCase">
                         <div id="resultStar1" class=""></div>
                         <div id="resultStar2" class=""></div>
@@ -105,9 +106,9 @@
                     <div class="line"></div>
                     <div id="resultScore"></div>
                     <div class="btnCase">
-                        <div id="replayBtn" class="sBtn"><img src="#" /></div>
-                        <div id="lrMenuBtn" class="sBtn"><img src="#" /></div>
-                        <div id="nextBtn" class="sBtn"><img src="#" /></div>
+                        <div id="replayBtn" class="sBtn"><img src="" /></div>
+                        <div id="lrMenuBtn" class="sBtn"><img src="" /></div>
+                        <div id="nextBtn" class="sBtn"><img src="" /></div>
                     </div>
                     <div id="resultImproved"></div>
                 </div>
@@ -115,19 +116,20 @@
 
             <div id="gameCompletePanel" class="panel">
                 <div id="congrats"></div>
-                <div id="finalScore"><img src="#" /></div>
-                <a href="../../index.html" id="finalFunBtn" class="lBtn" target="_blank"><img src="#" /><div id="funOmNom"></div></a>
+                <div id="finalScore"><img src="" /></div>
+                <div id="finalShareBtn" class="mBtn"><img src="" /><div id="ffb"></div></div>
+                <a href="http://windyboy.freevnn.com/games" id="finalFunBtn" class="lBtn" target="_blank"><img src="" /><div id="funOmNom"></div></a>
                 <div id="gameCompleteBack" class="bBtn"></div>
             </div>
 
             <div id="optionsPanel" class="panel">
                 <div class="fBtnVBox">
-                    <div id="optionsTitle"><img src="#" /></div>
+                    <div id="optionsTitle"><img src="" /></div>
                     <div id="soundBtn" class="mini-button ctrCursor"><div id="options-speaker"></div><div class="options-x"></div></div>
                     <div id="musicBtn" class="mini-button ctrCursor"><div id="options-note"></div><div class="options-x"></div></div>
-                    <div id="langBtn" class="fBtn"><img src="#" /><div id="flag"></div></div>
-                    <div id="resetBtn" class="fBtn"><img src="#" /></div>
-                    <div id="creditsBtn" class="fBtn"><img src="#" /></div>
+                    <div id="langBtn" class="fBtn"><img src="" /><div id="flag"></div></div>
+                    <div id="resetBtn" class="fBtn"><img src="" /></div>
+                    <div id="creditsBtn" class="fBtn"><img src="" /></div>
                     <div id="dragBtn"><img id="dragText" /><div class="options-check-disabled"></div></div>
                     <div id="cutBtn" class="ctrCursor"><img id="cutText" /><div class="options-check"></div></div>
                 </div>
@@ -138,7 +140,7 @@
                 <div id="dframe">
                     <div id="dpic"></div>
                 </div>
-                <div id="dshareBtn" class="fBtn"><img src="#" /><div id="dfb"></div></div>
+                <div id="dshareBtn" class="fBtn"><img src="" /><div id="dfb"></div></div>
             </div>
             <div id="gameBtnTray">
                 <div id="gameMsg" class="allSound"></div>
@@ -148,10 +150,10 @@
             </div>
             <div id="levelMenu">
                 <div class="fBtnVBox">
-                    <div id="continueBtn" class="fBtn"><img src="#" /></div>
-                    <div id="skipBtn" class="fBtn"><img src="#" /></div>
-                    <div id="selectBtn" class="fBtn"><img src="#" /></div>
-                    <div id="menuBtn" class="fBtn"><img src="#" /></div>
+                    <div id="continueBtn" class="fBtn"><img src="" /></div>
+                    <div id="skipBtn" class="fBtn"><img src="" /></div>
+                    <div id="selectBtn" class="fBtn"><img src="" /></div>
+                    <div id="menuBtn" class="fBtn"><img src="" /></div>
                 </div>
             </div>
 
@@ -186,7 +188,7 @@
                 to store site data so we can save your progress.
             </p>
 
-            <a id="lsChromeInfoLink" target="_blank" href="http://support.google.com/chrome/bin/answer.py?hl=en&amp;answer=95647">
+            <a id="lsChromeInfoLink" target="_blank" href="http://support.google.com/chrome/bin/answer.py?hl=en&answer=95647">
                 Details on how to manage your <br/> cookies and site data in Google Chrome
             </a>
             <div class="mBtn" id="lsOkButton"><span>OK</span></div>
@@ -196,12 +198,12 @@
     <div id="popupWindow">
         <div class="popupOuterFrame">
             <div class="popupInnerFrame" id="slowComputer">
-                <div class="fBtn" id="slowComputerBtn"><img src="#" /></div>
+                <div class="fBtn" id="slowComputerBtn"><img src="" /></div>
             </div>
             <div class="popupInnerFrame" id="resetGame">
                 <div id="resetText"></div>
-                <div class="mBtn" id="resetYesBtn"><img src="#" /></div>
-                <div class="mBtn" id="resetNoBtn"><img src="#" /></div>
+                <div class="mBtn" id="resetYesBtn"><img src="" /></div>
+                <div class="mBtn" id="resetNoBtn"><img src="" /></div>
                 <div id="resetHoldYes"></div>
             </div>
             <div class="popupInnerFrame" id="missingStars">
@@ -220,7 +222,5 @@
     </div>
   </div>
 </body>
-
-<!-- Mirrored from yell0wsuit.github.io/html5-games/games/ctr-TimeTravel/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 May 2022 18:17:16 GMT -->
 </html>
 
