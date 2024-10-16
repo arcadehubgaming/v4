@@ -16,6 +16,10 @@ ArcadeHubItems.Games = [
         "url": "games/Basketball Stars/index.html"
     },
     {
+        "name": "Bejeweled",
+        "url": "games/bejeweled/index.html"
+    },
+    {
         "name": "Bitlife",
         "url": "games/bitlife/index.html"
     },
@@ -24,16 +28,56 @@ ArcadeHubItems.Games = [
         "url": "games/candy crush/index.html"
     },
     {
+        "name": "Chrome Dino",
+        "url": "games/chrome-dino/index.html"
+    },
+    {
+        "name": "ContreJour",
+        "url": "games/contrejour/index.html"
+    },
+    {
         "name": "Cookie Clicker",
         "url": "games/Cookie Clicker/index.html"
     },
     {
+        "name": "Crossy Road",
+        "url": "games/crossy-road/index.html"
+    },
+    {
+        "name": "Cut The Rope (1080p)",
+        "url": "games/ctr-1080p/index.html"
+    },
+    {
+        "name": "Cut The Rope (Holiday)",
+        "url": "games/ctr-holiday/index.html"
+    },
+    {
+        "name": "Cut The Rope (Time Travel)",
+        "url": "games/ctr-TimeTravel/index.html"
+    },
+    {
+        "name": "Cut The Rope 2",
+        "url": "games/ctr2/index.html"
+    },
+    {
+        "name": "Cut The Rope (Expirements)",
+        "url": "games/ctrexp/index.html"
+    },
+    {
+        "name": "Cut The Rope (Magic)",
+        "url": "games/ctrm/index.html"
+    },
+    {
         "name": "Cut The Rope",
-        "url": "games/Cut The Rope/index.html"
+        "url": "games/CutTheRope/index.html"
     },
     {
         "name": "Drift Hunters",
         "url": "games/Drift Hunters/index.html"
+    },
+    {
+        "name": "Edge Surf",
+        "url": "games/edge-surf/index.html"
     },
     {
         "name": "Friday Night Funkin' (shaggymatt)",
@@ -200,6 +244,54 @@ ArcadeHubItems.Games = [
         "url": "games/geodash 2/index.html"
     },
     {
+        "name": "Google Kitsune",
+        "url": "games/google-kitsune/index.html"
+    },
+    {
+        "name": "Microsoft Games: Prague Bubble",
+        "url": "games/ms-bubble/index.html"
+    },
+    {
+        "name": "Microsoft Games: Jewel",
+        "url": "games/ms-jewel/index.html"
+    },
+    {
+        "name": "Microsoft Games: Jewel Plus",
+        "url": "games/ms-jewelplus/index.html"
+    },
+    {
+        "name": "Microsoft Games: Jigsaw",
+        "url": "games/ms-jigsaw/index.html"
+    },
+    {
+        "name": "Microsoft Games: Mahjong",
+        "url": "games/ms-mahjong/index.html"
+    },
+    {
+        "name": "Microsoft Games: Minesweeper",
+        "url": "games/ms-minesweeper/index.html"
+    },
+    {
+        "name": "Microsoft Games: Solitare",
+        "url": "games/ms-solitare/index.html"
+    },
+    {
+        "name": "Microsoft Games: Sudoku",
+        "url": "games/ms-sudoku/index.html"
+    },
+    {
+        "name": "Microsoft Games: Word Games",
+        "url": "games/ms-wordgames/index.html"
+    },
+    {
+        "name": "Pudding Monsters",
+        "url": "games/pudding-monsters/index.html"
+    },
+    {
+        "name": "Retro Bowl",
+        "url": "games/retro bowl/index.html"
+    },
+    {
         "name": "Stick Duel Battle",
         "url": "games/stick duel battle/"
     },
@@ -262,6 +354,10 @@ ArcadeHubItems.Games = [
     {
         "name": "Territorial.io",
         "url": "games/territorial.io/index.html"
+    },
+    {
+        "name": "Vivaldia",
+        "url": "games/vivaldia/index.html"
     },
     {
         "name": "Wordle",
