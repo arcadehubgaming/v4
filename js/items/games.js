@@ -52,18 +52,6 @@ ArcadeHubItems.Games = [
         "url": "games/ctr-TimeTravel/index.html"
     },
     {
-        "name": "Cut The Rope 2",
-        "url": "games/ctr2/index.html"
-    },
-    {
-        "name": "Cut The Rope (Expirements)",
-        "url": "games/ctrexp/index.html"
-    },
-    {
-        "name": "Cut The Rope (Magic)",
-        "url": "games/ctrm/index.html"
-    },
-    {
         "name": "Cut The Rope",
         "url": "games/ctr-1080p/index.html"
     },
