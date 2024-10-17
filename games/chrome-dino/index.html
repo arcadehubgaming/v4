@@ -54,17 +54,7 @@
                    ( navigator.maxTouchPoints > 0 ) ||
                    ( navigator.msMaxTouchPoints > 0 );
     }
-    if ( is_touch_enabled() ) {
-        var box = document.getElementById("h1");
-        box.innerHTML = "Touch the screen to play";
-    }
-
-    // Hide text on touch devices
-    document.ontouchstart = touchDevices;
-    function touchDevices() {
-        var box = document.getElementById("messageBox");
-        box.style.visibility="hidden";
-    };
+    
 
 </script>
     

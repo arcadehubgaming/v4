@@ -244,42 +244,6 @@ ArcadeHubItems.Games = [
         "url": "games/google-kitsune/index.html"
     },
     {
-        "name": "Microsoft Games: Prague Bubble",
-        "url": "games/ms-bubble/index.html"
-    },
-    {
-        "name": "Microsoft Games: Jewel",
-        "url": "games/ms-jewel/index.html"
-    },
-    {
-        "name": "Microsoft Games: Jewel Plus",
-        "url": "games/ms-jewelplus/index.html"
-    },
-    {
-        "name": "Microsoft Games: Jigsaw",
-        "url": "games/ms-jigsaw/index.html"
-    },
-    {
-        "name": "Microsoft Games: Mahjong",
-        "url": "games/ms-mahjong/index.html"
-    },
-    {
-        "name": "Microsoft Games: Minesweeper",
-        "url": "games/ms-minesweeper/index.html"
-    },
-    {
-        "name": "Microsoft Games: Solitare",
-        "url": "games/ms-solitare/index.html"
-    },
-    {
-        "name": "Microsoft Games: Sudoku",
-        "url": "games/ms-sudoku/index.html"
-    },
-    {
-        "name": "Microsoft Games: Word Games",
-        "url": "games/ms-wordgames/index.html"
-    },
-    {
         "name": "Pudding Monsters",
         "url": "games/pudding-monsters/index.html"
     },
@@ -352,11 +316,11 @@ ArcadeHubItems.Games = [
         "url": "games/territorial.io/index.html"
     },
     {
-        "name": "Vivaldia",
-        "url": "games/vivaldia/index.html"
-    },
-    {
         "name": "Wordle",
         "url": "games/wordle/index.html"
+    },
+    {
+        "name": "Worldle",
+        "url": "games/worldle/index.html"
     }
 ];
