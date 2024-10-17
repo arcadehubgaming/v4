@@ -104,10 +104,6 @@ ArcadeHubItems.Movies = [
         "url": "https://drive.google.com/file/d/1fvmYyJeV_tnapiTZWiRwwDzblSmL5-kW/preview"
     },
     {
-        "name": "Family Guy - Full TV Show (Seasons 1-22)",
-        "url": "https://drive.google.com/drive/folders/11W6C-Jqv9iQVasqjfiaYz77puax1UTjH?usp=drive_link"
-    },
-    {
         "name": "South Park (Full Series)",
         "url": "https://drive.google.com/drive/folders/1PzKaoaK4blzlaoxnwC20gZoeYE5mDxWL"
     }
