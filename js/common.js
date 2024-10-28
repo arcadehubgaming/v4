@@ -190,6 +190,16 @@ var ArcadeHub = {
             if (target.textContent.includes("Settings")) {
                 document.querySelector('.settings').style.display = 'flex';
             }
+
+            var parentSnow = document.getElementById("snowTarget").parentElement;
+            parentSnow.removeChild(document.getElementById("snowTarget"));
+
+            var newSnow = document.createElement("div");
+            newSnow.id = "snowTarget";
+            newSnow.style = "background:transparent; color:transparent; height: 1px; width: 100%"
+            parentSnow.appendChild(newSnow);
+
+            document.querySelectorAll('.snowflake').forEach(snowflake => snowflake.remove());
         },
 
         searchItem: function() {
@@ -224,7 +234,7 @@ var ArcadeHub = {
             snowflake.style.top = "-10px"; 
         
             let target = document.getElementById("snowTarget");
-            let targetPosition = target.getBoundingClientRect().top + window.scrollY;
+            let targetPosition = target.getBoundingClientRect().top + window.scrollY - 50;
         
             let position = -10; 
             const fallSpeed = 6; 
@@ -289,7 +299,16 @@ document.addEventListener("DOMContentLoaded", function() {
     darkModeToggle.addEventListener("change", () => {
         document.body.classList.toggle("arcadehub-dark", darkModeToggle.checked);
         ArcadeHubSettings.darkMode = darkModeToggle.checked;
+        seasonalModeToggle.checked = false;
+        snowToggle.checked = false;
+        snowToggle.disabled = true;
+
+        document.body.classList.remove("arcadehub-fall", "arcadehub-winter");
+        ArcadeHubSettings.enableSnow = snowToggle.checked;
+        ArcadeHubSettings.seasonalMode = seasonalModeToggle.checked;
+
         ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+        ArcadeHub.Utils.manageSnowflakes();
     });
 
     snowToggle.addEventListener("change", () => {
@@ -305,7 +324,11 @@ document.addEventListener("DOMContentLoaded", function() {
         
         if (seasonalModeToggle.checked) {
             applySeasonalMode();
+            darkModeToggle.checked = false;
             snowToggle.disabled = false;
+            if(darkModeToggle.checked) {
+                document.body.classList.add("arcadehub-dark");
+            }
         } else {
             document.body.classList.remove("arcadehub-fall", "arcadehub-winter");
             snowToggle.checked = false;
@@ -327,7 +350,9 @@ document.addEventListener("DOMContentLoaded", function() {
     function applySeasonalMode() {
         const date = new Date();
         const month = date.getMonth();
-        
+
+        document.body.classList.remove("arcadehub-dark");
+
         if (month === 11 || month === 0 || month === 1) {
             document.body.classList.add("arcadehub-winter");
         }
