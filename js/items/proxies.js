@@ -1,5 +1,5 @@
 ArcadeHubItems.Proxies = [
-    {
+    /*{
         "name": "Light (Server #1)",
         "url": "https://not-made-by-a-potato.meexpress.net/"
     },
@@ -10,7 +10,7 @@ ArcadeHubItems.Proxies = [
     {
         "name": "Light (Server #3)",
         "url": "https://florida.hilleberg.tw/"
-    },
+    },*/
     {
         "name": "Equinox (Server #1)",
         "url": "https://thebeta.duckdns.org/"
