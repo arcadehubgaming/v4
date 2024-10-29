@@ -18,12 +18,15 @@
     display: flex;
     align-items: center;
     padding: 8px 16px;
+    height: 100%;
     flex-direction: row;
     width: 100%;
     gap: 2em;
     font-family: "Poppins", sans-serif;
     transition: padding 0.2s;
     box-shadow: var(--shadow);
+    max-height: 100%;
+    flex-wrap: wrap;
 }
 
 .topbar .sidebar-toggle {
@@ -55,10 +58,7 @@
     border: none;
     border-radius: 1em;
     margin: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 1.25rem;
-    padding-right: 0.25rem;
+    padding: 10px 1.25rem 10px 0.25rem;
     flex-grow: 4;
     color: var(--text-color);
     transition: background 0.3s, padding 0.3s;
@@ -72,4 +72,27 @@
 
 .search-input::placeholder {
     color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .topbar {
+        flex-direction: column;
+    }
+
+    .topbar .sidebar-toggle {
+        width: 80%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .search-input {
+        width: 80%;
+        flex-grow: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar {
+        font-size: 0.9em;
+    }
 }

@@ -34,3 +34,22 @@
     align-content: center;
     width: 100%;
 }
+
+@media (max-width: 768px) {
+    .item-container {
+        padding: 1rem;
+    }
+
+    .item-container span {
+        text-align: center;
+        width: 100%;
+    }
+
+    .item-container .btn {
+        margin: auto;
+    }
+
+    .item-list {
+        gap: 0.5em;
+    }
+}

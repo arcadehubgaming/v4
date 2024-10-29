@@ -55,3 +55,14 @@
 .popup-close-btn:hover {
     color: var(--button-hover-bg-color);
 }
+
+@media (max-width: 768px) {
+    .popup {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .popup-title {
+        font-size: 1.2em;
+    }
+}
