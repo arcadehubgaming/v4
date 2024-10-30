@@ -8,14 +8,10 @@ var ArcadeHub = {
     popupQueue: [],
     isDisplaying: false,
     snowInterval: null,
-    currentVersion: "1.0.0",
+    currentVersion: "1.0.2",
     updates: [
-        "Completely revamped UI",
-        "Added a ton of new games",
-        "Made a new Google Form where you can post suggestions and feedback just for v4",
-        "Made v4 easily available through an easier link [arcadehubgaming.github.io](https://arcadehubgaming.github.io)",
-        "New Seasonal Mode!",
-        "Revamped Color Scheme"
+        "Responsive UI (Mobile Support)",
+        "Removal of all malfunctioning movies/proxies"
     ],
 
     createPopup: function(title, content) {
