@@ -57,8 +57,7 @@
     outline: none;
     border: none;
     border-radius: 1em;
-    margin: 0;
-    padding: 10px 1.25rem 10px 0.25rem;
+    padding: 10px 1rem;
     flex-grow: 4;
     color: var(--text-color);
     transition: background 0.3s, padding 0.3s;
