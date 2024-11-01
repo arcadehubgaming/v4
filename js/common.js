@@ -7,10 +7,9 @@ var ArcadeHub = {
     popupQueue: [],
     isDisplaying: false,
     snowInterval: null,
-    currentVersion: "1.0.2",
+    currentVersion: "1.0.3",
     updates: [
-        "Responsive UI (Mobile Support)",
-        "Removal of all malfunctioning movies/proxies"
+        "More Themes (Check Settings!)"
     ],
 
     createPopup: function(title, content) {
