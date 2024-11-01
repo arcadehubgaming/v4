@@ -41,11 +41,95 @@
     --text-color: #ffffff;
 }
 
+.arcadehub-oxocarbon-light {
+    --bg-color: #ffffff;
+    --secondary-bg-color: #f2f2f2;
+    --text-color: #161616;
+    --overlay: rgba(0, 0, 0, 0.2);
+    --overlay-dark: rgba(255, 255, 255, 0.2);
+    --button-bg-color: #4758b5;
+    --button-hover-bg-color: #354287;
+    --shadow: 1px 2px 5px rgba(0, 0, 0, .3);
+}
+
+.arcadehub-oxocarbon-dark {
+    --bg-color: #161616;
+    --secondary-bg-color: #262626;
+    --text-color: #dde1e6;
+    --overlay: rgba(0, 0, 0, 0.2);
+    --overlay-dark: rgba(255, 255, 255, 0.2);
+    --button-bg-color: #354287;
+    --button-hover-bg-color: #4758b5;
+    --shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+}
+
+.arcadehub-catppuccin-latte {
+    --bg-color: #eff1f5;
+    --secondary-bg-color: #bcc0cc;
+    --text-color: #c6d0f5;
+    --overlay: rgba(0, 0, 0, 0.2);
+    --overlay-dark: rgba(255, 255, 255, 0.2);
+    --button-bg-color: #8caaee;
+    --button-hover-bg-color: #85c1dc;
+    --shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+}
+
+.arcadehub-catppuccin-frappe {
+    --bg-color: #303446;
+    --secondary-bg-color: #51576d;
+    --text-color: #c6d0f5;
+    --overlay: rgba(0, 0, 0, 0.2);
+    --overlay-dark: rgba(255, 255, 255, 0.2);
+    --button-bg-color: #354287;
+    --button-hover-bg-color: #4758b5;
+    --shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+}
+
+.arcadehub-dark,
+.arcadehub-fall,
+.arcadehub-winter,
+.arcadehub-oxocarbon-light,
+.arcadehub-oxocarbon-dark,
+.arcadehub-catppuccin-latte,
+.arcadehub-catppuccin-frappe {
+    background-color: var(--bg-color);
+}
+
+
 .snowflake {
     position: absolute;
-    top: -10px; /* Start above the viewport */
+    top: -10px;
     color: #ffffff;
-    pointer-events: none; /* Prevent mouse events on snowflakes */
+    pointer-events: none;
+}
+
+.theme-selector {
+    display: flex;
+    align-items: center;
+}
+
+#theme-input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+
+#theme-select {
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    background: var(--button-bg-color);
+    font-family: "Poppins", sans-serif;
+    color: white;
+    cursor: pointer;
+}
+
+#theme-select option {
+    background: white;
+    color: black;
 }
 
 html, body {
@@ -59,10 +143,6 @@ html, body {
 
 body {
     height: 100%;
-    background-color: var(--bg-color);
-}
-
-.arcadehub-dark, .arcadehub-fall, .arcadehub-winter {
     background-color: var(--bg-color);
 }
 

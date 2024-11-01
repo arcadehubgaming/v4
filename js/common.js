@@ -1,7 +1,6 @@
 var ArcadeHubSettings = {
-    darkMode: true,
-    seasonalMode: false,
-    enableSnow: true
+    theme: "dark",
+    enableSnow: false
 };
 
 var ArcadeHub = {
@@ -246,7 +245,7 @@ var ArcadeHub = {
         },
 
         manageSnowflakes: function() {
-            if (ArcadeHubSettings.seasonalMode && ArcadeHubSettings.enableSnow) {
+            if (ArcadeHubSettings.enableSnow) {
                 if (!ArcadeHub.snowInterval) {
                     ArcadeHub.snowInterval = setInterval(ArcadeHub.Utils.createSnowflake, 100);
                 }
@@ -264,98 +263,81 @@ document.addEventListener("DOMContentLoaded", function() {
     ArcadeHub.setCookie("lastVersion", ArcadeHub.currentVersion, 32767);
 
     document.querySelector('.games').style.display = 'flex';
-    ArcadeHub.Utils.populate(document.querySelector('.games.item-list'), ArcadeHubItems.Games);
-
-    document.querySelector('.search-input').addEventListener('input', ArcadeHub.Utils.searchItem);
-
-    const toggles = document.querySelectorAll('.sidebar-toggle');
-    toggles.forEach(toggle => {
+    ArcadeHub.Utils.populate(document.querySelector('.games'), ArcadeHubItems.Games);
+    ArcadeHub.Utils.populate(document.querySelector('.movies'), ArcadeHubItems.Movies);
+    ArcadeHub.Utils.populate(document.querySelector('.proxies'), ArcadeHubItems.Proxies);
+    
+    const sidebarToggles = document.querySelectorAll('.sidebar-toggle');
+    sidebarToggles.forEach(toggle => {
         toggle.addEventListener('click', ArcadeHub.Utils.switchTab);
     });
 
-    const darkModeToggle = document.getElementById("dark-mode-toggle");
-    const seasonalModeToggle = document.getElementById("seasonal-mode-toggle");
-    const snowToggle = document.getElementById("snow-toggle");
+    document.querySelector('.search-input').addEventListener('input', ArcadeHub.Utils.searchItem);
 
-    const settingsFromCookie = ArcadeHub.getCookie("ArcadeHubSettings");
-    if (settingsFromCookie) {
-        Object.assign(ArcadeHubSettings, JSON.parse(settingsFromCookie));
-    }
+    const themeSelect = document.getElementById("theme-select");
 
-    darkModeToggle.checked = ArcadeHubSettings.darkMode || false;
-    seasonalModeToggle.checked = ArcadeHubSettings.seasonalMode || false;
-    snowToggle.checked = ArcadeHubSettings.enableSnow || false;
+    themeSelect.addEventListener("change", function() {
+        const selectedTheme = themeSelect.value;
+        document.body.className = "";
 
-    document.body.classList.toggle("arcadehub-dark", darkModeToggle.checked);
-    
-    if (seasonalModeToggle.checked) {
-        applySeasonalMode();
-    }
 
-    darkModeToggle.addEventListener("change", () => {
-        document.body.classList.toggle("arcadehub-dark", darkModeToggle.checked);
-        ArcadeHubSettings.darkMode = darkModeToggle.checked;
-        seasonalModeToggle.checked = false;
-        snowToggle.checked = false;
-        snowToggle.disabled = true;
-
-        document.body.classList.remove("arcadehub-fall", "arcadehub-winter");
-        ArcadeHubSettings.enableSnow = snowToggle.checked;
-        ArcadeHubSettings.seasonalMode = seasonalModeToggle.checked;
+        switch (selectedTheme) {
+            case "dark":
+                document.body.classList.add("arcadehub-dark");
+                ArcadeHubSettings.theme = "dark";
+                ArcadeHubSettings.enableSnow = false;
+                break;
+            case "fall":
+                document.body.classList.add("arcadehub-fall");
+                ArcadeHubSettings.theme = "fall";
+                ArcadeHubSettings.enableSnow = false;
+                break;
+            case "winter":
+                document.body.classList.add("arcadehub-winter");
+                ArcadeHubSettings.theme = "winter";
+                ArcadeHubSettings.enableSnow = true;
+                break;
+            case "oxocarbon-dark":
+                document.body.classList.add("arcadehub-oxocarbon-dark");
+                ArcadeHubSettings.theme = "oxocarbon-dark";
+                ArcadeHubSettings.enableSnow = false;
+                break;
+            case "oxocarbon-light":
+                document.body.classList.add("arcadehub-oxocarbon-light");
+                ArcadeHubSettings.theme = "oxocarbon-light";
+                ArcadeHubSettings.enableSnow = false;
+                break;
+            case "catppuccin-latte":
+                document.body.classList.add("arcadehub-catppuccin-latte");
+                ArcadeHubSettings.theme = "catppuccin-latte";
+                ArcadeHubSettings.enableSnow = false;
+                break;
+            case "catppuccin-frappe":
+                document.body.classList.add("arcadehub-catppuccin-frappe");
+                ArcadeHubSettings.theme = "catppuccin-frappe";
+                ArcadeHubSettings.enableSnow = false;
+                break;
+            default:
+                ArcadeHubSettings.theme = "default";
+                ArcadeHubSettings.enableSnow = false;
+                break;
+        }
 
         ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
         ArcadeHub.Utils.manageSnowflakes();
     });
 
-    snowToggle.addEventListener("change", () => {
-        ArcadeHubSettings.enableSnow = snowToggle.checked;
-        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
-        ArcadeHub.Utils.manageSnowflakes(); // Call to manage snowflakes based on current settings
-    });
+    const storedSettings = ArcadeHub.getCookie("ArcadeHubSettings");
+    if (storedSettings) {
+        Object.assign(ArcadeHubSettings, JSON.parse(storedSettings));
 
-    seasonalModeToggle.addEventListener("change", () => {
-        ArcadeHubSettings.seasonalMode = seasonalModeToggle.checked;
-        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
-        ArcadeHub.Utils.manageSnowflakes(); // Call to manage snowflakes based on current settings
-        
-        if (seasonalModeToggle.checked) {
-            applySeasonalMode();
-            darkModeToggle.checked = false;
-            snowToggle.disabled = false;
-            if(darkModeToggle.checked) {
-                document.body.classList.add("arcadehub-dark");
-            }
+        themeSelect.value = ArcadeHubSettings.theme;
+        if(themeSelect.value !== "default") {
+            document.body.classList.add(`arcadehub-${ArcadeHubSettings.theme}`);
         } else {
-            document.body.classList.remove("arcadehub-fall", "arcadehub-winter");
-            snowToggle.checked = false;
-            snowToggle.disabled = true;
+            document.body.className = "";
         }
-    });
 
-    if (!ArcadeHub.getCookie("hasVisited")) {
-        ArcadeHub.createPopup("Welcome to Arcade Hub!", `\
-            Welcome to Arcade Hub, here we host tons of games, movies, proxies, and other cool content that we hope you'd enjoy!\n\
-            If you see any issues or want to give any feedback, make a suggestion on our [Google Form](https://forms.gle/bQTVfmNK4pKtxk9W9) or on our [Github](https://github.com/arcadehubgaming/v4).\n\
-        `);
-    }
-
-    if (lastVersion && String(lastVersion) !== String(ArcadeHub.currentVersion)) {
-        ArcadeHub.createUpdatePopup("Update Changelog", ArcadeHub.updates);
-    }
-
-    function applySeasonalMode() {
-        const date = new Date();
-        const month = date.getMonth();
-
-        document.body.classList.remove("arcadehub-dark");
-
-        if (month === 11 || month === 0 || month === 1) {
-            document.body.classList.add("arcadehub-winter");
-        }
-        if (month === 8 || month === 9 || month === 10) {
-            document.body.classList.add("arcadehub-fall");
-        }
-        
-        ArcadeHub.Utils.manageSnowflakes(); // Manage snowflakes if seasonal mode is applied
+        ArcadeHub.Utils.manageSnowflakes();
     }
 });

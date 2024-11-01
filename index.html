@@ -43,23 +43,18 @@
 
             </div>
             <div class="settings item-list">
-                <label class="toggle">
-                    <input type="checkbox" id="dark-mode-toggle">
-                    <span class="slider"></span>
-                    <span class="toggle-label">Dark Mode</span>
-                </label>
-
-                <label class="toggle">
-                    <input type="checkbox" id="seasonal-mode-toggle">
-                    <span class="slider"></span>
-                    <span class="toggle-label">Seasonal Mode</span>
-                </label>
-
-                <label class="toggle">
-                    <input type="checkbox" id="snow-toggle">
-                    <span class="slider"></span>
-                    <span class="toggle-label">Enable Snow</span>
-                </label>
+                <div class="theme-selector">
+                    <select id="theme-select">
+                        <option value="default">Light Mode</option>
+                        <option value="dark">Dark</option>
+                        <option value="fall">Fall</option>
+                        <option value="winter">Winter</option>
+                        <option value="oxocarbon-dark">Oxocarbon Dark</option>
+                        <option value="oxocarbon-light">Oxocarbon</option>
+                        <option value="catppuccin-latte">Catppuccin Latte</option>
+                        <option value="catppuccin-frappe">Catppuccin Frappe</option>
+                    </select>
+                </div>                                
             </div>
         </main>
     </div>
