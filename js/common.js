@@ -1,5 +1,5 @@
 var ArcadeHubSettings = {
-    theme: "dark",
+    theme: "light",
     enableSnow: false
 };
 
@@ -7,9 +7,10 @@ var ArcadeHub = {
     popupQueue: [],
     isDisplaying: false,
     snowInterval: null,
-    currentVersion: "1.0.3",
+    currentVersion: "1.0.4",
     updates: [
-        "More Themes (Check Settings!)"
+        "More Themes (Check Settings!)",
+        "Added Feedback Tab (Google Forms)"
     ],
 
     createPopup: function(title, content) {
@@ -161,6 +162,10 @@ var ArcadeHub = {
             const target = event.currentTarget;
             const sections = document.querySelectorAll('.item-list');
             const toggles = document.querySelectorAll('.sidebar-toggle');
+
+            if(target.textContent.includes("Feedback")) {
+                return;
+            }
 
             sections.forEach(section => section.style.display = 'none');
             toggles.forEach(toggle => toggle.classList.remove('sidebar-toggle-selected'));
@@ -316,6 +321,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 ArcadeHubSettings.theme = "catppuccin-frappe";
                 ArcadeHubSettings.enableSnow = false;
                 break;
+            case "catppuccin-macchiato":
+                document.body.classList.add("arcadehub-catppuccin-macchiato");
+                ArcadeHubSettings.theme = "catppuccin-macchiato";
+                ArcadeHubSettings.enableSnow = false;
+                break;
+            case "catppuccin-mocha":
+                document.body.classList.add("arcadehub-catppuccin-mocha");
+                ArcadeHubSettings.theme = "catppuccin-mocha";
+                ArcadeHubSettings.enableSnow = false;
+                break;
             default:
                 ArcadeHubSettings.theme = "default";
                 ArcadeHubSettings.enableSnow = false;
@@ -338,5 +353,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         ArcadeHub.Utils.manageSnowflakes();
+    }
+
+    if (!ArcadeHub.getCookie("hasVisited")) {
+        ArcadeHub.createPopup("Welcome to Arcade Hub!", `\
+            Welcome to Arcade Hub, here we host tons of games, movies, proxies, and other cool content that we hope you'd enjoy!\n\
+            If you see any issues or want to give any feedback, make a suggestion on our [Google Form](https://forms.gle/bQTVfmNK4pKtxk9W9) or on our [Github](https://github.com/arcadehubgaming/v4).\n\
+        `);
+    }
+
+    if (lastVersion && String(lastVersion) !== String(ArcadeHub.currentVersion)) {
+        ArcadeHub.createUpdatePopup("Update Changelog", ArcadeHub.updates);
     }
 });

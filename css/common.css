@@ -49,7 +49,7 @@
     --overlay-dark: rgba(255, 255, 255, 0.2);
     --button-bg-color: #4758b5;
     --button-hover-bg-color: #354287;
-    --shadow: 1px 2px 5px rgba(0, 0, 0, .3);
+    --shadow: 1px 2px 2px rgba(0, 0, 0, .15);
 }
 
 .arcadehub-oxocarbon-dark {
@@ -60,29 +60,51 @@
     --overlay-dark: rgba(255, 255, 255, 0.2);
     --button-bg-color: #354287;
     --button-hover-bg-color: #4758b5;
-    --shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+    --shadow: 1px 2px 2px rgba(0, 0, 0, .3);
 }
 
 .arcadehub-catppuccin-latte {
     --bg-color: #eff1f5;
-    --secondary-bg-color: #bcc0cc;
-    --text-color: #c6d0f5;
+    --secondary-bg-color: #ccd0da;
+    --text-color: #4c4f69;
     --overlay: rgba(0, 0, 0, 0.2);
     --overlay-dark: rgba(255, 255, 255, 0.2);
-    --button-bg-color: #8caaee;
-    --button-hover-bg-color: #85c1dc;
-    --shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+    --button-bg-color: #4758b5;
+    --button-hover-bg-color: #354287;
+    --shadow: 1px 2px 2px rgba(0, 0, 0, .3);
 }
 
 .arcadehub-catppuccin-frappe {
     --bg-color: #303446;
-    --secondary-bg-color: #51576d;
+    --secondary-bg-color: #414559;
     --text-color: #c6d0f5;
     --overlay: rgba(0, 0, 0, 0.2);
     --overlay-dark: rgba(255, 255, 255, 0.2);
     --button-bg-color: #354287;
     --button-hover-bg-color: #4758b5;
-    --shadow: 1px 2px 5px rgba(0, 0, 0, .5);
+    --shadow: 1px 2px 2px rgba(0, 0, 0, .15);
+}
+
+.arcadehub-catppuccin-macchiato {
+    --bg-color: #24273a;
+    --secondary-bg-color: #363a4f;
+    --text-color: #cad3f5;
+    --overlay: rgba(0, 0, 0, 0.2);
+    --overlay-dark: rgba(255, 255, 255, 0.2);
+    --button-bg-color: #354287;
+    --button-hover-bg-color: #4758b5;
+    --shadow: 1px 2px 2px rgba(0, 0, 0, .15);
+}
+
+.arcadehub-catppuccin-mocha {
+    --bg-color: #1e1e2e;
+    --secondary-bg-color: #313244;
+    --text-color: #cdd6f4;
+    --overlay: rgba(0, 0, 0, 0.2);
+    --overlay-dark: rgba(255, 255, 255, 0.2);
+    --button-bg-color: #354287;
+    --button-hover-bg-color: #4758b5;
+    --shadow: 1px 2px 2px rgba(0, 0, 0, .15);
 }
 
 .arcadehub-dark,
@@ -91,10 +113,11 @@
 .arcadehub-oxocarbon-light,
 .arcadehub-oxocarbon-dark,
 .arcadehub-catppuccin-latte,
-.arcadehub-catppuccin-frappe {
+.arcadehub-catppuccin-frappe,
+.arcadehub-catppuccin-macchiato,
+.arcadehub-catppuccin-mocha {
     background-color: var(--bg-color);
 }
-
 
 .snowflake {
     position: absolute;
