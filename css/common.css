@@ -282,6 +282,12 @@ input:disabled ~ .toggle-label {
     color: #777;
 }
 
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
 @media (max-width: 768px) {
     body {
         font-size: 14px;

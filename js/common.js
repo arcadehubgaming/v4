@@ -1,6 +1,7 @@
 var ArcadeHubSettings = {
     theme: "light",
-    enableSnow: false
+    enableSnow: false,
+    cloakingToggle: false
 };
 
 var ArcadeHub = {
@@ -258,6 +259,47 @@ var ArcadeHub = {
                 ArcadeHub.snowInterval = null;
                 document.querySelectorAll('.snowflake').forEach(snowflake => snowflake.remove());
             }
+        },
+
+        inIframe: function() {
+            try {
+                return window.self !== window.top;
+            } catch (e) {
+                return true;
+            }
+        },
+
+        cloakPage: function() {
+            if(this.inIframe() !== true) {
+                var win = window.open();
+                win.document.title = "Google Drive";
+                var link = win.document.createElement("link");
+                link.rel = "icon";
+                link.type = "image/png";
+                link.href = "https://www.gstatic.com/images/branding/product/2x/drive_48dp.png";
+
+                win.document.head.appendChild(link);
+                win.document.body.style.margin = '0';
+                win.document.body.style.height = '100vh';
+                var iframe = win.document.createElement('iframe');
+                iframe.style.border = 'none';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.src = "#";
+                win.document.body.appendChild(iframe);
+                var interval = setInterval(function () {
+                    if (win.closed) {
+                        clearInterval(interval);
+                        win = undefined;
+                    }
+                }, 500);
+                
+                window.close();
+
+                setTimeout(function() {
+                    window.location.href = "about:blank";
+                }, 500)
+            }
         }
     }
 };
@@ -346,13 +388,37 @@ document.addEventListener("DOMContentLoaded", function() {
         Object.assign(ArcadeHubSettings, JSON.parse(storedSettings));
 
         themeSelect.value = ArcadeHubSettings.theme;
-        if(themeSelect.value !== "default") {
+        if(themeSelect.values !== "default") {
             document.body.classList.add(`arcadehub-${ArcadeHubSettings.theme}`);
         } else {
             document.body.className = "";
         }
 
         ArcadeHub.Utils.manageSnowflakes();
+    }
+
+    const cloakingToggle = document.getElementById("cloaking-toggle");
+    cloakingToggle.addEventListener("change", function() {
+        ArcadeHubSettings.cloakingToggle = cloakingToggle.checked
+        if (cloakingToggle.checked) {
+            document.title = "Google Drive";
+            document.getElementById("favicon").href = "https://www.gstatic.com/images/branding/product/2x/drive_48dp.png";
+            ArcadeHub.Utils.cloakPage();
+        } else {
+            document.title = "Arcade Hub v4";
+            document.getElementById("favicon").href = "";
+        }
+        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+    });
+
+    if (ArcadeHubSettings.cloakingToggle) {
+        document.title = "Google Drive";
+        document.getElementById("favicon").href = "https://www.gstatic.com/images/branding/product/2x/drive_48dp.png";
+        cloakingToggle.checked = true;
+        ArcadeHub.Utils.cloakPage();
+    } else {
+        document.title = "Arcade Hub v4"
+        document.getElementById("favicon").href = "";
     }
 
     if (!ArcadeHub.getCookie("hasVisited")) {
