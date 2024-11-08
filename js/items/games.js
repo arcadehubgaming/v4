@@ -1,4 +1,4 @@
-[
+ArcadeHubItems.Games = [
 	{
 		"name": "cookieclicker2052",
 		"url": "games/3kh0-assets/cookie-clicker-beta/index.html"
@@ -1515,4 +1515,4 @@
 		"name": "xx142-b2exe",
 		"url": "games/3kh0-assets/xx142-b2exe/index.html"
 	}
-]
+];
