@@ -49,7 +49,7 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "idledices",
-		"url": "games/3kh0-assets/idledices/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/idledices/index.html"
 	},
 	{
 		"name": "snowrider3d",
@@ -81,7 +81,7 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "idledice",
-		"url": "games/3kh0-assets/idledice/Idle Dice.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/idledice/Idle Dice.html"
 	},
 	{
 		"name": "particleclicker",
@@ -409,15 +409,15 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Defend the Tank",
-		"url": "games/3kh0-assets/defend-the-tank/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/defend-the-tank/index.html"
 	},
 	{
 		"name": "Doctor Acorn 2",
-		"url": "games/3kh0-assets/doctor-acorn2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/doctor-acorn2/index.html"
 	},
 	{
 		"name": "Dodge",
-		"url": "games/3kh0-assets/dodge/dodge.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/dodge/dodge.html"
 	},
 	{
 		"name": "Doge 2048",
@@ -433,11 +433,11 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Doodle Jump",
-		"url": "games/3kh0-assets/doodle-jump/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/doodle-jump/index.html"
 	},
 	{
 		"name": "Doom",
-		"url": "games/3kh0-assets/doom/doom.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/doom/doom.html"
 	},
 	{
 		"name": "Doomori",
@@ -445,23 +445,23 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Double Wires",
-		"url": "games/3kh0-assets/doublewires/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/doublewires/index.html"
 	},
 	{
 		"name": "Dragons vs Bricks",
-		"url": "games/3kh0-assets/dragon-vs-bricks/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/dragon-vs-bricks/index.html"
 	},
 	{
 		"name": "Draw the Hill",
-		"url": "games/3kh0-assets/draw-the-hill/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/draw-the-hill/index.html"
 	},
 	{
 		"name": "Drift Hunters",
-		"url": "games/3kh0-assets/drift-hunters/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/drift-hunters/index.html"
 	},
 	{
 		"name": "Drive Mad",
-		"url": "games/3kh0-assets/drive-mad/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/drive-mad/index.html"
 	},
 	{
 		"name": "Duck Life",
@@ -469,23 +469,23 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Duck Life 2",
-		"url": "games/3kh0-assets/ducklife2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/ducklife2/index.html"
 	},
 	{
 		"name": "Duck Life 3",
-		"url": "games/3kh0-assets/ducklife3/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/ducklife3/index.html"
 	},
 	{
 		"name": "Duck Life 4",
-		"url": "games/3kh0-assets/ducklife4/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/ducklife4/index.html"
 	},
 	{
 		"name": "Duke Nukem 2",
-		"url": "games/3kh0-assets/duke-nukem-2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/duke-nukem-2/index.html"
 	},
 	{
 		"name": "Dumb Ways to Die",
-		"url": "games/3kh0-assets/dumbwaystodie/dumbwaystodie.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/dumbwaystodie/dumbwaystodie.html"
 	},
 	{
 		"name": "Eaglercraft 1.5",
@@ -497,71 +497,71 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Edge Let's surf",
-		"url": "games/3kh0-assets/edge-surf/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/edge-surf/index.html"
 	},
 	{
 		"name": "Edge Not Found",
-		"url": "games/3kh0-assets/edgenotfound/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/edgenotfound/index.html"
 	},
 	{
 		"name": "Eel Slap",
-		"url": "games/3kh0-assets/eel-slap/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/eel-slap/index.html"
 	},
 	{
 		"name": "Eggycar",
-		"url": "games/3kh0-assets/eggycar/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/eggycar/index.html"
 	},
 	{
 		"name": "Elastic Man",
-		"url": "games/3kh0-assets/elasticman/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/elasticman/index.html"
 	},
 	{
 		"name": "Endless War 3",
-		"url": "games/3kh0-assets/endlesswar3/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/endlesswar3/index.html"
 	},
 	{
 		"name": "Escaping The Prison",
-		"url": "games/3kh0-assets/escapingtheprison/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/escapingtheprison/index.html"
 	},
 	{
 		"name": "Evil Glitch",
-		"url": "games/3kh0-assets/evil-glitch/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/evil-glitch/index.html"
 	},
 	{
 		"name": "Evolution",
-		"url": "games/3kh0-assets/evolution/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/evolution/index.html"
 	},
 	{
 		"name": "Exo",
-		"url": "games/3kh0-assets/exo/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/exo/index.html"
 	},
 	{
 		"name": "Factory Balls Forever",
-		"url": "games/3kh0-assets/factoryballs/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/factoryballs/index.html"
 	},
 	{
 		"name": "Fair Squares",
-		"url": "games/3kh0-assets/fairsquares/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/fairsquares/index.html"
 	},
 	{
 		"name": "Fake Virus",
-		"url": "games/3kh0-assets/fake-virus/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/fake-virus/index.html"
 	},
 	{
 		"name": "Fancy Pants Adventures",
-		"url": "games/3kh0-assets/fancypantsadventures/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/fancypantsadventures/index.html"
 	},
 	{
 		"name": "Fantasy Dash",
-		"url": "games/3kh0-assets/fantasy-dash/Fantasy Dash.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/fantasy-dash/Fantasy Dash.html"
 	},
 	{
 		"name": "Fireboy and Watergirl",
-		"url": "games/3kh0-assets/fireboywatergirlforesttemple/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/fireboywatergirlforesttemple/index.html"
 	},
 	{
 		"name": "Five Nights at Winston's",
-		"url": "games/3kh0-assets/fnaw/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/fnaw/index.html"
 	},
 	{
 		"name": "Flappy 2048",
@@ -569,123 +569,123 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Flappy Bird",
-		"url": "games/3kh0-assets/flappy-bird/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/flappy-bird/index.html"
 	},
 	{
 		"name": "Flappy Plane",
-		"url": "games/3kh0-assets/flappy plane/Flappy Plane.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/flappy plane/Flappy Plane.html"
 	},
 	{
 		"name": "Flash Tetris",
-		"url": "games/3kh0-assets/flashtetris/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/flashtetris/index.html"
 	},
 	{
 		"name": "Fleeing The Complex",
-		"url": "games/3kh0-assets/fleeingthecomplex/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/fleeingthecomplex/index.html"
 	},
 	{
 		"name": "Flippy Fish",
-		"url": "games/3kh0-assets/flippy-fish/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/flippy-fish/index.html"
 	},
 	{
 		"name": "Friday Night Funkin'",
-		"url": "games/3kh0-assets/fridaynightfunkin/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/fridaynightfunkin/index.html"
 	},
 	{
 		"name": "Froggy's Battle",
-		"url": "games/3kh0-assets/froggys-battle/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/froggys-battle/index.html"
 	},
 	{
 		"name": "Fruit Ninja",
-		"url": "games/3kh0-assets/fruitninja/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/fruitninja/index.html"
 	},
 	{
 		"name": "Frying Nemo",
-		"url": "games/3kh0-assets/frying-nemo/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/frying-nemo/index.html"
 	},
 	{
 		"name": "GOODNIGHT",
-		"url": "games/3kh0-assets/goodnight/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/goodnight/index.html"
 	},
 	{
 		"name": "Game Inside a Game Inside a Game...",
-		"url": "games/3kh0-assets/game-inside/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/game-inside/index.html"
 	},
 	{
 		"name": "Generic Fishing Game",
-		"url": "games/3kh0-assets/generic-fishing-game/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/generic-fishing-game/index.html"
 	},
 	{
 		"name": "Geometry Dash (Scratch)",
-		"url": "games/3kh0-assets/geodash/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/geodash/index.html"
 	},
 	{
 		"name": "Geometry Dash Lite",
-		"url": "games/3kh0-assets/geodashlite/geodashlite.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/geodashlite/geodashlite.html"
 	},
 	{
 		"name": "George and the Printer",
-		"url": "games/3kh0-assets/georgeandtheprinter/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/georgeandtheprinter/index.html"
 	},
 	{
 		"name": "Getaway Shootout",
-		"url": "games/3kh0-assets/getaway-shootout/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/getaway-shootout/index.html"
 	},
 	{
 		"name": "Gimme the Airpod",
-		"url": "games/3kh0-assets/gimme-the-airpod/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/gimme-the-airpod/index.html"
 	},
 	{
 		"name": "Glass City",
-		"url": "games/3kh0-assets/glass-city/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/glass-city/index.html"
 	},
 	{
 		"name": "Go Ball",
-		"url": "games/3kh0-assets/go-ball/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/go-ball/index.html"
 	},
 	{
 		"name": "Google Feud",
-		"url": "games/3kh0-assets/google-feud/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/google-feud/index.html"
 	},
 	{
 		"name": "Google Snake",
-		"url": "games/3kh0-assets/google-snake/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/google-snake/index.html"
 	},
 	{
 		"name": "Gravity Soccer",
-		"url": "games/3kh0-assets/gravity-soccer/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/gravity-soccer/index.html"
 	},
 	{
 		"name": "Grey Box Testing",
-		"url": "games/3kh0-assets/greybox/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/greybox/index.html"
 	},
 	{
 		"name": "Grind Craft",
-		"url": "games/3kh0-assets/grindcraft/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/grindcraft/index.html"
 	},
 	{
 		"name": "Hacker Typer",
-		"url": "games/3kh0-assets/hackertype/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/hackertype/index.html"
 	},
 	{
 		"name": "Handshakes",
-		"url": "games/3kh0-assets/handshakes/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/handshakes/index.html"
 	},
 	{
 		"name": "Happy Hop",
-		"url": "games/3kh0-assets/happy-hop/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/happy-hop/index.html"
 	},
 	{
 		"name": "Happy Wheels",
-		"url": "games/3kh0-assets/happywheels/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/happywheels/index.html"
 	},
 	{
 		"name": "Helicopter",
-		"url": "games/3kh0-assets/helicopter/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/helicopter/index.html"
 	},
 	{
 		"name": "Hex Empire",
-		"url": "games/3kh0-assets/hexempire/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/hexempire/index.html"
 	},
 	{
 		"name": "HexGL",
@@ -693,51 +693,51 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Hextris",
-		"url": "games/3kh0-assets/hextris/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/hextris/index.html"
 	},
 	{
 		"name": "Hill Climb Racing (Scratch)",
-		"url": "games/3kh0-assets/hill-climb-racing/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/hill-climb-racing/index.html"
 	},
 	{
 		"name": "Hover Bot Arena",
-		"url": "games/3kh0-assets/hba/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/hba/index.html"
 	},
 	{
 		"name": "Hungry Lamu",
-		"url": "games/3kh0-assets/hungry-lamu/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/hungry-lamu/index.html"
 	},
 	{
 		"name": "Ice Age Baby",
-		"url": "games/3kh0-assets/iceagebaby/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/iceagebaby/index.html"
 	},
 	{
 		"name": "Ice Age Baby 2",
-		"url": "games/3kh0-assets/iceagebaby2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/iceagebaby2/index.html"
 	},
 	{
 		"name": "Idle Breakout",
-		"url": "games/3kh0-assets/idle-breakout/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/idle-breakout/index.html"
 	},
 	{
 		"name": "Idle Shark",
-		"url": "games/3kh0-assets/idle-shark/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/idle-shark/index.html"
 	},
 	{
 		"name": "Impossible Quiz",
-		"url": "games/3kh0-assets/impossiblequiz/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/impossiblequiz/index.html"
 	},
 	{
 		"name": "Interactive Buddy",
-		"url": "games/3kh0-assets/interactivebuddy/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/interactivebuddy/index.html"
 	},
 	{
 		"name": "Iron Dash",
-		"url": "games/3kh0-assets/iron dash/Iron Dash.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/iron dash/Iron Dash.html"
 	},
 	{
 		"name": "Jetpack Joyride",
-		"url": "games/3kh0-assets/jetpack-joyride/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/jetpack-joyride/index.html"
 	},
 	{
 		"name": "Just One Boss",
@@ -745,7 +745,7 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "JustFall.lol",
-		"url": "games/3kh0-assets/just-fall/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/just-fall/index.html"
 	},
 	{
 		"name": "Kitchen gun game",
@@ -829,7 +829,7 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "FSUCraft",
-		"url": "games/3kh0-assets/fsucraft/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/fsucraft/index.html"
 	},
 	{
 		"name": "Minecraft Classic Hacks",
@@ -1481,7 +1481,7 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "highrise hop",
-		"url": "games/3kh0-assets/highrisehop/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn2/highrisehop/index.html"
 	},
 	{
 		"name": "kirka",
