@@ -1,7 +1,8 @@
 var ArcadeHubSettings = {
     theme: "light",
     enableSnow: false,
-    cloakingToggle: false
+    cloakingToggle: false,
+    customTheme: {}
 };
 
 var ArcadeHub = {
@@ -196,7 +197,7 @@ var ArcadeHub = {
 
             var newSnow = document.createElement("div");
             newSnow.id = "snowTarget";
-            newSnow.style = "background:transparent; color:transparent; height: 1px; width: 100%"
+            newSnow.style = "background:transparent; color:transparent; height: 1px; width: 100%";
             parentSnow.appendChild(newSnow);
 
             document.querySelectorAll('.snowflake').forEach(snowflake => snowflake.remove());
@@ -220,7 +221,7 @@ var ArcadeHub = {
                 }
             });
         },
-        
+
         createSnowflake: function() {
             const snowflake = document.createElement("div");
             snowflake.className = "snowflake";
@@ -300,7 +301,21 @@ var ArcadeHub = {
                     window.location.href = "about:blank";
                 }, 500)
             }
-        }
+        },
+        saveCustomTheme: function(theme) {
+            ArcadeHubSettings.theme = theme;
+        },
+
+        applyCustomTheme: function() {
+            const customTheme = ArcadeHubSettings.customTheme;
+            if (customTheme) {
+                for (const property in customTheme) {
+                    if (customTheme.hasOwnProperty(property)) {
+                        document.documentElement.style.setProperty(property, customTheme[property]);
+                    }
+                }
+            }
+        }        
     }
 };
 
@@ -322,10 +337,44 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const themeSelect = document.getElementById("theme-select");
 
+    document.getElementById("create-theme-btn").addEventListener("click", function() {
+        document.getElementById("theme-modal").style.display = "block";
+    });
+    
+    document.getElementById("close-modal-btn").addEventListener("click", function() {
+        document.getElementById("theme-modal").style.display = "none";
+    });
+    
+    document.getElementById("save-theme-btn").addEventListener("click", function() {
+        const bgColor = document.getElementById("bg-color").value;
+        const secondarybgColor = document.getElementById("secondarybg-color").value;
+        const textColor = document.getElementById("text-color").value;
+        const buttonColor = document.getElementById("button-color").value;
+        const buttonHoverColor = document.getElementById("button-hover-color").value;
+    
+        const customTheme = {
+            "--bg-color": bgColor,
+            "--secondary-bg-color": secondarybgColor,
+            "--text-color": textColor,
+            "--button-bg-color": buttonColor,
+            "--button-hover-bg-color": buttonHoverColor,
+        };
+    
+        ArcadeHubSettings.customTheme = customTheme;
+    
+        ArcadeHub.Utils.applyCustomTheme();
+    
+        document.getElementById("theme-modal").style.display = "none";
+        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+    });
+    
     themeSelect.addEventListener("change", function() {
         const selectedTheme = themeSelect.value;
         document.body.className = "";
+        document.documentElement.style = '';
 
+        ArcadeHubSettings.theme = "default";
+        ArcadeHubSettings.enableSnow = false;
 
         switch (selectedTheme) {
             case "dark":
@@ -373,10 +422,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 ArcadeHubSettings.theme = "catppuccin-mocha";
                 ArcadeHubSettings.enableSnow = false;
                 break;
-            default:
-                ArcadeHubSettings.theme = "default";
+            case "custom-theme":
+                document.body.classList.add("arcadehub-custom-theme");
+                ArcadeHub.Utils.applyCustomTheme();
+                ArcadeHubSettings.theme = "custom-theme";
                 ArcadeHubSettings.enableSnow = false;
-                break;
         }
 
         ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
@@ -388,10 +438,17 @@ document.addEventListener("DOMContentLoaded", function() {
         Object.assign(ArcadeHubSettings, JSON.parse(storedSettings));
 
         themeSelect.value = ArcadeHubSettings.theme;
-        if(themeSelect.values !== "default") {
-            document.body.classList.add(`arcadehub-${ArcadeHubSettings.theme}`);
-        } else {
-            document.body.className = "";
+        
+        switch (themeSelect.value) {
+            case "default":
+                document.body.className = "";
+                document.documentElement.style = '';
+            default:
+                document.body.classList.add(`arcadehub-${ArcadeHubSettings.theme}`);
+        }
+
+        if(themeSelect.value === "custom-theme") {     
+            ArcadeHub.Utils.applyCustomTheme();
         }
 
         ArcadeHub.Utils.manageSnowflakes();
@@ -399,7 +456,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const cloakingToggle = document.getElementById("cloaking-toggle");
     cloakingToggle.addEventListener("change", function() {
-        ArcadeHubSettings.cloakingToggle = cloakingToggle.checked
+        ArcadeHubSettings.cloakingToggle = cloakingToggle.checked;
         if (cloakingToggle.checked) {
             document.title = "Google Drive";
             document.getElementById("favicon").href = "https://www.gstatic.com/images/branding/product/2x/drive_48dp.png";
@@ -417,7 +474,7 @@ document.addEventListener("DOMContentLoaded", function() {
         cloakingToggle.checked = true;
         ArcadeHub.Utils.cloakPage();
     } else {
-        document.title = "Arcade Hub v4"
+        document.title = "Arcade Hub v4";
         document.getElementById("favicon").href = "";
     }
 

@@ -61,7 +61,12 @@
                         <option value="catppuccin-frappe">Catppuccin Frappe</option>
                         <option value="catppuccin-macchiato">Catppuccin Macchiato</option>
                         <option value="catppuccin-mocha">Catppuccin Mocha</option>
+                        <option value="custom-theme">Custom Theme</option>
                     </select>
+                    <div style="width: 1em"></div>
+                    <div id="create-theme-btn" class="btn poppins-btn">
+                        <i class="fas fa-plus"></i> Create Theme
+                    </div>
                 </div>
                 <div class="cloaker toggle-container">
                     <label class="toggle">
@@ -78,6 +83,30 @@
                         <div class="btn poppins-btn">Delete History Manually (Edge)</div>
                     </a>
                 </div>                      
+            </div>
+            <div id="theme-modal" class="modal">
+                <div class="modal-content">
+                    <h2>Create Your Custom Theme</h2>
+                    
+                    <label for="bg-color">Background Color:</label>
+                    <input type="color" id="bg-color" class="color-picker" value="#fafafa">
+
+                    <label for="secondarybg-color">Secondary Background Color:</label>
+                    <input type="color" id="secondarybg-color" class="color-picker" value="#fafafa">
+            
+                    <label for="text-color">Text Color:</label>
+                    <input type="color" id="text-color" class="color-picker" value="#000000">
+            
+                    <label for="button-color">Button Color:</label>
+                    <input type="color" id="button-color" class="color-picker" value="#4758b5">
+            
+                    <label for="button-hover-color">Button Hover Color:</label>
+                    <input type="color" id="button-hover-color" class="color-picker" value="#354287">
+                    
+                    <br/><br/>
+                    <div id="save-theme-btn" class="btn poppins-btn">Save Theme</div>
+                    <div id="close-modal-btn" class="btn poppins-btn">Cancel</div>
+                </div>
             </div>
         </main>
     </div>
