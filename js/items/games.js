@@ -1,51 +1,11 @@
 ArcadeHubItems.Games = [
 	{
-		"name": "cookieclicker2052",
-		"url": "games/3kh0-assets/cookie-clicker-beta/index.html"
-	},
-	{
-		"name": "cookieclicker2049",
-		"url": "games/3kh0-assets/cookieclicker2049/index.html"
-	},
-	{
-		"name": "cookieclicker2047",
-		"url": "games/3kh0-assets/cookieclicker2047/index.html"
-	},
-	{
-		"name": "cookieclicker2021",
-		"url": "games/3kh0-assets/cookieclicker2021/index.html"
-	},
-	{
-		"name": "cookieclicker2019",
-		"url": "games/3kh0-assets/cookieclicker2019/index.html"
-	},
-	{
-		"name": "cookieclicker200252",
-		"url": "games/3kh0-assets/cookieclicker200252/index.html"
-	},
-	{
-		"name": "cookieclicker2002",
-		"url": "games/3kh0-assets/cookieclicker2002/index.html"
-	},
-	{
-		"name": "cookieclicker10511",
-		"url": "games/3kh0-assets/cookieclicker10511/index.html"
-	},
-	{
-		"name": "cookieclickerv1021",
-		"url": "games/3kh0-assets/cookieclickerv1021/index.html"
-	},
-	{
-		"name": "cookieclickerv1037",
-		"url": "games/3kh0-assets/cookieclickerv1037/index.html"
-	},
-	{
 		"name": "run4bootleg",
-		"url": "games/3kh0-assets/run4bootleg/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/run4bootleg/index.html"
 	},
 	{
 		"name": "runner",
-		"url": "games/3kh0-assets/runner/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/runner/index.html"
 	},
 	{
 		"name": "idledices",
@@ -53,31 +13,31 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "snowrider3d",
-		"url": "games/3kh0-assets/snowrider3d/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/snowrider3d/index.html"
 	},
 	{
 		"name": "run 3 (adobe flash required)",
-		"url": "games/3kh0-assets/legacyflashgames/run3flash/run3.swf"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/legacyflashgames/run3flash/run3.swf"
 	},
 	{
 		"name": "mctd2 (adobe flash required)",
-		"url": "games/3kh0-assets/legacyflashgames/minecraft-tower-defence-2/minecraft-tower-defence-2.swf"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/legacyflashgames/minecraft-tower-defence-2/minecraft-tower-defence-2.swf"
 	},
 	{
 		"name": "flash golf 2001 (adobe flash required)",
-		"url": "games/3kh0-assets/legacyflashgames/flashgolf_2001.swf"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/legacyflashgames/flashgolf_2001.swf"
 	},
 	{
 		"name": "binding of issac (adobe flash required)",
-		"url": "games/3kh0-assets/legacyflashgames/bindingofissac/tboi.swf"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/legacyflashgames/bindingofissac/tboi.swf"
 	},
 	{
 		"name": "monkeymart",
-		"url": "games/3kh0-assets/mart/Monkey Marr.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/mart/Monkey Marr.html"
 	},
 	{
 		"name": "swarmsimulator",
-		"url": "games/3kh0-assets/swarmsimulator/Swarm Simulator.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/swarmsimulator/Swarm Simulator.html"
 	},
 	{
 		"name": "idledice",
@@ -85,7 +45,7 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "particleclicker",
-		"url": "games/3kh0-assets/particleclicker/particle clicker OG.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/particleclicker/particle clicker OG.html"
 	},
 	{
 		"name": "1",
@@ -384,11 +344,11 @@ ArcadeHubItems.Games = [
 		"url": "https://arcadehubgaming.github.io/cdn/ctr/index.html"
 	},
 	{
-		"name": "Cut the Rope Holiday",
+		"name": "Cut the Rope (Holiday)",
 		"url": "https://arcadehubgaming.github.io/cdn/ctr-holiday/index.html"
 	},
 	{
-		"name": "Cut the Rope Time Travel",
+		"name": "Cut the Rope (Time Travel)",
 		"url": "https://arcadehubgaming.github.io/cdn/ctr-tr/index.html"
 	},
 	{
@@ -418,10 +378,6 @@ ArcadeHubItems.Games = [
 	{
 		"name": "Dodge",
 		"url": "https://arcadehubgaming.github.io/cdn2/dodge/dodge.html"
-	},
-	{
-		"name": "Doge 2048",
-		"url": "games/3kh0-assets/doge2048/index.html"
 	},
 	{
 		"name": "DogeMiner",
@@ -464,10 +420,6 @@ ArcadeHubItems.Games = [
 		"url": "https://arcadehubgaming.github.io/cdn2/drive-mad/index.html"
 	},
 	{
-		"name": "Duck Life",
-		"url": "games/3kh0-assets/ducklife1/index.html"
-	},
-	{
 		"name": "Duck Life 2",
 		"url": "https://arcadehubgaming.github.io/cdn2/ducklife2/index.html"
 	},
@@ -486,14 +438,6 @@ ArcadeHubItems.Games = [
 	{
 		"name": "Dumb Ways to Die",
 		"url": "https://arcadehubgaming.github.io/cdn2/dumbwaystodie/dumbwaystodie.html"
-	},
-	{
-		"name": "Eaglercraft 1.5",
-		"url": "games/3kh0-assets/minecraft-15/index.html"
-	},
-	{
-		"name": "Eaglercraft 1.8",
-		"url": "games/3kh0-assets/minecraft-18/index.html"
 	},
 	{
 		"name": "Edge Let's surf",
@@ -562,10 +506,6 @@ ArcadeHubItems.Games = [
 	{
 		"name": "Five Nights at Winston's",
 		"url": "https://arcadehubgaming.github.io/cdn2/fnaw/index.html"
-	},
-	{
-		"name": "Flappy 2048",
-		"url": "games/3kh0-assets/flappy-2048/index.html"
 	},
 	{
 		"name": "Flappy Bird",
@@ -741,91 +681,79 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Just One Boss",
-		"url": "games/3kh0-assets/just-one-boss/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/just-one-boss/index.html"
 	},
 	{
 		"name": "JustFall.lol",
-		"url": "https://arcadehubgaming.github.io/cdn2/just-fall/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn7/just-fall/index.html"
 	},
 	{
 		"name": "Kitchen gun game",
-		"url": "games/3kh0-assets/kitchen-gun-game/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/kitchen-gun-game/index.html"
 	},
 	{
 		"name": "Kitten Cannon",
-		"url": "games/3kh0-assets/kittencannon/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/kittencannon/index.html"
 	},
 	{
 		"name": "Knife Master",
-		"url": "games/3kh0-assets/knife-master/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/knife-master/index.html"
 	},
 	{
 		"name": "Krunker",
-		"url": "games/3kh0-assets/krunker/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/krunker/index.html"
 	},
 	{
 		"name": "Learn To Fly",
-		"url": "games/3kh0-assets/learntofly/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/learntofly/index.html"
 	},
 	{
 		"name": "Learn To Fly 3",
-		"url": "games/3kh0-assets/ltf3/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/ltf3/index.html"
 	},
 	{
 		"name": "Learn To Fly IDLE",
-		"url": "games/3kh0-assets/ltf-idle/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/ltf-idle/index.html"
 	},
 	{
 		"name": "Learn to fly 2",
-		"url": "games/3kh0-assets/learntofly2/index.html"
-	},
-	{
-		"name": "Level 13",
-		"url": "games/3kh0-assets/level13/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/learntofly2/index.html"
 	},
 	{
 		"name": "Line rider",
-		"url": "games/3kh0-assets/linerider/linerider.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/linerider/linerider.html"
 	},
 	{
 		"name": "Madalin Stunt Cars 2",
-		"url": "games/3kh0-assets/madalin-stunt-cars-2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/madalin-stunt-cars-2/index.html"
 	},
 	{
 		"name": "Madalin Stunt Cars 3",
-		"url": "games/3kh0-assets/madalin-stunt-cars-3/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/madalin-stunt-cars-3/index.html"
 	},
 	{
 		"name": "Mario",
-		"url": "games/3kh0-assets/mario/index.html"
-	},
-	{
-		"name": "Marvin Spectrum",
-		"url": "games/3kh0-assets/marvinspectrum/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/mario/index.html"
 	},
 	{
 		"name": "Matrix Rampage",
-		"url": "games/3kh0-assets/matrixrampage/index.html"
-	},
-	{
-		"name": "Meme 2048",
-		"url": "games/3kh0-assets/meme2048/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/matrixrampage/index.html"
 	},
 	{
 		"name": "Merge Round Racers",
-		"url": "games/3kh0-assets/merge-round-racers/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/merge-round-racers/index.html"
 	},
 	{
 		"name": "Mindustry Classic",
-		"url": "games/3kh0-assets/mindustry/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/mindustry/index.html"
 	},
 	{
 		"name": "Mine Blocks",
-		"url": "games/3kh0-assets/mineblocks/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/mineblocks/index.html"
 	},
 	{
 		"name": "Minecraft Classic",
-		"url": "games/3kh0-assets/minecraft-classic/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/minecraft-classic/index.html"
 	},
 	{
 		"name": "FSUCraft",
@@ -833,67 +761,67 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Minecraft Classic Hacks",
-		"url": "games/3kh0-assets/minecraftbeta/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/minecraftbeta/index.html"
 	},
 	{
 		"name": "Minesweeper",
-		"url": "games/3kh0-assets/minesweeper/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/minesweeper/index.html"
 	},
 	{
 		"name": "Mini-putt",
-		"url": "games/3kh0-assets/miniputt/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/miniputt/index.html"
 	},
 	{
 		"name": "Missiles",
-		"url": "games/3kh0-assets/missiles/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/missiles/index.html"
 	},
 	{
 		"name": "Monster Tracks",
-		"url": "games/3kh0-assets/monster-tracks/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/monster-tracks/index.html"
 	},
 	{
 		"name": "MotoX3M",
-		"url": "games/3kh0-assets/motox3m/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/motox3m/index.html"
 	},
 	{
 		"name": "MotoX3M 2",
-		"url": "games/3kh0-assets/motox3m2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/motox3m2/index.html"
 	},
 	{
 		"name": "MotoX3M Pool",
-		"url": "games/3kh0-assets/motox3m-pool/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/motox3m-pool/index.html"
 	},
 	{
 		"name": "MotoX3M Spooky",
-		"url": "games/3kh0-assets/motox3m-spooky/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/motox3m-spooky/index.html"
 	},
 	{
 		"name": "MotoX3M Winter",
-		"url": "games/3kh0-assets/motox3m-winter/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/motox3m-winter/index.html"
 	},
 	{
 		"name": "My Rusty Submarine",
-		"url": "games/3kh0-assets/my-rusty-submarine/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/my-rusty-submarine/index.html"
 	},
 	{
 		"name": "NS-Shaft",
-		"url": "games/3kh0-assets/ns-shaft/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/ns-shaft/index.html"
 	},
 	{
 		"name": "Neon Square Resurgence",
-		"url": "games/3kh0-assets/nsresurgence/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/nsresurgence/index.html"
 	},
 	{
 		"name": "Ninja",
-		"url": "games/3kh0-assets/ninja/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/ninja/index.html"
 	},
 	{
 		"name": "Ninja vs Evil Corp",
-		"url": "games/3kh0-assets/ninjavsevilcorp/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/ninjavsevilcorp/index.html"
 	},
 	{
 		"name": "Noob Steve Parkour",
-		"url": "games/3kh0-assets/noob-steve-parkour/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/noob-steve-parkour/index.html"
 	},
 	{
 		"name": "Offline Paradise",
@@ -901,135 +829,131 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Om Nom Bounce",
-		"url": "games/3kh0-assets/om-bounce/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/om-bounce/index.html"
 	},
 	{
 		"name": "OvO",
-		"url": "games/3kh0-assets/ovo/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/ovo/index.html"
 	},
 	{
 		"name": "Overwatch",
-		"url": "games/3kh0-assets/overwatch/overwatch.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/overwatch/overwatch.html"
 	},
 	{
 		"name": "POPCAT CLASSIC",
-		"url": "games/3kh0-assets/popcat-classic/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/popcat-classic/index.html"
 	},
 	{
 		"name": "Pandemic 2",
-		"url": "games/3kh0-assets/pandemic2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/pandemic2/index.html"
 	},
 	{
 		"name": "Papa's Burgeria",
-		"url": "games/3kh0-assets/papasburgeria/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/papasburgeria/index.html"
 	},
 	{
 		"name": "Papa's Pizzaria",
-		"url": "games/3kh0-assets/papaspizzaria/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/papaspizzaria/index.html"
 	},
 	{
 		"name": "Papa's Scooperia",
-		"url": "games/3kh0-assets/scooperia/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/scooperia/index.html"
 	},
 	{
 		"name": "Paper.io 2",
-		"url": "games/3kh0-assets/paperio2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/paperio2/index.html"
 	},
 	{
 		"name": "Papery Planes",
-		"url": "games/3kh0-assets/papery-planes/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/papery-planes/index.html"
 	},
 	{
 		"name": "Particle Clicker",
-		"url": "games/3kh0-assets/particle-clicker/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/particle-clicker/index.html"
 	},
 	{
 		"name": "Pixel Gun Survival",
-		"url": "games/3kh0-assets/pixel-gun-survival/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/pixel-gun-survival/index.html"
 	},
 	{
 		"name": "Planet Life",
-		"url": "games/3kh0-assets/planetlife/index.html"
-	},
-	{
-		"name": "Plants VS Zombies",
-		"url": "games/3kh0-assets/plants%20vs%20zombies%201/plants%20vs%20zombies.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/planetlife/index.html"
 	},
 	{
 		"name": "PolyBranch",
-		"url": "games/3kh0-assets/polybranch/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/polybranch/index.html"
 	},
 	{
 		"name": "Portal (Flash)",
-		"url": "games/3kh0-assets/portalflash/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/portalflash/index.html"
 	},
 	{
 		"name": "Precision Client (Eaglercraft)",
-		"url": "games/3kh0-assets/precision-client/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/precision-client/index.html"
 	},
 	{
 		"name": "Protektor",
-		"url": "games/3kh0-assets/protektor/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/protektor/index.html"
 	},
 	{
 		"name": "Push The Square",
-		"url": "games/3kh0-assets/push-the-square/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/push-the-square/index.html"
 	},
 	{
 		"name": "Push Your Luck",
-		"url": "games/3kh0-assets/push-your-luck/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/push-your-luck/index.html"
 	},
 	{
 		"name": "Rabbit Samurai",
-		"url": "games/3kh0-assets/rabbit-samurai/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/rabbit-samurai/index.html"
 	},
 	{
 		"name": "Rabbit Samurai 2",
-		"url": "games/3kh0-assets/rabbit-samurai2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/rabbit-samurai2/index.html"
 	},
 	{
 		"name": "Resent Client (Eaglercraft)",
-		"url": "games/3kh0-assets/resent-client/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/resent-client/index.html"
 	},
 	{
 		"name": "Retro Bowl",
-		"url": "games/3kh0-assets/retro-bowl/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/retro-bowl/index.html"
 	},
 	{
 		"name": "Riddle School 1",
-		"url": "games/3kh0-assets/riddleschool/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/riddleschool/index.html"
 	},
 	{
 		"name": "Riddle School 2",
-		"url": "games/3kh0-assets/riddleschool2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/riddleschool2/index.html"
 	},
 	{
 		"name": "Riddle School 3",
-		"url": "games/3kh0-assets/riddleschool3/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/riddleschool3/index.html"
 	},
 	{
 		"name": "Riddle School 4",
-		"url": "games/3kh0-assets/riddleschool4/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/riddleschool4/index.html"
 	},
 	{
 		"name": "Riddle School 5",
-		"url": "games/3kh0-assets/riddleschool5/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/riddleschool5/index.html"
 	},
 	{
 		"name": "Riddle School Transfer 1",
-		"url": "games/3kh0-assets/riddletransfer/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/riddletransfer/index.html"
 	},
 	{
 		"name": "Riddle School Transfer 2",
-		"url": "games/3kh0-assets/riddletransfer2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/riddletransfer2/index.html"
 	},
 	{
 		"name": "Roblox",
-		"url": "games/3kh0-assets/roblox/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/roblox/index.html"
 	},
 	{
 		"name": "Robux clicker",
-		"url": "games/3kh0-assets/robuxclicker/robuxclicker.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/robuxclicker/robuxclicker.html"
 	},
 	{
 		"name": "Rocket Soccer",
@@ -1037,23 +961,23 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Rolling Forests",
-		"url": "games/3kh0-assets/rolling-forests/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/rolling-forests/index.html"
 	},
 	{
 		"name": "Rolly Vortex",
-		"url": "games/3kh0-assets/rolly-vortex/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/rolly-vortex/index.html"
 	},
 	{
 		"name": "Rooftop Snipers",
-		"url": "games/3kh0-assets/rooftop-snipers/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/rooftop-snipers/index.html"
 	},
 	{
 		"name": "Ruffle Emulator",
-		"url": "games/3kh0-assets/ruffle/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/ruffle/index.html"
 	},
 	{
 		"name": "Run",
-		"url": "games/3kh0-assets/run/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/run/index.html"
 	},
 	{
 		"name": "Run 2",
@@ -1061,167 +985,163 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Run 3",
-		"url": "games/3kh0-assets/run 3/Run 3.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/run 3/Run 3.html"
 	},
 	{
 		"name": "SHUTTLEDECK",
-		"url": "games/3kh0-assets/shuttledeck/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/shuttledeck/index.html"
 	},
 	{
 		"name": "Sand Game",
-		"url": "games/3kh0-assets/sand-game/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/sand-game/index.html"
 	},
 	{
 		"name": "Sandboxels",
-		"url": "games/3kh0-assets/sandboxels/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/sandboxels/index.html"
 	},
 	{
 		"name": "Santy is Home",
-		"url": "games/3kh0-assets/santy-is-home/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/santy-is-home/index.html"
 	},
 	{
 		"name": "Scrap Metal 3",
-		"url": "games/3kh0-assets/scrapmetal/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/scrapmetal/index.html"
 	},
 	{
 		"name": "Scratcharia",
-		"url": "games/3kh0-assets/scratcharia/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/scratcharia/index.html"
 	},
 	{
 		"name": "Shellshockers",
-		"url": "games/3kh0-assets/shellshockers/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/shellshockers/index.html"
 	},
 	{
 		"name": "Shot in the Dark",
-		"url": "games/3kh0-assets/shotinthedark/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/shotinthedark/index.html"
 	},
 	{
 		"name": "Shotgun Showdown",
-		"url": "games/3kh0-assets/shogunshowdown/shogunshowdown.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/shogunshowdown/shogunshowdown.html"
 	},
 	{
 		"name": "Sky Car Stunt",
-		"url": "games/3kh0-assets/sky-car-stunt/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/sky-car-stunt/index.html"
 	},
 	{
 		"name": "Sleeping Beauty",
-		"url": "games/3kh0-assets/sleepingbeauty/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/sleepingbeauty/index.html"
 	},
 	{
 		"name": "Slime Rush TD",
-		"url": "games/3kh0-assets/slime-rush-td/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/slime-rush-td/index.html"
 	},
 	{
 		"name": "Slither.io",
-		"url": "games/3kh0-assets/slitherio/slitherio.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/slitherio/slitherio.html"
 	},
 	{
 		"name": "Slope",
-		"url": "games/3kh0-assets/slope/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/slope/index.html"
 	},
 	{
 		"name": "Slope 2",
-		"url": "games/3kh0-assets/slope-2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/slope-2/index.html"
 	},
 	{
 		"name": "Slope Ball",
-		"url": "games/3kh0-assets/slope-ball/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/slope-ball/index.html"
 	},
 	{
 		"name": "Smash Carts",
-		"url": "games/3kh0-assets/smashkarts/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/smashkarts/index.html"
 	},
 	{
 		"name": "Smoking Barrels",
-		"url": "games/3kh0-assets/smokingbarrels/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/smokingbarrels/index.html"
 	},
 	{
 		"name": "Snowbattle",
-		"url": "games/3kh0-assets/snowbattle/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/snowbattle/index.html"
 	},
 	{
 		"name": "Soccer Random",
-		"url": "games/3kh0-assets/soccer-random/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/soccer-random/index.html"
 	},
 	{
 		"name": "Soccer Skills Euro Cup",
-		"url": "games/3kh0-assets/soccer-skills/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/soccer-skills/index.html"
 	},
 	{
 		"name": "Soilder Legend",
-		"url": "games/3kh0-assets/soldier-legend/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/soldier-legend/index.html"
 	},
 	{
 		"name": "Solitare",
-		"url": "games/3kh0-assets/solitaire/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/solitaire/index.html"
 	},
 	{
 		"name": "Sort The Court",
-		"url": "games/3kh0-assets/sort-the-court/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/sort-the-court/index.html"
 	},
 	{
 		"name": "Soundboard",
-		"url": "games/3kh0-assets/soundboard/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/soundboard/index.html"
 	},
 	{
 		"name": "Space Company",
-		"url": "games/3kh0-assets/space-company/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/space-company/index.html"
 	},
 	{
 		"name": "Space Garden",
-		"url": "games/3kh0-assets/spacegarden/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/spacegarden/index.html"
 	},
 	{
 		"name": "Spelunky",
-		"url": "games/3kh0-assets/spelunky/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/spelunky/index.html"
 	},
 	{
 		"name": "Stack",
-		"url": "games/3kh0-assets/stack/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/stack/index.html"
 	},
 	{
 		"name": "Stack Bump 3D",
-		"url": "games/3kh0-assets/stack-bump-3d/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/stack-bump-3d/index.html"
 	},
 	{
 		"name": "Starve.io",
-		"url": "games/3kh0-assets/starve/index.html"
-	},
-	{
-		"name": "Station 141",
-		"url": "games/3kh0-assets/station-141/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/starve/index.html"
 	},
 	{
 		"name": "Stealing The Diamond",
-		"url": "games/3kh0-assets/stealingthediamond/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/stealingthediamond/index.html"
 	},
 	{
 		"name": "Stick Archers",
-		"url": "games/3kh0-assets/stick-archers/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/stick-archers/index.html"
 	},
 	{
 		"name": "Stick Duel Battle",
-		"url": "games/3kh0-assets/stick-duel-battle/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/stick-duel-battle/index.html"
 	},
 	{
 		"name": "Stick Merge",
-		"url": "games/3kh0-assets/stick-merge/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/stick-merge/index.html"
 	},
 	{
 		"name": "Stick War",
-		"url": "games/3kh0-assets/stickwar/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/stickwar/index.html"
 	},
 	{
 		"name": "Stickman Boost",
-		"url": "games/3kh0-assets/stickman-boost/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/stickman-boost/index.html"
 	},
 	{
 		"name": "Stickman Golf",
-		"url": "games/3kh0-assets/stickman-golf/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/stickman-golf/index.html"
 	},
 	{
 		"name": "Stickman Hook",
-		"url": "games/3kh0-assets/stickman-hook/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/stickman-hook/index.html"
 	},
 	{
 		"name": "Stickman Survival",
@@ -1229,51 +1149,51 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Storm The House 2",
-		"url": "games/3kh0-assets/stormthehouse2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/stormthehouse2/index.html"
 	},
 	{
 		"name": "Subway Surfers",
-		"url": "games/3kh0-assets/subway-surfers/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/subway-surfers/index.html"
 	},
 	{
-		"name": "Subway Surfers New York",
-		"url": "games/3kh0-assets/subway-surfers-ny/index.html"
+		"name": "Subway Surfers (New York)",
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/subway-surfers-ny/index.html"
 	},
 	{
 		"name": "Super Fowlist",
-		"url": "games/3kh0-assets/superfowlist/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/superfowlist/index.html"
 	},
 	{
 		"name": "Super Mario 64",
-		"url": "games/3kh0-assets/sm64/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/sm64/index.html"
 	},
 	{
 		"name": "Super Mario Constuct",
-		"url": "games/3kh0-assets/supermarioconstruct/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/supermarioconstruct/index.html"
 	},
 	{
 		"name": "Superhot",
-		"url": "games/3kh0-assets/superhot/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/superhot/index.html"
 	},
 	{
 		"name": "Surviv.io",
-		"url": "games/3kh0-assets/surviv/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/surviv/index.html"
 	},
 	{
 		"name": "Sushi unROLL",
-		"url": "games/3kh0-assets/sushi-unroll/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/sushi-unroll/index.html"
 	},
 	{
 		"name": "Swerve",
-		"url": "games/3kh0-assets/swerve/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/swerve/index.html"
 	},
 	{
 		"name": "Synesthesia",
-		"url": "games/3kh0-assets/synesthesia/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/synesthesia/index.html"
 	},
 	{
 		"name": "TV Static",
-		"url": "games/3kh0-assets/tv-static/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/tv-static/index.html"
 	},
 	{
 		"name": "Table Tennis Ultimate",
@@ -1281,71 +1201,71 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Tactical Assassin 2",
-		"url": "games/3kh0-assets/tacticalassasin2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/tacticalassasin2/index.html"
 	},
 	{
 		"name": "Tactical Weapon Pack 2",
-		"url": "games/3kh0-assets/tactical-weapon-pack-2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/tactical-weapon-pack-2/index.html"
 	},
 	{
 		"name": "Tank Trouble 2",
-		"url": "games/3kh0-assets/tank-trouble-2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/tank-trouble-2/index.html"
 	},
 	{
 		"name": "Tanuki Sunset",
-		"url": "games/3kh0-assets/tanuki-sunset/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/tanuki-sunset/index.html"
 	},
 	{
 		"name": "Temple Run 2",
-		"url": "games/3kh0-assets/temple-run-2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/temple-run-2/index.html"
 	},
 	{
 		"name": "The Battle",
-		"url": "games/3kh0-assets/thebattle/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/thebattle/index.html"
 	},
 	{
 		"name": "The Final Earth",
-		"url": "games/3kh0-assets/the-final-earth/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/the-final-earth/index.html"
 	},
 	{
 		"name": "The Final Earth 2",
-		"url": "games/3kh0-assets/the-final-earth-2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/the-final-earth-2/index.html"
 	},
 	{
 		"name": "The Heist",
-		"url": "games/3kh0-assets/theheist/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/theheist/index.html"
 	},
 	{
 		"name": "The Hotel",
-		"url": "games/3kh0-assets/the-hotel/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/the-hotel/index.html"
 	},
 	{
 		"name": "There Is No Game",
-		"url": "games/3kh0-assets/there-is-no-game/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/there-is-no-game/index.html"
 	},
 	{
 		"name": "This Is The Only Level",
-		"url": "games/3kh0-assets/thisistheonlylevel/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/thisistheonlylevel/index.html"
 	},
 	{
 		"name": "Throw Rocks at Shit",
-		"url": "games/3kh0-assets/throwrocks/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/throwrocks/index.html"
 	},
 	{
 		"name": "Tiny Fishing",
-		"url": "games/3kh0-assets/tiny-fishing/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/tiny-fishing/index.html"
 	},
 	{
 		"name": "Tiny Islands",
-		"url": "games/3kh0-assets/tiny-islands/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/tiny-islands/index.html"
 	},
 	{
 		"name": "Toss The Turtle",
-		"url": "games/3kh0-assets/tosstheturtle/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/tosstheturtle/index.html"
 	},
 	{
 		"name": "Townscaper",
-		"url": "games/3kh0-assets/townscaper/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/townscaper/index.html"
 	},
 	{
 		"name": "Trimps",
@@ -1353,123 +1273,119 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Tube Jumpers",
-		"url": "games/3kh0-assets/tube-jumpers/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/tube-jumpers/index.html"
 	},
 	{
 		"name": "Tunnel Rush",
-		"url": "games/3kh0-assets/tunnel-rush/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/tunnel-rush/index.html"
 	},
 	{
 		"name": "Twitch Tetris",
-		"url": "games/3kh0-assets/twitch-tetris/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/twitch-tetris/index.html"
 	},
 	{
 		"name": "Unfair Mario",
-		"url": "games/3kh0-assets/unfairmario/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/unfairmario/index.html"
 	},
 	{
 		"name": "VELOCE",
-		"url": "games/3kh0-assets/veloce/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/veloce/index.html"
 	},
 	{
 		"name": "Vex 2",
-		"url": "games/3kh0-assets/vex2/vex2.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/vex2/vex2.html"
 	},
 	{
 		"name": "Vex 3",
-		"url": "games/3kh0-assets/vex3/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/vex3/index.html"
 	},
 	{
 		"name": "Vex 4",
-		"url": "games/3kh0-assets/vex4/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/vex4/index.html"
 	},
 	{
 		"name": "Vex 5",
-		"url": "games/3kh0-assets/vex5/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/vex5/index.html"
 	},
 	{
 		"name": "Vex 6",
-		"url": "games/3kh0-assets/vex6/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/vex6/index.html"
 	},
 	{
 		"name": "Vex 7",
-		"url": "games/3kh0-assets/vex7/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/vex7/index.html"
 	},
 	{
 		"name": "Volley Random",
-		"url": "games/3kh0-assets/volley-random/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/volley-random/index.html"
 	},
 	{
 		"name": "Wall Smash",
-		"url": "games/3kh0-assets/wallsmash/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/wallsmash/index.html"
 	},
 	{
 		"name": "Waterworks!",
-		"url": "games/3kh0-assets/waterworks/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/waterworks/index.html"
 	},
 	{
 		"name": "Weave Silk",
-		"url": "games/3kh0-assets/weavesilk/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/weavesilk/index.html"
 	},
 	{
 		"name": "WebGL Fluid Sim",
-		"url": "games/3kh0-assets/webgl-fluid-simulation/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/webgl-fluid-simulation/index.html"
 	},
 	{
 		"name": "Webretro",
-		"url": "games/3kh0-assets/webretro/roms.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/webretro/roms.html"
 	},
 	{
 		"name": "Webxash",
-		"url": "games/3kh0-assets/webxash/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/webxash/index.html"
 	},
 	{
 		"name": "Win the Whitehouse",
-		"url": "games/3kh0-assets/win-the-whitehouse/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/win-the-whitehouse/index.html"
 	},
 	{
 		"name": "Wolfenstein 3D",
-		"url": "games/3kh0-assets/wolf3d/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/wolf3d/index.html"
 	},
 	{
 		"name": "Wordle",
-		"url": "games/3kh0-assets/wordle/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/wordle/index.html"
 	},
 	{
 		"name": "World's Hardest Game",
-		"url": "games/3kh0-assets/worlds-hardest-game/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/worlds-hardest-game/index.html"
 	},
 	{
 		"name": "World's Hardest Game 2",
-		"url": "games/3kh0-assets/worlds-hardest-game-2/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/worlds-hardest-game-2/index.html"
 	},
 	{
 		"name": "X Trial Racing",
-		"url": "games/3kh0-assets/x-trial-racing/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/x-trial-racing/index.html"
 	},
 	{
 		"name": "Yohoho",
-		"url": "games/3kh0-assets/yohoho/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/yohoho/index.html"
 	},
 	{
 		"name": "Yoshi's Fabrication Station",
-		"url": "games/3kh0-assets/yoshifabrication/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/yoshifabrication/index.html"
 	},
 	{
 		"name": "You Are Jeff Bezos",
-		"url": "games/3kh0-assets/you-are-bezos/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/you-are-bezos/index.html"
 	},
 	{
 		"name": "Zig Zag",
-		"url": "games/3kh0-assets/zigzag/zigzag.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/zigzag/zigzag.html"
 	},
 	{
 		"name": "Zombs Royale",
-		"url": "games/3kh0-assets/zombs-royale/index.html"
-	},
-	{
-		"name": "bus and subway",
-		"url": "https://arcadehubgaming.github.io/cdn/bus and subway/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/zombs-royale/index.html"
 	},
 	{
 		"name": "checkers",
@@ -1485,34 +1401,86 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "kirka",
-		"url": "games/3kh0-assets/kirkaio/kirka.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/kirkaio/kirka.html"
 	},
 	{
 		"name": "mcje (IE ONLY!)",
-		"url": "games/3kh0-assets/mcje/Mine.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/mcje/Mine.html"
 	},
 	{
 		"name": "n-gon",
-		"url": "games/3kh0-assets/n-gon/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/n-gon/index.html"
 	},
 	{
 		"name": "osu!",
-		"url": "games/3kh0-assets/osu!/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/osu!/index.html"
 	},
 	{
 		"name": "piclient",
-		"url": "games/3kh0-assets/piclient/piclient.html"
+		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/piclient/piclient.html"
 	},
 	{
 		"name": "station meltdown",
-		"url": "games/3kh0-assets/stationmeltdown/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/stationmeltdown/index.html"
 	},
 	{
 		"name": "super otto pets",
-		"url": "games/3kh0-assets/superautopets/index.html"
+		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/superautopets/index.html"
 	},
 	{
-		"name": "xx142-b2exe",
-		"url": "games/3kh0-assets/xx142-b2exe/index.html"
+		"name": "Subway Surfers (Barcelona)",
+		"url": "https://arcadehubgaming.github.io/cdn7/subway surfers/barcelona.html"
+	},
+	{
+		"name": "Subway Surfers (Beijing)",
+		"url": "https://arcadehubgaming.github.io/cdn7/subway surfers/beijing.html"
+	},
+	{
+		"name": "Subway Surfers (Berlin)",
+		"url": "https://arcadehubgaming.github.io/cdn7/subway surfers/berlin.html"
+	},
+	{
+		"name": "Subway Surfers (Buenos Aires)",
+		"url": "https://arcadehubgaming.github.io/cdn7/subway surfers/buenos-aires.html"
+	},
+	{
+		"name": "Subway Surfers (Houston)",
+		"url": "https://arcadehubgaming.github.io/cdn7/subway surfers/houston.html"
+	},
+	{
+		"name": "Subway Surfers (Iceland)",
+		"url": "https://arcadehubgaming.github.io/cdn7/subway surfers/iceland.html"
+	},
+	{
+		"name": "Subway Surfers (Mexico)",
+		"url": "https://arcadehubgaming.github.io/cdn7/subway surfers/mexico.html"
+	},
+	{
+		"name": "Subway Surfers (Miami)",
+		"url": "https://arcadehubgaming.github.io/cdn7/subway surfers/miami.html"
+	},
+	{
+		"name": "Subway Surfers (Winter Holiday)",
+		"url": "https://arcadehubgaming.github.io/cdn7/subway surfers/winterholiday.html"
+	},
+	{
+		"name": "Omnom Bounce (Cut The Rope)",
+		"url": "https://arcadehubgaming.github.io/cdn7/omnom bounce/index.html"
+	},
+	{
+		"name": "Big Shot Boxing",
+		"url": "https://arcadehubgaming.github.io/cdn7/big shot boxing/index.html"
+	},
+	{
+		"name": "Crush The Castle",
+		"url": "https://arcadehubgaming.github.io/cdn7/crush the castle/index.html"
+	},
+	{
+		"name": "Crush The Castle 2",
+		"url": "https://arcadehubgaming.github.io/cdn7/crush the castle 2/index.html"
+	},
+	{
+		"name": "Candy Crush",
+		"url": "https://arcadehubgaming.github.io/cdn7/Candy Crush/index.html"
 	}
 ];

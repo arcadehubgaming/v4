@@ -2,6 +2,7 @@ var ArcadeHubSettings = {
     theme: "light",
     enableSnow: false,
     cloakingToggle: false,
+    jumpButton: true,
     customTheme: {}
 };
 
@@ -433,6 +434,56 @@ document.addEventListener("DOMContentLoaded", function() {
         ArcadeHub.Utils.manageSnowflakes();
     });
 
+    function setJumpButton() {
+        const scrollPosition = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight;
+        const winHeight = window.innerHeight;
+    
+        const atTop = scrollPosition < 100;
+        const atBottom = scrollPosition + winHeight >= docHeight - 100;
+    
+        const jumpToTopButton = document.getElementById("jumpToTopButton");
+    
+        if (atTop) {
+            jumpToTopButton.classList.add('flipped');
+        }
+        if (!atTop) {
+            jumpToTopButton.classList.remove('flipped');
+        }
+    }
+
+    setJumpButton();
+
+    document.addEventListener("scroll", function() {
+        const scrollPosition = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight;
+        const winHeight = window.innerHeight;
+    
+        const atTop = scrollPosition < 100;
+        const atBottom = scrollPosition + winHeight >= docHeight - 100;
+    
+        const jumpToTopButton = document.getElementById("jumpToTopButton");
+    
+        if (atTop) {
+            jumpButton.classList.add('flipped');
+        }
+        if (!atTop) {
+            jumpButton.classList.remove('flipped');
+        }
+    });
+    
+    document.getElementById("jumpToTopButton").addEventListener("click", function() {
+        const scrollPosition = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight;
+        const winHeight = window.innerHeight;
+    
+        if (scrollPosition < 100) {
+            window.scrollTo({ top: docHeight, behavior: 'smooth' });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    });    
+
     const storedSettings = ArcadeHub.getCookie("ArcadeHubSettings");
     if (storedSettings) {
         Object.assign(ArcadeHubSettings, JSON.parse(storedSettings));
@@ -467,6 +518,23 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
     });
+
+    const jumpToggle = document.getElementById("jump-toggle");
+    const jumpButton = document.getElementById("jumpToTopButton");
+    jumpToggle.addEventListener("change", function() {
+        ArcadeHubSettings.jumpButton = jumpToggle.checked;
+        if (jumpToggle.checked) {
+            jumpButton.style = "display: block";
+        } else {
+            jumpButton.style = "display: none";
+        }
+        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+    });
+
+    if (ArcadeHubSettings.jumpButton) {
+        jumpToggle.checked = true;
+        jumpButton.style = "display: block";
+    }
 
     if (ArcadeHubSettings.cloakingToggle) {
         document.title = "Google Drive";

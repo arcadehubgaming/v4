@@ -271,6 +271,10 @@ input:checked + .slider:before {
     color: var(--text-color);
 }
 
+.movies, .proxies {
+    display: none;
+}
+
 .settings {
     display: none;
 }
@@ -338,6 +342,55 @@ input:disabled ~ .toggle-label {
     height: 50px;
     border-radius: 1em;
     outline: none;
+}
+
+.jump-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    width: 50px;
+    height: 50px;
+    background-color: var(--button-bg-color);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease;
+}
+
+.jump-to-top-btn:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.jump-to-top-btn span {
+    display: inline-block;
+    transition: transform 0.15s ease;
+}
+
+.jump-to-top-btn.flipped span {
+    transform: rotate(180deg);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--button-bg-color);
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--button-hover-bg-color)
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 @media (max-width: 768px) {
