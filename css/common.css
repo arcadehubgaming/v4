@@ -107,6 +107,17 @@
     --shadow: 1px 2px 2px rgba(0, 0, 0, .15);
 }
 
+.arcadehub-midnight {
+    --bg-color: #2c2b2c;
+    --secondary-bg-color: #323235;
+    --text-color: #e4e7f1;
+    --overlay: rgba(0, 0, 0, 0.2);
+    --overlay-dark: rgba(255, 255, 255, 0.2);
+    --button-bg-color: #2e2f31;
+    --button-hover-bg-color: #333338;
+    --shadow: 1px 2px 2px rgba(0, 0, 0, .15);
+}
+
 .arcadehub-dark,
 .arcadehub-fall,
 .arcadehub-winter,
@@ -115,7 +126,8 @@
 .arcadehub-catppuccin-latte,
 .arcadehub-catppuccin-frappe,
 .arcadehub-catppuccin-macchiato,
-.arcadehub-catppuccin-mocha {
+.arcadehub-catppuccin-mocha,
+.arcadehub-midnight {
     background-color: var(--bg-color);
 }
 

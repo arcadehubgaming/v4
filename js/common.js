@@ -423,6 +423,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 ArcadeHubSettings.theme = "catppuccin-mocha";
                 ArcadeHubSettings.enableSnow = false;
                 break;
+            case "midnight":
+                document.body.classList.add("arcadehub-midnight");
+                ArcadeHubSettings.theme = "midnight";
+                ArcadeHubSettings.enableSnow = false;
+                break;
             case "custom-theme":
                 document.body.classList.add("arcadehub-custom-theme");
                 ArcadeHub.Utils.applyCustomTheme();
