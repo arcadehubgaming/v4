@@ -12,10 +12,6 @@ ArcadeHubItems.Games = [
 		"url": "https://arcadehubgaming.github.io/cdn2/idledices/index.html"
 	},
 	{
-		"name": "snowrider3d",
-		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/snowrider3d/index.html"
-	},
-	{
 		"name": "run 3 (adobe flash required)",
 		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/legacyflashgames/run3flash/run3.swf"
 	},
@@ -1669,7 +1665,7 @@ ArcadeHubItems.Games = [
 	},
 	{
 		"name": "Snow Rider 3D",
-		"url": "https://arcadehubgaming.github.io/cdn9/snow rider 3d/"
+		"url": "https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/sk1bx/89574567@71f165531792ae450fe0a522a52ba4e827344de2/sr3d.xml&container=ig"
 	},
 	{
 		"name": "Time Shooter 3 S.W.A.T",
@@ -1678,9 +1674,5 @@ ArcadeHubItems.Games = [
 	{
 		"name": "Funny Shooter",
 		"url": "https://arcadehubgaming.github.io/cdn9/funny-shooter-main/"
-	},
-	{
-		"name": "Funny Shooter 2",
-		"url": "https://arcadehubgaming.github.io/cdn9/FunnyShooter-2-main/"
 	}
 ];
