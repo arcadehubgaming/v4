@@ -1666,5 +1666,13 @@ ArcadeHubItems.Games = [
 	{
 		"name": "Friday Night Funkin' (Dust Tale)",
 		"url": "https://arcadehubgaming.github.io/cdn8/dusttale"
+	},
+	{
+		"name": "Snow Rider 3D",
+		"url": "https://arcadehubgaming.github.io/cdn9/snow rider 3d/"
+	},
+	{
+		"name": "Time Shooter 3 S.W.A.T",
+		"url": "https://arcadehubgaming.github.io/cdn9/time shooter 3/"
 	}
 ];
