@@ -1674,5 +1674,13 @@ ArcadeHubItems.Games = [
 	{
 		"name": "Time Shooter 3 S.W.A.T",
 		"url": "https://arcadehubgaming.github.io/cdn9/time shooter 3/"
+	},
+	{
+		"name": "Funny Shooter",
+		"url": "https://arcadehubgaming.github.io/cdn9/funny-shooter-main/"
+	},
+	{
+		"name": "Funny Shooter 2",
+		"url": "https://arcadehubgaming.github.io/cdn9/FunnyShooter-2-main/"
 	}
 ];
