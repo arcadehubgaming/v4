@@ -1,11 +1,35 @@
 ArcadeHubItems.Proxies = [
     {
-        "name": "Light (Server #1)",
-        "url": "https://guysomarisntdeppressed.eithermouse.com/"
+        "name": "Interstellar (Server #1)",
+        "url": "https://kisei.laviewddns.com/"
     },
     {
-        "name": "Light (Server #2)",
-        "url": "https://florida.hilleberg.tw/"
+        "name": "Interstellar (Server #2)",
+        "url": "https://dartn-zako.laviewddns.com/"
+    },
+    {
+        "name": "Doge Unblocker (Server #1) (Has Ads)",
+        "url": "https://renrendane.laviewddns.com/"
+    },
+    {
+        "name": "Astroid (Server #1)",
+        "url": "https://taihenomatasesimasita.laviewddns.com/"
+    },
+    {
+        "name": "Astroid (Server #2)",
+        "url": "https://inboxdayo.laviewddns.com/"
+    },
+    {
+        "name": "Astroid (Server #3)",
+        "url": "https://korededouda.laviewddns.com/"
+    },
+    {
+        "name": "Astroid (Server #4)",
+        "url": "https://inboxproxy.laviewddns.com/"
+    },
+    {
+        "name": "Shadow Browser (Server #1)",
+        "url": "https://evony.laviewddns.com/"
     },
     {
         "name": "Equinox (Server #1)",
