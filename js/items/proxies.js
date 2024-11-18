@@ -38,5 +38,53 @@ ArcadeHubItems.Proxies = [
     {
         "name": "Rammerhead (Server #1)",
         "url": "https://rammer.duckdns.org/"
+    },
+    {
+        "name": "Kazwire (Server #1)",
+        "url": "https://english.hitremixes.com/"
+    },
+    {
+        "name": "Kazwire (Server #2)",
+        "url": "https://kazwire.idigo.org/"
+    },
+    {
+        "name": "Kazwire (Server #3)",
+        "url": "https://history.lodgegomantak.org/"
+    },
+    {
+        "name": "Emerald (Server #1)",
+        "url": "https://schoolstuff.unitgrapigs.com/"
+    },
+    {
+        "name": "Emerald (Server #2)",
+        "url": "https://107.unitgrapigs.com/"
+    },
+    {
+        "name": "Emerald (Server #3)",
+        "url": "https://howcanibebetteratlifewhenidonthaveajob.pagostepeapulco.gob.mx/"
+    },
+    {
+        "name": "Emerald (Server #4)",
+        "url": "https://vs.ntpromo.ro/"
+    },
+    {
+        "name": "Lucid (Server #1)",
+        "url": "https://skibidi.bnene.com/"
+    },
+    {
+        "name": "Lucid (Server #2)",
+        "url": "https://ken.sweeny.us/"
+    },
+    {
+        "name": "Tinf0il (Server #1)",
+        "url": "https://play.lexia-power-up.us/"
+    },
+    {
+        "name": "Tinf0il (Server #2)",
+        "url": "https://view.lithiumis.us/"
+    },
+    {
+        "name": "Tinf0il (Server #3)",
+        "url": "https://point-blank-should-have-won-proxathon.point-blank.us.kg/"
     }
 ];
