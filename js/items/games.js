@@ -1482,5 +1482,33 @@ ArcadeHubItems.Games = [
 	{
 		"name": "Candy Crush",
 		"url": "https://arcadehubgaming.github.io/cdn7/Candy Crush/index.html"
+	},
+	{
+		"name": "Five Nights At Freddy's (FNAF 1)",
+		"url": "https://arcadehubgaming.github.io/cdn7/fnaf/1/index.html"
+	},
+	{
+		"name": "Five Nights At Freddy's (FNAF 2)",
+		"url": "https://arcadehubgaming.github.io/cdn7/fnaf/2/index.html"
+	},
+	{
+		"name": "Five Nights At Freddy's (FNAF 3)",
+		"url": "https://arcadehubgaming.github.io/cdn7/fnaf/3/index.html"
+	},
+	{
+		"name": "Five Nights At Freddy's (FNAF 4)",
+		"url": "https://arcadehubgaming.github.io/cdn7/fnaf/4/index.html"
+	},
+	{
+		"name": "Five Nights At Freddy's (FNAF World)",
+		"url": "https://arcadehubgaming.github.io/cdn7/fnaf/w/index.html"
+	},
+	{
+		"name": "Five Nights At Freddy's (FNAF Pizzeria Simulator)",
+		"url": "https://arcadehubgaming.github.io/cdn7/fnaf/ps/index.html"
+	},
+	{
+		"name": "Five Nights At Freddy's (FNAF UCN)",
+		"url": "https://arcadehubgaming.github.io/cdn7/fnaf/ucn/index.html"
 	}
 ];
