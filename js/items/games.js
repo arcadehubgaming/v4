@@ -1674,5 +1674,9 @@ ArcadeHubItems.Games = [
 	{
 		"name": "Funny Shooter",
 		"url": "https://arcadehubgaming.github.io/cdn9/funny-shooter-main/"
+	},
+	{
+		"name": "Funny Shooter 2",
+		"url": "https://arcadehubgaming.github.io/cdn9/FunnyShooter2-main/"
 	}
 ];
