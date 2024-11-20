@@ -370,6 +370,10 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("play-modal").style.display = "none";
         document.getElementById("game-viewer").src = "";
     });
+
+    document.getElementById("fullscreen-game-viewer").addEventListener("click", function(){
+        document.getElementById("game-viewer").requestFullscreen();
+    });
     
     document.getElementById("save-theme-btn").addEventListener("click", function() {
         const bgColor = document.getElementById("bg-color").value;

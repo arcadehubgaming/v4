@@ -42,7 +42,11 @@
         <main class="body">
             <div id="play-modal" class="modal play-modal">
                 <div id="play-modal-content" class="play-modal-content">
-                    <div class="btn poppins-btn" id="close-play-modal" style="text-align:center">CLOSE</div>
+                    <div style="display: flex; flex-direction: row;">
+                        <div class="btn poppins-btn" id="fullscreen-game-viewer" style="text-align:center; width: 48%">FULLSCREEN</div>
+                        <div style="width: 2%"></div>
+                        <div class="btn poppins-btn" id="close-play-modal" style="text-align:center; width: 48%">CLOSE</div>
+                    </div>
                     <div style="height: 1rem"></div>
                     <iframe frameborder="0" src="" id="game-viewer"></iframe>
                 </div>
