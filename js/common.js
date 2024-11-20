@@ -14,10 +14,11 @@ var ArcadeHub = {
     isDisplaying: false,
     snowInterval: null,
     currentTab: "Games",
-    currentVersion: "1.0.4",
+    currentVersion: "1.0.6",
     updates: [
-        "More Themes (Check Settings!)",
-        "Added Feedback Tab (Google Forms)"
+        "Ability to view games, movies, and proxies without it opening a new tab (Check Settings!)",
+        "Fixed a bunch of games",
+        "More proxies"
     ],
 
     createPopup: function(title, content) {
