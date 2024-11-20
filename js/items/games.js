@@ -12,10 +12,6 @@ ArcadeHubItems.Games = [
 		"url": "https://arcadehubgaming.github.io/cdn2/idledices/index.html"
 	},
 	{
-		"name": "snowrider3d",
-		"url": "https://arcadehubgaming.github.io/cdn4/cdn4/snowrider3d/index.html"
-	},
-	{
 		"name": "run 3 (adobe flash required)",
 		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/legacyflashgames/run3flash/run3.swf"
 	},
@@ -1482,5 +1478,205 @@ ArcadeHubItems.Games = [
 	{
 		"name": "Candy Crush",
 		"url": "https://arcadehubgaming.github.io/cdn7/Candy Crush/index.html"
+	},
+	{
+		"name": "Five Nights At Freddy's (FNAF 1)",
+		"url": "https://arcadehubgaming.github.io/cdn7/fnaf/1/index.html"
+	},
+	{
+		"name": "Five Nights At Freddy's (FNAF 2)",
+		"url": "https://arcadehubgaming.github.io/cdn7/fnaf/2/index.html"
+	},
+	{
+		"name": "Five Nights At Freddy's (FNAF 3)",
+		"url": "https://arcadehubgaming.github.io/cdn7/fnaf/3/index.html"
+	},
+	{
+		"name": "Five Nights At Freddy's (FNAF 4)",
+		"url": "https://arcadehubgaming.github.io/cdn7/fnaf/4/index.html"
+	},
+	{
+		"name": "Five Nights At Freddy's (FNAF World)",
+		"url": "https://arcadehubgaming.github.io/cdn7/fnaf/w/index.html"
+	},
+	{
+		"name": "Five Nights At Freddy's (FNAF Pizzeria Simulator)",
+		"url": "https://arcadehubgaming.github.io/cdn7/fnaf/ps/index.html"
+	},
+	{
+		"name": "Five Nights At Freddy's (FNAF UCN)",
+		"url": "https://arcadehubgaming.github.io/cdn7/fnaf/ucn/index.html"
+	},
+	{
+		"name": "Friday Night Funkin' (shaggy x matt)",
+		"url": "https://arcadehubgaming.github.io/cdn8/shaggymatt"
+	},
+	{
+		"name": "Friday Night Funkin' (corruption)",
+		"url": "https://arcadehubgaming.github.io/cdn8/Corruption"
+	},
+	{
+		"name": "Friday Night Funkin' (Miku)",
+		"url": "https://arcadehubgaming.github.io/cdn8/Miku"
+	},
+	{
+		"name": "Friday Night Funkin' (vs XE)",
+		"url": "https://arcadehubgaming.github.io/cdn8/XE"
+	},
+	{
+		"name": "Friday Night Funkin' (ann)",
+		"url": "https://arcadehubgaming.github.io/cdn8/ann"
+	},
+	{
+		"name": "Friday Night Funkin' (bsides)",
+		"url": "https://arcadehubgaming.github.io/cdn8/bsides"
+	},
+	{
+		"name": "Friday Night Funkin' (deep sea date)",
+		"url": "https://arcadehubgaming.github.io/cdn8/deepseadate"
+	},
+	{
+		"name": "Friday Night Funkin' (EATEOF)",
+		"url": "https://arcadehubgaming.github.io/cdn8/everywhereattheendoffunk"
+	},
+	{
+		"name": "Friday Night Funkin' (FlipSide)",
+		"url": "https://arcadehubgaming.github.io/cdn8/flipside"
+	},
+	{
+		"name": "Friday Night Funkin' (Heck beats)",
+		"url": "https://arcadehubgaming.github.io/cdn8/h3llbeats"
+	},
+	{
+		"name": "Friday Night Funkin' (vs Henry Stickmin)",
+		"url": "https://arcadehubgaming.github.io/cdn8/henry"
+	},
+	{
+		"name": "Friday Night Funkin' (vs Hex)",
+		"url": "https://arcadehubgaming.github.io/cdn8/hex"
+	},
+	{
+		"name": "Friday Night Funkin' (vs kapi old)",
+		"url": "https://arcadehubgaming.github.io/cdn8/kapi"
+	},
+	{
+		"name": "Friday Night Funkin' (vs Matt first 2 weeks)",
+		"url": "https://arcadehubgaming.github.io/cdn8/matt"
+	},
+	{
+		"name": "Friday Night Funkin' (Minus)",
+		"url": "https://arcadehubgaming.github.io/cdn8/minus"
+	},
+	{
+		"name": "Friday Night Funkin' (vs Monika Full Week)",
+		"url": "https://arcadehubgaming.github.io/cdn8/monika"
+	},
+	{
+		"name": "Friday Night Funkin' (Neo old)",
+		"url": "https://arcadehubgaming.github.io/cdn8/neo"
+	},
+	{
+		"name": "Friday Night Funkin' (Michael Jackson's Smooth Criminal over 'Roses')",
+		"url": "https://arcadehubgaming.github.io/cdn8/rosecriminal"
+	},
+	{
+		"name": "Friday Night Funkin' (Salty's Sunday Night)",
+		"url": "https://arcadehubgaming.github.io/cdn8/saltyssundaynight"
+	},
+	{
+		"name": "Friday Night Funkin' (vs Shaggy old)",
+		"url": "https://arcadehubgaming.github.io/cdn8/shaggy"
+	},
+	{
+		"name": "Friday Night Funkin' (vs Shaggy HD)",
+		"url": "https://arcadehubgaming.github.io/cdn8/shaggyhd"
+	},
+	{
+		"name": "Friday Night Funkin' (vs Garcello)",
+		"url": "https://arcadehubgaming.github.io/cdn8/smokeemoutstruggle"
+	},
+	{
+		"name": "Friday Night Funkin' (Star Catcher)",
+		"url": "https://arcadehubgaming.github.io/cdn8/starcatcher"
+	},
+	{
+		"name": "Friday Night Funkin' (vs Impostor 2.0)",
+		"url": "https://arcadehubgaming.github.io/cdn8/sussy2"
+	},
+	{
+		"name": "Friday Night Funkin' (vs Ex)",
+		"url": "https://arcadehubgaming.github.io/cdn8/tabi"
+	},
+	{
+		"name": "Friday Night Funkin' (vs Tord)",
+		"url": "https://arcadehubgaming.github.io/cdn8/tord"
+	},
+	{
+		"name": "Friday Night Funkin' (Touhou)",
+		"url": "https://arcadehubgaming.github.io/cdn8/touhou"
+	},
+	{
+		"name": "Friday Night Funkin' (Upside)",
+		"url": "https://arcadehubgaming.github.io/cdn8/upside"
+	},
+	{
+		"name": "Friday Night Funkin' (vs Void)",
+		"url": "https://arcadehubgaming.github.io/cdn8/void"
+	},
+	{
+		"name": "Friday Night Funkin' (vs Chara)",
+		"url": "https://arcadehubgaming.github.io/cdn8/vschara"
+	},
+	{
+		"name": "Friday Night Funkin' (Week 6)",
+		"url": "https://arcadehubgaming.github.io/cdn8/week6"
+	},
+	{
+		"name": "Friday Night Funkin' (Week 7)",
+		"url": "https://arcadehubgaming.github.io/cdn8/week7"
+	},
+	{
+		"name": "Friday Night Funkin' (vs Whitty)",
+		"url": "https://arcadehubgaming.github.io/cdn8/whitman"
+	},
+	{
+		"name": "Friday Night Funkin' (X Sides)",
+		"url": "https://arcadehubgaming.github.io/cdn8/x-sides"
+	},
+	{
+		"name": "Friday Night Funkin' (X event)",
+		"url": "https://arcadehubgaming.github.io/cdn8/xevent"
+	},
+	{
+		"name": "Friday Night Funkin' (vs Zardy old)",
+		"url": "https://arcadehubgaming.github.io/cdn8/zardy"
+	},
+	{
+		"name": "Friday Night Funkin' (Tricky FULL WEEK)",
+		"url": "https://arcadehubgaming.github.io/cdn8/tricky"
+	},
+	{
+		"name": "Friday Night Funkin' (Impostor V3)",
+		"url": "https://arcadehubgaming.github.io/cdn8"
+	},
+	{
+		"name": "Friday Night Funkin' (Dust Tale)",
+		"url": "https://arcadehubgaming.github.io/cdn8/dusttale"
+	},
+	{
+		"name": "Snow Rider 3D",
+		"url": "https://gg-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/sk1bx/89574567@71f165531792ae450fe0a522a52ba4e827344de2/sr3d.xml&container=ig"
+	},
+	{
+		"name": "Time Shooter 3 S.W.A.T",
+		"url": "https://arcadehubgaming.github.io/cdn9/time shooter 3/"
+	},
+	{
+		"name": "Funny Shooter",
+		"url": "https://arcadehubgaming.github.io/cdn9/funny-shooter-main/"
+	},
+	{
+		"name": "Funny Shooter 2",
+		"url": "https://arcadehubgaming.github.io/cdn9/FunnyShooter2-main/"
 	}
 ];
