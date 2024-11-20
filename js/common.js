@@ -3,6 +3,9 @@ var ArcadeHubSettings = {
     enableSnow: false,
     cloakingToggle: false,
     jumpButton: true,
+    gameNewTab: true,
+    movieNewTab: true,
+    proxyNewTab: true,
     customTheme: {}
 };
 
@@ -10,6 +13,7 @@ var ArcadeHub = {
     popupQueue: [],
     isDisplaying: false,
     snowInterval: null,
+    currentTab: "Games",
     currentVersion: "1.0.4",
     updates: [
         "More Themes (Check Settings!)",
@@ -117,6 +121,19 @@ var ArcadeHub = {
     },
 
     Utils: {
+        openGame: function(url) {
+            var cond1 = (ArcadeHub.currentTab === "Games" && ArcadeHubSettings.gameNewTab);
+            var cond2 = (ArcadeHub.currentTab === "Movies" && ArcadeHubSettings.movieNewTab);
+            var cond3 = (ArcadeHub.currentTab === "Proxies" && ArcadeHubSettings.proxyNewTab);
+            
+            if (cond1 || cond2 || cond3) {
+                this.openAboutMagic(url);
+            } else {
+                document.getElementById("play-modal").style.display = "flex";
+                document.getElementById("game-viewer").src = url;
+            }
+        },
+
         openAboutMagic: function(url) {
             var win = window.open();
             win.document.body.style.margin = '0';
@@ -152,7 +169,7 @@ var ArcadeHub = {
                 playButton.textContent = 'Play Now';
 
                 playButton.addEventListener('click', () => {
-                    ArcadeHub.Utils.openAboutMagic(item.url);
+                    ArcadeHub.Utils.openGame(item.url);
                 });
 
                 itemDiv.appendChild(nameSpan);
@@ -176,16 +193,19 @@ var ArcadeHub = {
             target.classList.add('sidebar-toggle-selected');
             if (target.textContent.includes("Games")) {
                 document.querySelector('.games').style.display = 'flex';
+                ArcadeHub.currentTab = "Games";
                 ArcadeHub.Utils.searchItem();
             }
 
             if (target.textContent.includes("Movies")) {
                 document.querySelector('.movies').style.display = 'flex';
+                ArcadeHub.currentTab = "Movies";
                 ArcadeHub.Utils.searchItem();
             }
 
             if (target.textContent.includes("Proxies")) {
                 document.querySelector('.proxies').style.display = 'flex';
+                ArcadeHub.currentTab = "Proxies";
                 ArcadeHub.Utils.searchItem();
             }
 
@@ -345,6 +365,11 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("close-modal-btn").addEventListener("click", function() {
         document.getElementById("theme-modal").style.display = "none";
     });
+
+    document.getElementById("close-play-modal").addEventListener("click", function(){
+        document.getElementById("play-modal").style.display = "none";
+        document.getElementById("game-viewer").src = "";
+    });
     
     document.getElementById("save-theme-btn").addEventListener("click", function() {
         const bgColor = document.getElementById("bg-color").value;
@@ -439,6 +464,11 @@ document.addEventListener("DOMContentLoaded", function() {
         ArcadeHub.Utils.manageSnowflakes();
     });
 
+    
+    const gameNewTabToggle = document.getElementById("game-newtab-toggle");
+    const movieNewTabToggle = document.getElementById("movie-newtab-toggle");
+    const proxyNewTabToggle = document.getElementById("proxy-newtab-toggle");
+
     function setJumpButton() {
         const scrollPosition = window.scrollY;
         const docHeight = document.documentElement.scrollHeight;
@@ -510,6 +540,10 @@ document.addEventListener("DOMContentLoaded", function() {
         ArcadeHub.Utils.manageSnowflakes();
     }
 
+    gameNewTabToggle.checked = ArcadeHubSettings.gameNewTab;
+    movieNewTabToggle.checked = ArcadeHubSettings.movieNewTab;
+    proxyNewTabToggle.checked = ArcadeHubSettings.proxyNewTab;
+
     const cloakingToggle = document.getElementById("cloaking-toggle");
     cloakingToggle.addEventListener("change", function() {
         ArcadeHubSettings.cloakingToggle = cloakingToggle.checked;
@@ -533,6 +567,21 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             jumpButton.style = "display: none";
         }
+        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+    });
+
+    gameNewTabToggle.addEventListener("change", function() {
+        ArcadeHubSettings.gameNewTab = gameNewTabToggle.checked;
+        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+    });
+
+    movieNewTabToggle.addEventListener("change", function() {
+        ArcadeHubSettings.movieNewTab = movieNewTabToggle.checked;
+        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+    });
+
+    proxyNewTabToggle.addEventListener("change", function() {
+        ArcadeHubSettings.proxyNewTab = proxyNewTabToggle.checked;
         ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
     });
 

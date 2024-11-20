@@ -40,6 +40,13 @@
         </header>
         <br/>
         <main class="body">
+            <div id="play-modal" class="modal play-modal">
+                <div id="play-modal-content" class="play-modal-content">
+                    <div class="btn poppins-btn" id="close-play-modal" style="text-align:center">CLOSE</div>
+                    <div style="height: 1rem"></div>
+                    <iframe frameborder="0" src="" id="game-viewer"></iframe>
+                </div>
+            </div>
             <div class="games item-list">
             </div>
             <div class="movies item-list">
@@ -81,6 +88,27 @@
                         <input type="checkbox" id="jump-toggle">
                         <span class="slider"></span>
                         <span class="toggle-label">Jump Button</span>
+                    </label>
+                </div>
+                <div class="game-newtab toggle-container">
+                    <label class="toggle">
+                        <input type="checkbox" id="game-newtab-toggle">
+                        <span class="slider"></span>
+                        <span class="toggle-label">Open Games in New Tab</span>
+                    </label>
+                </div>
+                <div class="movie-newtab toggle-container">
+                    <label class="toggle">
+                        <input type="checkbox" id="movie-newtab-toggle">
+                        <span class="slider"></span>
+                        <span class="toggle-label">Open Movies in New Tab</span>
+                    </label>
+                </div>
+                <div class="proxy-newtab toggle-container">
+                    <label class="toggle">
+                        <input type="checkbox" id="proxy-newtab-toggle">
+                        <span class="slider"></span>
+                        <span class="toggle-label">Open Proxies in New Tab</span>
                     </label>
                 </div>
                 <div class="history-wiper">
