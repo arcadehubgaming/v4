@@ -86,5 +86,13 @@ ArcadeHubItems.Proxies = [
     {
         "name": "Tinf0il (Server #3)",
         "url": "https://point-blank-should-have-won-proxathon.point-blank.us.kg/"
+    },
+    {
+        "name": "CroxyProxy (Server #1)",
+        "url": "https://67.207.72.190/"
+    },
+    {
+        "name": "CroxyProxy (Server #2)",
+        "url": "https://108.181.32.49/"
     }
 ];
