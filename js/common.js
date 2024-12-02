@@ -21,17 +21,17 @@ var ArcadeHub = {
         "More proxies"
     ],
 
-    createPopup: function(title, content) {
+    createPopup: function (title, content) {
         this.popupQueue.push({ type: "simple", title, content });
         this.processQueue();
     },
 
-    createUpdatePopup: function(title, itemsArray) {
+    createUpdatePopup: function (title, itemsArray) {
         this.popupQueue.push({ type: "update", title, itemsArray });
         this.processQueue();
     },
 
-    processQueue: function() {
+    processQueue: function () {
         if (this.isDisplaying || this.popupQueue.length === 0) {
             return;
         }
@@ -88,11 +88,11 @@ var ArcadeHub = {
         });
     },
 
-    convertMarkdownLinks: function(content) {
+    convertMarkdownLinks: function (content) {
         return content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
     },
 
-    setCookie: function(name, value, days) {
+    setCookie: function (name, value, days) {
         let expires = "";
         if (days) {
             const date = new Date();
@@ -102,7 +102,7 @@ var ArcadeHub = {
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     },
 
-    getCookie: function(name) {
+    getCookie: function (name) {
         const nameEQ = name + "=";
         const ca = document.cookie.split(';');
         for (let i = 0; i < ca.length; i++) {
@@ -113,7 +113,7 @@ var ArcadeHub = {
         return null;
     },
 
-    deleteAllCookies: function() {
+    deleteAllCookies: function () {
         document.cookie.split(';').forEach(cookie => {
             const eqPos = cookie.indexOf('=');
             const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
@@ -122,24 +122,24 @@ var ArcadeHub = {
     },
 
     Utils: {
-        openGame: function(url, noaboutblank) {
+        openGame: function (url, noaboutblank) {
             var cond1 = (ArcadeHub.currentTab === "Games" && ArcadeHubSettings.gameNewTab);
             var cond2 = (ArcadeHub.currentTab === "Movies" && ArcadeHubSettings.movieNewTab);
             var cond3 = (ArcadeHub.currentTab === "Proxies" && ArcadeHubSettings.proxyNewTab);
-            
-            if (cond1 || cond2 || cond3) {
-                if (noaboutblank) {
-                    window.open(url, '_blank').focus();
-                } else {
-                    this.openAboutMagic(url);
-                }
+
+            if (noaboutblank) {
+                window.open(url, '_blank').focus();
             } else {
-                document.getElementById("play-modal").style.display = "flex";
-                document.getElementById("game-viewer").src = url;
+                if (cond1 || cond2 || cond3) {
+                    this.openAboutMagic(url);
+                } else {
+                    document.getElementById("play-modal").style.display = "flex";
+                    document.getElementById("game-viewer").src = url;
+                }
             }
         },
 
-        openAboutMagic: function(url) {
+        openAboutMagic: function (url) {
             var win = window.open();
             win.document.body.style.margin = '0';
             win.document.body.style.height = '100vh';
@@ -157,7 +157,7 @@ var ArcadeHub = {
             }, 500);
         },
 
-        populate: function(element, items) {
+        populate: function (element, items) {
             element.innerHTML = '';
 
             items.sort((a, b) => a.name.localeCompare(b.name));
@@ -184,12 +184,12 @@ var ArcadeHub = {
             });
         },
 
-        switchTab: function(event) {
+        switchTab: function (event) {
             const target = event.currentTarget;
             const sections = document.querySelectorAll('.item-list');
             const toggles = document.querySelectorAll('.sidebar-toggle');
 
-            if(target.textContent.includes("Feedback")) {
+            if (target.textContent.includes("Feedback")) {
                 return;
             }
 
@@ -230,7 +230,7 @@ var ArcadeHub = {
             document.querySelectorAll('.snowflake').forEach(snowflake => snowflake.remove());
         },
 
-        searchItem: function() {
+        searchItem: function () {
             const searchTerm = document.querySelector('.search-input').value.toLowerCase();
             const sections = [
                 { element: document.querySelector('.games'), items: ArcadeHubItems.Games },
@@ -238,10 +238,10 @@ var ArcadeHub = {
                 { element: document.querySelector('.proxies'), items: ArcadeHubItems.Proxies }
             ];
 
-            sections.forEach(function(section) {
+            sections.forEach(function (section) {
                 if (section.element.style.display === "flex") {
                     section.element.innerHTML = '';
-                    const filteredItems = section.items.filter(item => 
+                    const filteredItems = section.items.filter(item =>
                         item.name.toLowerCase().includes(searchTerm)
                     );
                     ArcadeHub.Utils.populate(section.element, filteredItems);
@@ -249,27 +249,27 @@ var ArcadeHub = {
             });
         },
 
-        createSnowflake: function() {
+        createSnowflake: function () {
             const snowflake = document.createElement("div");
             snowflake.className = "snowflake";
             snowflake.textContent = "❄";
-            
+
             const leftPosition = Math.random() * 98;
             snowflake.style.left = leftPosition + "%";
             snowflake.style.fontSize = Math.random() * 1.5 + 0.5 + "em";
             document.body.appendChild(snowflake);
-        
-            snowflake.style.top = "-10px"; 
-        
+
+            snowflake.style.top = "-10px";
+
             let target = document.getElementById("snowTarget");
             let targetPosition = target.getBoundingClientRect().top + window.scrollY - 50;
-        
-            let position = -10; 
-            const fallSpeed = 6; 
+
+            let position = -10;
+            const fallSpeed = 6;
             const fallInterval = setInterval(() => {
                 position += fallSpeed;
                 snowflake.style.top = position + "px";
-        
+
                 if (position > targetPosition) {
                     clearInterval(fallInterval);
                     snowflake.remove();
@@ -277,7 +277,7 @@ var ArcadeHub = {
             }, 20);
         },
 
-        manageSnowflakes: function() {
+        manageSnowflakes: function () {
             if (ArcadeHubSettings.enableSnow) {
                 if (!ArcadeHub.snowInterval) {
                     ArcadeHub.snowInterval = setInterval(ArcadeHub.Utils.createSnowflake, 100);
@@ -289,7 +289,7 @@ var ArcadeHub = {
             }
         },
 
-        inIframe: function() {
+        inIframe: function () {
             try {
                 return window.self !== window.top;
             } catch (e) {
@@ -297,8 +297,8 @@ var ArcadeHub = {
             }
         },
 
-        cloakPage: function() {
-            if(this.inIframe() !== true) {
+        cloakPage: function () {
+            if (this.inIframe() !== true) {
                 var win = window.open();
                 win.document.title = "Google Drive";
                 var link = win.document.createElement("link");
@@ -321,19 +321,19 @@ var ArcadeHub = {
                         win = undefined;
                     }
                 }, 500);
-                
+
                 window.close();
 
-                setTimeout(function() {
+                setTimeout(function () {
                     window.location.href = "about:blank";
                 }, 500)
             }
         },
-        saveCustomTheme: function(theme) {
+        saveCustomTheme: function (theme) {
             ArcadeHubSettings.theme = theme;
         },
 
-        applyCustomTheme: function() {
+        applyCustomTheme: function () {
             const customTheme = ArcadeHubSettings.customTheme;
             if (customTheme) {
                 for (const property in customTheme) {
@@ -342,11 +342,11 @@ var ArcadeHub = {
                     }
                 }
             }
-        }        
+        }
     }
 };
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const lastVersion = ArcadeHub.getCookie("lastVersion");
     ArcadeHub.setCookie("lastVersion", ArcadeHub.currentVersion, 32767);
 
@@ -354,7 +354,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ArcadeHub.Utils.populate(document.querySelector('.games'), ArcadeHubItems.Games);
     ArcadeHub.Utils.populate(document.querySelector('.movies'), ArcadeHubItems.Movies);
     ArcadeHub.Utils.populate(document.querySelector('.proxies'), ArcadeHubItems.Proxies);
-    
+
     const sidebarToggles = document.querySelectorAll('.sidebar-toggle');
     sidebarToggles.forEach(toggle => {
         toggle.addEventListener('click', ArcadeHub.Utils.switchTab);
@@ -364,30 +364,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const themeSelect = document.getElementById("theme-select");
 
-    document.getElementById("create-theme-btn").addEventListener("click", function() {
+    document.getElementById("create-theme-btn").addEventListener("click", function () {
         document.getElementById("theme-modal").style.display = "block";
     });
-    
-    document.getElementById("close-modal-btn").addEventListener("click", function() {
+
+    document.getElementById("close-modal-btn").addEventListener("click", function () {
         document.getElementById("theme-modal").style.display = "none";
     });
 
-    document.getElementById("close-play-modal").addEventListener("click", function(){
+    document.getElementById("close-play-modal").addEventListener("click", function () {
         document.getElementById("play-modal").style.display = "none";
         document.getElementById("game-viewer").src = "";
     });
 
-    document.getElementById("fullscreen-game-viewer").addEventListener("click", function(){
+    document.getElementById("fullscreen-game-viewer").addEventListener("click", function () {
         document.getElementById("game-viewer").requestFullscreen();
     });
-    
-    document.getElementById("save-theme-btn").addEventListener("click", function() {
+
+    document.getElementById("save-theme-btn").addEventListener("click", function () {
         const bgColor = document.getElementById("bg-color").value;
         const secondarybgColor = document.getElementById("secondarybg-color").value;
         const textColor = document.getElementById("text-color").value;
         const buttonColor = document.getElementById("button-color").value;
         const buttonHoverColor = document.getElementById("button-hover-color").value;
-    
+
         const customTheme = {
             "--bg-color": bgColor,
             "--secondary-bg-color": secondarybgColor,
@@ -395,16 +395,16 @@ document.addEventListener("DOMContentLoaded", function() {
             "--button-bg-color": buttonColor,
             "--button-hover-bg-color": buttonHoverColor,
         };
-    
+
         ArcadeHubSettings.customTheme = customTheme;
-    
+
         ArcadeHub.Utils.applyCustomTheme();
-    
+
         document.getElementById("theme-modal").style.display = "none";
         ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
     });
-    
-    themeSelect.addEventListener("change", function() {
+
+    themeSelect.addEventListener("change", function () {
         const selectedTheme = themeSelect.value;
         document.body.className = "";
         document.documentElement.style = '';
@@ -474,7 +474,7 @@ document.addEventListener("DOMContentLoaded", function() {
         ArcadeHub.Utils.manageSnowflakes();
     });
 
-    
+
     const gameNewTabToggle = document.getElementById("game-newtab-toggle");
     const movieNewTabToggle = document.getElementById("movie-newtab-toggle");
     const proxyNewTabToggle = document.getElementById("proxy-newtab-toggle");
@@ -483,12 +483,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const scrollPosition = window.scrollY;
         const docHeight = document.documentElement.scrollHeight;
         const winHeight = window.innerHeight;
-    
+
         const atTop = scrollPosition < 100;
         const atBottom = scrollPosition + winHeight >= docHeight - 100;
-    
+
         const jumpToTopButton = document.getElementById("jumpToTopButton");
-    
+
         if (atTop) {
             jumpToTopButton.classList.add('flipped');
         }
@@ -499,16 +499,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     setJumpButton();
 
-    document.addEventListener("scroll", function() {
+    document.addEventListener("scroll", function () {
         const scrollPosition = window.scrollY;
         const docHeight = document.documentElement.scrollHeight;
         const winHeight = window.innerHeight;
-    
+
         const atTop = scrollPosition < 100;
         const atBottom = scrollPosition + winHeight >= docHeight - 100;
-    
+
         const jumpToTopButton = document.getElementById("jumpToTopButton");
-    
+
         if (atTop) {
             jumpButton.classList.add('flipped');
         }
@@ -516,25 +516,25 @@ document.addEventListener("DOMContentLoaded", function() {
             jumpButton.classList.remove('flipped');
         }
     });
-    
-    document.getElementById("jumpToTopButton").addEventListener("click", function() {
+
+    document.getElementById("jumpToTopButton").addEventListener("click", function () {
         const scrollPosition = window.scrollY;
         const docHeight = document.documentElement.scrollHeight;
         const winHeight = window.innerHeight;
-    
+
         if (scrollPosition < 100) {
             window.scrollTo({ top: docHeight, behavior: 'smooth' });
         } else {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    });    
+    });
 
     const storedSettings = ArcadeHub.getCookie("ArcadeHubSettings");
     if (storedSettings) {
         Object.assign(ArcadeHubSettings, JSON.parse(storedSettings));
 
         themeSelect.value = ArcadeHubSettings.theme;
-        
+
         switch (themeSelect.value) {
             case "default":
                 document.body.className = "";
@@ -543,7 +543,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.body.classList.add(`arcadehub-${ArcadeHubSettings.theme}`);
         }
 
-        if(themeSelect.value === "custom-theme") {     
+        if (themeSelect.value === "custom-theme") {
             ArcadeHub.Utils.applyCustomTheme();
         }
 
@@ -555,7 +555,7 @@ document.addEventListener("DOMContentLoaded", function() {
     proxyNewTabToggle.checked = ArcadeHubSettings.proxyNewTab;
 
     const cloakingToggle = document.getElementById("cloaking-toggle");
-    cloakingToggle.addEventListener("change", function() {
+    cloakingToggle.addEventListener("change", function () {
         ArcadeHubSettings.cloakingToggle = cloakingToggle.checked;
         if (cloakingToggle.checked) {
             document.title = "Google Drive";
@@ -570,7 +570,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const jumpToggle = document.getElementById("jump-toggle");
     const jumpButton = document.getElementById("jumpToTopButton");
-    jumpToggle.addEventListener("change", function() {
+    jumpToggle.addEventListener("change", function () {
         ArcadeHubSettings.jumpButton = jumpToggle.checked;
         if (jumpToggle.checked) {
             jumpButton.style = "display: block";
@@ -580,17 +580,17 @@ document.addEventListener("DOMContentLoaded", function() {
         ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
     });
 
-    gameNewTabToggle.addEventListener("change", function() {
+    gameNewTabToggle.addEventListener("change", function () {
         ArcadeHubSettings.gameNewTab = gameNewTabToggle.checked;
         ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
     });
 
-    movieNewTabToggle.addEventListener("change", function() {
+    movieNewTabToggle.addEventListener("change", function () {
         ArcadeHubSettings.movieNewTab = movieNewTabToggle.checked;
         ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
     });
 
-    proxyNewTabToggle.addEventListener("change", function() {
+    proxyNewTabToggle.addEventListener("change", function () {
         ArcadeHubSettings.proxyNewTab = proxyNewTabToggle.checked;
         ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
     });
