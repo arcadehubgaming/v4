@@ -1733,10 +1733,6 @@ ArcadeHubItems.Games = [
 		"url": "https://arcadehubgaming.github.io/cdn10/Sonic2"
 	},
 	{
-		"name": "Sonic The Hedgehog 3",
-		"url": "https://arcadehubgaming.github.io/cdn10/Sonic3"
-	},
-	{
 		"name": "Street Fighter II",
 		"url": "https://arcadehubgaming.github.io/cdn10/StreetFighterII"
 	},
