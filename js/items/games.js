@@ -944,10 +944,6 @@ ArcadeHubItems.Games = [
 		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/riddletransfer2/index.html"
 	},
 	{
-		"name": "Roblox",
-		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/roblox/index.html"
-	},
-	{
 		"name": "Robux clicker",
 		"url": "https://arcadehubgaming.github.io/cdn3/cdn3/robuxclicker/robuxclicker.html"
 	},
@@ -1678,5 +1674,10 @@ ArcadeHubItems.Games = [
 	{
 		"name": "Funny Shooter 2",
 		"url": "https://arcadehubgaming.github.io/cdn9/FunnyShooter2-main/"
+	},
+	{
+		"name": "Roblox",
+		"url": "https://ubgroblox.global.ssl.fastly.net/",
+		"noaboutblank": true
 	}
 ];

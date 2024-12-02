@@ -122,13 +122,17 @@ var ArcadeHub = {
     },
 
     Utils: {
-        openGame: function(url) {
+        openGame: function(url, noaboutblank) {
             var cond1 = (ArcadeHub.currentTab === "Games" && ArcadeHubSettings.gameNewTab);
             var cond2 = (ArcadeHub.currentTab === "Movies" && ArcadeHubSettings.movieNewTab);
             var cond3 = (ArcadeHub.currentTab === "Proxies" && ArcadeHubSettings.proxyNewTab);
             
             if (cond1 || cond2 || cond3) {
-                this.openAboutMagic(url);
+                if (noaboutblank) {
+                    window.open(url, '_blank').focus();
+                } else {
+                    this.openAboutMagic(url);
+                }
             } else {
                 document.getElementById("play-modal").style.display = "flex";
                 document.getElementById("game-viewer").src = url;
@@ -170,7 +174,8 @@ var ArcadeHub = {
                 playButton.textContent = 'Play Now';
 
                 playButton.addEventListener('click', () => {
-                    ArcadeHub.Utils.openGame(item.url);
+                    var openinaboutblank = item.noaboutblank || false;
+                    ArcadeHub.Utils.openGame(item.url, openinaboutblank);
                 });
 
                 itemDiv.appendChild(nameSpan);
