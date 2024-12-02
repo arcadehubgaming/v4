@@ -1679,5 +1679,81 @@ ArcadeHubItems.Games = [
 		"name": "Roblox",
 		"url": "https://ubgroblox.global.ssl.fastly.net/",
 		"noaboutblank": true
+	},
+	{
+		"name": "Banjo Kazooie",
+		"url": "https://arcadehubgaming.github.io/cdn10/BanjoKazooie"
+	},
+	{
+		"name": "Donkey Kong",
+		"url": "https://arcadehubgaming.github.io/cdn10/DonkeyKong"
+	},
+	{
+		"name": "Earthbound",
+		"url": "https://arcadehubgaming.github.io/cdn10/Earthbound"
+	},
+	{
+		"name": "Mario 64",
+		"url": "https://arcadehubgaming.github.io/cdn10/Mario64"
+	},
+	{
+		"name": "Mario Bros.",
+		"url": "https://arcadehubgaming.github.io/cdn10/MarioBros"
+	},
+	{
+		"name": "Mario Kart 64",
+		"url": "https://arcadehubgaming.github.io/cdn10/MarioKart64"
+	},
+	{
+		"name": "Mega Man",
+		"url": "https://arcadehubgaming.github.io/cdn10/MegaMan"
+	},
+	{
+		"name": "Mega Man 2",
+		"url": "https://arcadehubgaming.github.io/cdn10/MegaMan2"
+	},
+	{
+		"name": "Mega Man 3",
+		"url": "https://arcadehubgaming.github.io/cdn10/MegaMan3"
+	},
+	{
+		"name": "Mega Man 4",
+		"url": "https://arcadehubgaming.github.io/cdn10/MegaMan4"
+	},
+	{
+		"name": "Mega Man X",
+		"url": "https://arcadehubgaming.github.io/cdn10/MegaManX"
+	},
+	{
+		"name": "Sonic The Hedgehog",
+		"url": "https://arcadehubgaming.github.io/cdn10/Sonic"
+	},
+	{
+		"name": "Sonic The Hedgehog 2",
+		"url": "https://arcadehubgaming.github.io/cdn10/Sonic2"
+	},
+	{
+		"name": "Sonic The Hedgehog 3",
+		"url": "https://arcadehubgaming.github.io/cdn10/Sonic3"
+	},
+	{
+		"name": "Street Fighter II",
+		"url": "https://arcadehubgaming.github.io/cdn10/StreetFighterII"
+	},
+	{
+		"name": "Super Mario Bros. 2",
+		"url": "https://arcadehubgaming.github.io/cdn10/SuperMario2"
+	},
+	{
+		"name": "Super Mario Bros. 3",
+		"url": "https://arcadehubgaming.github.io/cdn10/SuperMario3"
+	},
+	{
+		"name": "Super Mario World",
+		"url": "https://arcadehubgaming.github.io/cdn10/SuperMarioWorld"
+	},
+	{
+		"name": "Super Smash Bros.",
+		"url": "https://arcadehubgaming.github.io/cdn10/SuperSmashBros"
 	}
 ];
