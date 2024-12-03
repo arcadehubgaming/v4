@@ -29,18 +29,10 @@ ArcadeHubItems.Proxies = [
     },
     {
         "name": "Emerald (Server #1)",
-        "url": "https://schoolstuff.unitgrapigs.com/"
-    },
-    {
-        "name": "Emerald (Server #2)",
-        "url": "https://107.unitgrapigs.com/"
-    },
-    {
-        "name": "Emerald (Server #3)",
         "url": "https://howcanibebetteratlifewhenidonthaveajob.pagostepeapulco.gob.mx/"
     },
     {
-        "name": "Emerald (Server #4)",
+        "name": "Emerald (Server #2)",
         "url": "https://vs.ntpromo.ro/"
     },
     {

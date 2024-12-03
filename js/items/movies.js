@@ -105,6 +105,7 @@ ArcadeHubItems.Movies = [
     },*/
     {
         "name": "South Park (Full Series)",
-        "url": "games/arcadehub_redirects/south_park_full_series.html"
+        "url": "https://drive.google.com/drive/folders/1PzKaoaK4blzlaoxnwC20gZoeYE5mDxWL?usp=drive_link",
+        "noaboutblank": true
     }
 ];  

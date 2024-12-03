@@ -1751,5 +1751,81 @@ ArcadeHubItems.Games = [
 	{
 		"name": "Super Smash Bros.",
 		"url": "https://arcadehubgaming.github.io/cdn10/SuperSmashBros"
-	}
+	},
+	{
+		"name": "1 on 1 Soccer",
+		"url": "https://arcadehubgaming.github.io/cdn11/1on1Soccer-gh-pages"
+	},
+	{
+		"name": "3 Pandas in Japan",
+		"url": "https://arcadehubgaming.github.io/cdn11/3PandasInJapan-gh-pages"
+	},
+	{
+		"name": "8 Ball Billards Classic",
+		"url": "https://arcadehubgaming.github.io/cdn11/8BallBillardsClassic-gh-pages"
+	},
+	{
+		"name": "1010 Deluxe",
+		"url": "https://arcadehubgaming.github.io/cdn11/1010Deluxe-gh-pages/1010Deluxe-gh-pages"
+	},
+	{
+		"name": "Arcane Archer",
+		"url": "https://arcadehubgaming.github.io/cdn11/ArcaneArcher-gh-pages/ArcaneArcher-gh-pages"
+	},
+	{
+		"name": "Ballistic",
+		"url": "https://arcadehubgaming.github.io/cdn11/Ballistic-gh-pages/Ballistic-gh-pages"
+	},
+	{
+		"name": "Clash of Tanks",
+		"url": "https://arcadehubgaming.github.io/cdn11/ClashOfTanks-gh-pages/ClashOfTanks-gh-pages"
+	},
+	{
+		"name": "Crazy Cars",
+		"url": "https://arcadehubgaming.github.io/cdn11/CrazyCars-gh-pages/CrazyCars-gh-pages"
+	},
+	{
+		"name": "Football Brawl",
+		"url": "https://arcadehubgaming.github.io/cdn11/FootballBrawl-gh-pages/FootballBrawl-gh-pages"
+	},
+	{
+		"name": "Groovy Ski",
+		"url": "https://arcadehubgaming.github.io/cdn11/GroovySki-gh-pages/GroovySki-gh-pages"
+	},
+	{
+		"name": "GSwitch",
+		"url": "https://arcadehubgaming.github.io/cdn11/GSwitch-gh-pages/GSwitch-gh-pages"
+	},
+	{
+		"name": "Hoop Royale",
+		"url": "https://arcadehubgaming.github.io/cdn11/HoopRoyale-gh-pages/HoopRoyale-gh-pages"
+	},
+	{
+		"name": "Little Alchemy 2",
+		"url": "https://arcadehubgaming.github.io/cdn11/LittleAlchemy2-gh-pages/LittleAlchemy2-gh-pages"
+	},
+	{
+		"name": "Moving Truck",
+		"url": "https://arcadehubgaming.github.io/cdn11/MovingTruck-gh-pages/MovingTruck-gh-pages"
+	},
+	{
+		"name": "Tag",
+		"url": "https://arcadehubgaming.github.io/cdn11/tag/"
+	},
+	{
+		"name": "Timber Guy",
+		"url": "https://arcadehubgaming.github.io/cdn11/TimberGuy-gh-pages/TimberGuy-gh-pages"
+	},
+	{
+		"name": "Tunnel Rush 2",
+		"url": "https://arcadehubgaming.github.io/cdn11/TunnelRush2-gh-pages/TunnelRush2-gh-pages"
+	},
+	{
+		"name": "Wiggle",
+		"url": "https://arcadehubgaming.github.io/cdn11/Wiggle-gh-pages/Wiggle-gh-pages"
+	},
+	{
+		"name": "Woodventure",
+		"url": "https://arcadehubgaming.github.io/cdn11/Woodventure-gh-pages/Woodventure-gh-pages"
+	},
 ];
