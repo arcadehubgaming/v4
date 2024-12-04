@@ -1828,4 +1828,24 @@ ArcadeHubItems.Games = [
 		"name": "Woodventure",
 		"url": "https://arcadehubgaming.github.io/cdn11/Woodventure-gh-pages/Woodventure-gh-pages"
 	},
+	{
+		"name": "Douchebag Life",
+		"url": "https://arcadehubgaming.github.io/cdn11/DoucheBagLife-main"
+	},
+	{
+		"name": "Douchebags Chicks",
+		"url": "https://arcadehubgaming.github.io/cdn11/DoucheBagsChicks-main"
+	},
+	{
+		"name": "Douchebag Workout",
+		"url": "https://arcadehubgaming.github.io/cdn11/DoucheBagWorkout-main"
+	},
+	{
+		"name": "Douchebag Workout 2",
+		"url": "https://arcadehubgaming.github.io/cdn11/DoucheBagWorkout2-main"
+	},
+	{
+		"name": "Plants vs Zombies",
+		"url": "https://arcadehubgaming.github.io/cdn11/PlantsVsZombies-main"
+	},
 ];
