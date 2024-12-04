@@ -1852,4 +1852,12 @@ ArcadeHubItems.Games = [
 		"name": "Block Blast",
 		"url": "https://arcadehubgaming.github.io/cdn12/BlockBlast-main"
 	},
+	{
+		"name": "Among Us Online (Server #1)",
+		"url": "https://arcadehubgaming.github.io/cdn12/among-us-online-scratch"
+	},
+	{
+		"name": "Among Us Online (Server #2)",
+		"url": "https://arcadehubgaming.github.io/cdn12/among-us-online-2"
+	},
 ];
