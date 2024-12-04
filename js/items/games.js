@@ -1856,4 +1856,48 @@ ArcadeHubItems.Games = [
 		"name": "Among Us Online (Server #2)",
 		"url": "https://arcadehubgaming.github.io/cdn12/among-us-online-2"
 	},
+	{
+		"name": "Chicken Merge",
+		"url": "https://arcadehubgaming.github.io/cdn12/ChickenMerge-gh-pages/ChickenMerge-gh-pages/"
+	},
+	{
+		"name": "Mr. Bullet",
+		"url": "https://arcadehubgaming.github.io/cdn12/MrBullet-gh-pages/MrBullet-gh-pages/"
+	},
+	{
+		"name": "Mr. Bullet 3D",
+		"url": "https://arcadehubgaming.github.io/cdn12/MrBullet3D-gh-pages/MrBullet3D-gh-pages/"
+	},
+	{
+		"name": "SnailBob",
+		"url": "https://arcadehubgaming.github.io/cdn12/SnailBob-gh-pages/SnailBob-gh-pages/"
+	},
+	{
+		"name": "SnailBob 2",
+		"url": "https://arcadehubgaming.github.io/cdn12/SnailBob2-gh-pages/SnailBob2-gh-pages/"
+	},
+	{
+		"name": "SnailBob 3",
+		"url": "https://arcadehubgaming.github.io/cdn12/SnailBob3-gh-pages/SnailBob3-gh-pages/"
+	},
+	{
+		"name": "SnailBob 4",
+		"url": "https://arcadehubgaming.github.io/cdn12/SnailBob4-gh-pages/SnailBob4-gh-pages/"
+	},
+	{
+		"name": "SnailBob 5",
+		"url": "https://arcadehubgaming.github.io/cdn12/SnailBob5-gh-pages/SnailBob5-gh-pages/"
+	},
+	{
+		"name": "SnailBob 6",
+		"url": "https://arcadehubgaming.github.io/cdn12/SnailBob6-gh-pages/SnailBob6-gh-pages/"
+	},
+	{
+		"name": "SnailBob 7",
+		"url": "https://arcadehubgaming.github.io/cdn12/SnailBob7-gh-pages/SnailBob7-gh-pages/"
+	},
+	{
+		"name": "SnailBob 8",
+		"url": "https://arcadehubgaming.github.io/cdn12/SnailBob8-gh-pages/SnailBob8-gh-pages/"
+	},
 ];
