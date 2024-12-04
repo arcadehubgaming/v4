@@ -1376,23 +1376,19 @@ ArcadeHubItems.Games = [
 		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/zigzag/zigzag.html"
 	},
 	{
-		"name": "Zombs Royale",
-		"url": "https://arcadehubgaming.github.io/cdn6/cdn6/zombs-royale/index.html"
-	},
-	{
-		"name": "checkers",
+		"name": "Checkers",
 		"url": "https://arcadehubgaming.github.io/cdn/checkers/checkers.html"
 	},
 	{
-		"name": "circlO",
+		"name": "CirclO",
 		"url": "https://arcadehubgaming.github.io/cdn/circlo/index.html"
 	},
 	{
-		"name": "highrise hop",
+		"name": "Highrise Hop",
 		"url": "https://arcadehubgaming.github.io/cdn2/highrisehop/index.html"
 	},
 	{
-		"name": "kirka",
+		"name": "Kirka",
 		"url": "https://arcadehubgaming.github.io/cdn5/cdn5/kirkaio/kirka.html"
 	},
 	{
