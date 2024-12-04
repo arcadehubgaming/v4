@@ -1848,4 +1848,8 @@ ArcadeHubItems.Games = [
 		"name": "Plants vs Zombies",
 		"url": "https://arcadehubgaming.github.io/cdn11/PlantsVsZombies-main"
 	},
+	{
+		"name": "Block Blast",
+		"url": "https://arcadehubgaming.github.io/cdn12/BlockBlast-main"
+	},
 ];
