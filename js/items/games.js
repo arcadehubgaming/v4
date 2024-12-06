@@ -1899,5 +1899,5 @@ ArcadeHubItems.Games = [
 	{
 		"name": "SnailBob 8",
 		"url": "https://arcadehubgaming.github.io/cdn12/SnailBob8-gh-pages/SnailBob8-gh-pages/"
-	},
+	}
 ];
