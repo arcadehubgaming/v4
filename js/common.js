@@ -122,6 +122,16 @@ var ArcadeHub = {
     },
 
     Utils: {
+        fetchScript: function(url) {
+            fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                const script = document.createElement('script');
+                script.textContent = data;
+                document.body.appendChild(script);
+            })
+            .catch(error => console.error('Error loading the script:', error));
+        },
         openGame: function (url, noaboutblank) {
             var cond1 = (ArcadeHub.currentTab === "Games" && ArcadeHubSettings.gameNewTab);
             var cond2 = (ArcadeHub.currentTab === "Movies" && ArcadeHubSettings.movieNewTab);
@@ -347,6 +357,11 @@ var ArcadeHub = {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/games.js");
+    ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/movies.js");
+    ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/proxies.js");
+
     const lastVersion = ArcadeHub.getCookie("lastVersion");
     ArcadeHub.setCookie("lastVersion", ArcadeHub.currentVersion, 32767);
 
