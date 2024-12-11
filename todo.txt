@@ -1,2 +1,4 @@
 panic key
 favorites
+notifications
+cache

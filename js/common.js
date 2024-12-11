@@ -6,7 +6,8 @@ var ArcadeHubSettings = {
     gameNewTab: true,
     movieNewTab: true,
     proxyNewTab: true,
-    customTheme: {}
+    customTheme: {},
+    cachedItemsList: []
 };
 
 var ArcadeHub = {
@@ -14,11 +15,12 @@ var ArcadeHub = {
     isDisplaying: false,
     snowInterval: null,
     currentTab: "Games",
-    currentVersion: "1.0.6",
+    currentVersion: "1.0.8",
     updates: [
-        "Ability to view games, movies, and proxies without it opening a new tab (Check Settings!)",
-        "Fixed a bunch of games",
-        "More proxies"
+        "MUCH more games",
+        "Notification system",
+        "Information on games added + removed",
+        "Panic key coming soon..."
     ],
 
     createPopup: function (title, content) {
@@ -83,7 +85,7 @@ var ArcadeHub = {
             popupContainer.remove();
             this.isDisplaying = false;
             this.processQueue();
-            this.setCookie("hasVisited", "true", 32767);
+            this.setCookie("hasVisited", true, 32767);
             this.setCookie("lastVersion", this.currentVersion, 32767);
         });
     },
@@ -93,9 +95,9 @@ var ArcadeHub = {
     },
 
     setCookie: function (name, value, days) {
-        let expires = "";
+        var expires = "";
         if (days) {
-            const date = new Date();
+            var date = new Date();
             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
             expires = "; expires=" + date.toUTCString();
         }
@@ -103,12 +105,12 @@ var ArcadeHub = {
     },
 
     getCookie: function (name) {
-        const nameEQ = name + "=";
-        const ca = document.cookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
         }
         return null;
     },
@@ -122,18 +124,18 @@ var ArcadeHub = {
     },
 
     Utils: {
-        fetchScript: function(url) {
-            return fetch(url)
-            .then(response => response.text())
-            .then(data => {
-                const script = document.createElement("script");
-                script.innerHTML = data;
-                document.body.appendChild(script);
-            })
-            .catch(error => {
-                console.error(error);
-                alert("Error loading script: " + url);
-            });
+        fetchScript: function (url) {
+            return fetch(url + "?" + Math.random())
+                .then(response => response.text())
+                .then(data => {
+                    const script = document.createElement("script");
+                    script.innerHTML = data;
+                    document.body.appendChild(script);
+                })
+                .catch(error => {
+                    console.error(error);
+                    ArcadeHub.pushNotification("Error loading script: " + url);
+                });
         },
         openGame: function (url, noaboutblank) {
             var cond1 = (ArcadeHub.currentTab === "Games" && ArcadeHubSettings.gameNewTab);
@@ -355,25 +357,103 @@ var ArcadeHub = {
                     }
                 }
             }
-        }
+        },
+        pushNotification: function (message, duration = 5000) {
+            let notificationContainer = document.querySelector(".push-notification-container");
+            if (!notificationContainer) {
+                notificationContainer = document.createElement("div");
+                notificationContainer.className = "push-notification-container";
+                document.body.appendChild(notificationContainer);
+            }
+
+            const notification = document.createElement("div");
+            notification.className = "push-notification";
+            notification.textContent = message;
+
+            const progressBar = document.createElement("div");
+            progressBar.className = "progress-bar";
+
+            notification.appendChild(progressBar);
+            notificationContainer.appendChild(notification);
+
+            setTimeout(() => {
+                progressBar.style.transition = `width ${duration}ms linear`;
+                progressBar.style.width = "100%";
+            }, 30);
+
+            setTimeout(() => {
+                notification.classList.add("hide");
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, duration);
+        },
     }
 };
 
 document.addEventListener("DOMContentLoaded", async function () {
+    let gamesFetched = false;
+    let moviesFetched = false;
+    let proxiesFetched = false;
 
-    await Promise.all([
-        ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/games.js"),
-        ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/movies.js"),
-        ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/proxies.js")
-    ]);
+    try {
+        await Promise.all([
+            ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/games.js"),
+            ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/movies.js"),
+            ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/proxies.js")
+        ]);
+        gamesFetched = true;
+        moviesFetched = true;
+        proxiesFetched = true;
+    } catch (error) {
+        ArcadeHub.Utils.pushNotification("Fetch failed, please ensure connection to the internet and retry!");
+    }
+
+    if (!gamesFetched || !moviesFetched || !proxiesFetched) {
+        ArcadeHub.Utils.pushNotification("Fetch failed, please ensure connection to the internet and retry!");
+    }
 
     const lastVersion = ArcadeHub.getCookie("lastVersion");
     ArcadeHub.setCookie("lastVersion", ArcadeHub.currentVersion, 32767);
+
+    const cachedItemsList = JSON.parse(ArcadeHub.getCookie("ArcadeHubSettings")).cachedItemsList || [];
+
+    function compareLists() {
+        var differences = [
+            ArcadeHubItems.Games.length - cachedItemsList[0],
+            ArcadeHubItems.Movies.length - cachedItemsList[1],
+            ArcadeHubItems.Proxies.length - cachedItemsList[2]
+        ];
+    
+        var labels = ["game", "movie", "proxy"];
+        var str = [];
+    
+        differences.forEach((diff, index) => {
+            if (diff !== 0) {
+                var action = diff > 0 ? "added" : "removed";
+                var label = Math.abs(diff) === 1 ? labels[index] : labels[index] + "s";
+                str.push(Math.abs(diff) + " " + label + " " + action);
+            }
+        });
+    
+        if (str.length > 0) {
+            ArcadeHub.Utils.pushNotification(str.join(", "));
+        }
+    }    
 
     document.querySelector('.games').style.display = 'flex';
     ArcadeHub.Utils.populate(document.querySelector('.games'), ArcadeHubItems.Games);
     ArcadeHub.Utils.populate(document.querySelector('.movies'), ArcadeHubItems.Movies);
     ArcadeHub.Utils.populate(document.querySelector('.proxies'), ArcadeHubItems.Proxies);
+
+    compareLists();
+
+    ArcadeHubSettings.cachedItemsList = [
+        ArcadeHubItems.Games.length,
+        ArcadeHubItems.Movies.length,
+        ArcadeHubItems.Proxies.length
+    ];
+    ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
 
     const sidebarToggles = document.querySelectorAll('.sidebar-toggle');
     sidebarToggles.forEach(toggle => {
@@ -401,7 +481,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         document.getElementById("game-viewer").requestFullscreen();
     });
 
-    document.getElementById("save-theme-btn").addEventListener("click", function () {
+    /*
+        document.getElementById("save-theme-btn").addEventListener("click", function () {
         const bgColor = document.getElementById("bg-color").value;
         const secondarybgColor = document.getElementById("secondarybg-color").value;
         const textColor = document.getElementById("text-color").value;
@@ -423,7 +504,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         document.getElementById("theme-modal").style.display = "none";
         ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
     });
-
+    */
     themeSelect.addEventListener("change", function () {
         const selectedTheme = themeSelect.value;
         document.body.className = "";
@@ -485,8 +566,9 @@ document.addEventListener("DOMContentLoaded", async function () {
                 break;
             case "custom-theme":
                 document.body.classList.add("arcadehub-custom-theme");
-                ArcadeHub.Utils.applyCustomTheme();
-                ArcadeHubSettings.theme = "custom-theme";
+                themeSelect.value = "default";
+                ArcadeHub.Utils.pushNotification("Custom theme temporarily removed, please use another theme for now.")
+                ArcadeHubSettings.theme = "default";
                 ArcadeHubSettings.enableSnow = false;
         }
 
@@ -640,4 +722,5 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (lastVersion && String(lastVersion) !== String(ArcadeHub.currentVersion)) {
         ArcadeHub.createUpdatePopup("Update Changelog", ArcadeHub.updates);
     }
+
 });
