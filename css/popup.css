@@ -52,6 +52,15 @@
     font-weight: 600;
 }
 
+.arcadehub-midnight .popup-close-btn {
+    color: var(--text-color);
+}
+
+.arcadehub-midnight .popup-close-btn:hover {
+    color: var(--text-color);
+    filter: brightness(0.9);
+}
+
 .popup-close-btn:hover {
     color: var(--button-hover-bg-color);
 }

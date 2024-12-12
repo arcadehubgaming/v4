@@ -17,7 +17,7 @@ var ArcadeHub = {
     isDisplaying: false,
     snowInterval: null,
     currentTab: "Games",
-    currentVersion: "1.0.93",
+    currentVersion: "1.0.94",
     updates: [
         "Panic Key now implemented in Games, Movies, and Proxies"
     ],
