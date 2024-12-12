@@ -449,6 +449,32 @@ var ArcadeHub = {
 
 document.addEventListener("DOMContentLoaded", async function () {
     try {
+        const themeSelect = document.getElementById("theme-select");
+        const storedSettings = ArcadeHub.getCookie("ArcadeHubSettings");
+        if (storedSettings) {
+            Object.assign(ArcadeHubSettings, JSON.parse(storedSettings));
+
+            themeSelect.value = ArcadeHubSettings.theme;
+
+            switch (themeSelect.value) {
+                case "default":
+                    document.body.className = "";
+                    document.documentElement.style = '';
+                default:
+                    document.body.classList.add(`arcadehub-${ArcadeHubSettings.theme}`);
+            }
+
+            if (themeSelect.value === "custom-theme") {
+                ArcadeHub.Utils.applyCustomTheme();
+            }
+
+            if (ArcadeHubSettings.panicKeyToggle == true) {
+                document.addEventListener("keypress", ArcadeHub.Utils.panicKeyHandler);
+            } 
+
+            ArcadeHub.Utils.manageSnowflakes();
+        }
+
         let gamesFetched = false;
         let moviesFetched = false;
         let proxiesFetched = false;
@@ -492,6 +518,9 @@ document.addEventListener("DOMContentLoaded", async function () {
                 if (diff !== 0) {
                     var action = diff > 0 ? "added" : "removed";
                     var label = Math.abs(diff) === 1 ? labels[index] : labels[index] + "s";
+                    if (label === "proxys") {
+                        label = "proxies";
+                    }
                     str.push(Math.abs(diff) + " " + label + " " + action);
                 }
             });
@@ -522,8 +551,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
 
         document.querySelector('.search-input').addEventListener('input', ArcadeHub.Utils.searchItem);
-
-        const themeSelect = document.getElementById("theme-select");
 
         document.getElementById("create-theme-btn").addEventListener("click", function () {
             document.getElementById("theme-modal").style.display = "block";
@@ -691,31 +718,6 @@ document.addEventListener("DOMContentLoaded", async function () {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
-
-        const storedSettings = ArcadeHub.getCookie("ArcadeHubSettings");
-        if (storedSettings) {
-            Object.assign(ArcadeHubSettings, JSON.parse(storedSettings));
-
-            themeSelect.value = ArcadeHubSettings.theme;
-
-            switch (themeSelect.value) {
-                case "default":
-                    document.body.className = "";
-                    document.documentElement.style = '';
-                default:
-                    document.body.classList.add(`arcadehub-${ArcadeHubSettings.theme}`);
-            }
-
-            if (themeSelect.value === "custom-theme") {
-                ArcadeHub.Utils.applyCustomTheme();
-            }
-
-            if (ArcadeHubSettings.panicKeyToggle == true) {
-                document.addEventListener("keypress", ArcadeHub.Utils.panicKeyHandler);
-            } 
-
-            ArcadeHub.Utils.manageSnowflakes();
-        }
 
         gameNewTabToggle.checked = ArcadeHubSettings.gameNewTab;
         movieNewTabToggle.checked = ArcadeHubSettings.movieNewTab;
