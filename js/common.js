@@ -7,7 +7,7 @@ var ArcadeHubSettings = {
     movieNewTab: true,
     proxyNewTab: true,
     customTheme: {},
-    cachedItemsList: []
+    cachedItemsList: [0, 0, 0]
 };
 
 var ArcadeHub = {
@@ -15,12 +15,9 @@ var ArcadeHub = {
     isDisplaying: false,
     snowInterval: null,
     currentTab: "Games",
-    currentVersion: "1.0.8",
+    currentVersion: "1.0.9",
     updates: [
-        "MUCH more games",
-        "Notification system",
-        "Information on games added + removed",
-        "Panic key coming soon..."
+        "Debugging fixes.."
     ],
 
     createPopup: function (title, content) {
@@ -358,7 +355,7 @@ var ArcadeHub = {
                 }
             }
         },
-        pushNotification: function (message, duration = 5000) {
+        pushNotification: function (message, duration = 5000, func = null) {
             let notificationContainer = document.querySelector(".push-notification-container");
             if (!notificationContainer) {
                 notificationContainer = document.createElement("div");
@@ -376,6 +373,10 @@ var ArcadeHub = {
             notification.appendChild(progressBar);
             notificationContainer.appendChild(notification);
 
+            if (func != null) {
+                notification.addEventListener("click", func);
+            }
+
             setTimeout(() => {
                 progressBar.style.transition = `width ${duration}ms linear`;
                 progressBar.style.width = "100%";
@@ -388,339 +389,382 @@ var ArcadeHub = {
                 }, 300);
             }, duration);
         },
+        deleteAllCookies: function() {
+            var cookies = document.cookie.split(";");
+        
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                var eqPos = cookie.indexOf("=");
+                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        
+                document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+            }
+        },
+        arraysAreEqual: function (arr1, arr2) {
+            if (arr1.length !== arr2.length) {
+                return false;
+            }
+
+            for (let i = 0; i < arr1.length; i++) {
+                if (arr1[i] !== arr2[i]) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 };
 
 document.addEventListener("DOMContentLoaded", async function () {
-    let gamesFetched = false;
-    let moviesFetched = false;
-    let proxiesFetched = false;
-
     try {
-        await Promise.all([
-            ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/games.js"),
-            ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/movies.js"),
-            ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/proxies.js")
-        ]);
-        gamesFetched = true;
-        moviesFetched = true;
-        proxiesFetched = true;
-    } catch (error) {
-        ArcadeHub.Utils.pushNotification("Fetch failed, please ensure connection to the internet and retry!");
-    }
+        let gamesFetched = false;
+        let moviesFetched = false;
+        let proxiesFetched = false;
 
-    if (!gamesFetched || !moviesFetched || !proxiesFetched) {
-        ArcadeHub.Utils.pushNotification("Fetch failed, please ensure connection to the internet and retry!");
-    }
+        try {
+            await Promise.all([
+                ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/games.js"),
+                ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/movies.js"),
+                ArcadeHub.Utils.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/proxies.js")
+            ]);
+            gamesFetched = true;
+            moviesFetched = true;
+            proxiesFetched = true;
+        } catch (error) {
+            ArcadeHub.Utils.pushNotification("Fetch failed, please ensure connection to the internet and retry!");
+        }
 
-    const lastVersion = ArcadeHub.getCookie("lastVersion");
-    ArcadeHub.setCookie("lastVersion", ArcadeHub.currentVersion, 32767);
+        if (!gamesFetched || !moviesFetched || !proxiesFetched) {
+            ArcadeHub.Utils.pushNotification("Fetch failed, please ensure connection to the internet and retry!");
+        }
 
-    const cachedItemsList = JSON.parse(ArcadeHub.getCookie("ArcadeHubSettings")).cachedItemsList || [];
+        const lastVersion = ArcadeHub.getCookie("lastVersion");
+        ArcadeHub.setCookie("lastVersion", ArcadeHub.currentVersion, 32767);
 
-    function compareLists() {
-        var differences = [
-            ArcadeHubItems.Games.length - cachedItemsList[0],
-            ArcadeHubItems.Movies.length - cachedItemsList[1],
-            ArcadeHubItems.Proxies.length - cachedItemsList[2]
+        var cachedItemsList = [0, 0, 0];
+        if (ArcadeHub.getCookie("ArcadeHubSettings")) {
+            cachedItemsList = JSON.parse(ArcadeHub.getCookie("ArcadeHubSettings")).cachedItemsList;
+        }
+
+        function compareLists() {
+            var differences = [
+                ArcadeHubItems.Games.length - cachedItemsList[0],
+                ArcadeHubItems.Movies.length - cachedItemsList[1],
+                ArcadeHubItems.Proxies.length - cachedItemsList[2]
+            ];
+
+            var labels = ["game", "movie", "proxy"];
+            var str = [];
+
+            differences.forEach((diff, index) => {
+                if (diff !== 0) {
+                    var action = diff > 0 ? "added" : "removed";
+                    var label = Math.abs(diff) === 1 ? labels[index] : labels[index] + "s";
+                    str.push(Math.abs(diff) + " " + label + " " + action);
+                }
+            });
+
+            if (str.length > 0) {
+                ArcadeHub.Utils.pushNotification(str.join(", "));
+            }
+        }
+
+        document.querySelector('.games').style.display = 'flex';
+        ArcadeHub.Utils.populate(document.querySelector('.games'), ArcadeHubItems.Games);
+        ArcadeHub.Utils.populate(document.querySelector('.movies'), ArcadeHubItems.Movies);
+        ArcadeHub.Utils.populate(document.querySelector('.proxies'), ArcadeHubItems.Proxies);
+
+        if (!ArcadeHub.Utils.arraysAreEqual(cachedItemsList, [0, 0, 0])) {
+            compareLists();
+        }
+
+        ArcadeHubSettings.cachedItemsList = [
+            ArcadeHubItems.Games.length,
+            ArcadeHubItems.Movies.length,
+            ArcadeHubItems.Proxies.length
         ];
+        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+
+        const sidebarToggles = document.querySelectorAll('.sidebar-toggle');
+        sidebarToggles.forEach(toggle => {
+            toggle.addEventListener('click', ArcadeHub.Utils.switchTab);
+        });
+
+        document.querySelector('.search-input').addEventListener('input', ArcadeHub.Utils.searchItem);
+
+        const themeSelect = document.getElementById("theme-select");
+
+        document.getElementById("create-theme-btn").addEventListener("click", function () {
+            document.getElementById("theme-modal").style.display = "block";
+        });
+
+        document.getElementById("close-modal-btn").addEventListener("click", function () {
+            document.getElementById("theme-modal").style.display = "none";
+        });
+
+        document.getElementById("close-play-modal").addEventListener("click", function () {
+            document.getElementById("play-modal").style.display = "none";
+            document.getElementById("game-viewer").src = "";
+        });
+
+        document.getElementById("fullscreen-game-viewer").addEventListener("click", function () {
+            document.getElementById("game-viewer").requestFullscreen();
+        });
+
+        /*
+            document.getElementById("save-theme-btn").addEventListener("click", function () {
+            const bgColor = document.getElementById("bg-color").value;
+            const secondarybgColor = document.getElementById("secondarybg-color").value;
+            const textColor = document.getElementById("text-color").value;
+            const buttonColor = document.getElementById("button-color").value;
+            const buttonHoverColor = document.getElementById("button-hover-color").value;
     
-        var labels = ["game", "movie", "proxy"];
-        var str = [];
+            const customTheme = {
+                "--bg-color": bgColor,
+                "--secondary-bg-color": secondarybgColor,
+                "--text-color": textColor,
+                "--button-bg-color": buttonColor,
+                "--button-hover-bg-color": buttonHoverColor,
+            };
     
-        differences.forEach((diff, index) => {
-            if (diff !== 0) {
-                var action = diff > 0 ? "added" : "removed";
-                var label = Math.abs(diff) === 1 ? labels[index] : labels[index] + "s";
-                str.push(Math.abs(diff) + " " + label + " " + action);
+            ArcadeHubSettings.customTheme = customTheme;
+    
+            ArcadeHub.Utils.applyCustomTheme();
+    
+            document.getElementById("theme-modal").style.display = "none";
+            ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+        });
+        */
+        themeSelect.addEventListener("change", function () {
+            const selectedTheme = themeSelect.value;
+            document.body.className = "";
+            document.documentElement.style = '';
+
+            ArcadeHubSettings.theme = "default";
+            ArcadeHubSettings.enableSnow = false;
+
+            switch (selectedTheme) {
+                case "dark":
+                    document.body.classList.add("arcadehub-dark");
+                    ArcadeHubSettings.theme = "dark";
+                    ArcadeHubSettings.enableSnow = false;
+                    break;
+                case "fall":
+                    document.body.classList.add("arcadehub-fall");
+                    ArcadeHubSettings.theme = "fall";
+                    ArcadeHubSettings.enableSnow = false;
+                    break;
+                case "winter":
+                    document.body.classList.add("arcadehub-winter");
+                    ArcadeHubSettings.theme = "winter";
+                    ArcadeHubSettings.enableSnow = true;
+                    break;
+                case "oxocarbon-dark":
+                    document.body.classList.add("arcadehub-oxocarbon-dark");
+                    ArcadeHubSettings.theme = "oxocarbon-dark";
+                    ArcadeHubSettings.enableSnow = false;
+                    break;
+                case "oxocarbon-light":
+                    document.body.classList.add("arcadehub-oxocarbon-light");
+                    ArcadeHubSettings.theme = "oxocarbon-light";
+                    ArcadeHubSettings.enableSnow = false;
+                    break;
+                case "catppuccin-latte":
+                    document.body.classList.add("arcadehub-catppuccin-latte");
+                    ArcadeHubSettings.theme = "catppuccin-latte";
+                    ArcadeHubSettings.enableSnow = false;
+                    break;
+                case "catppuccin-frappe":
+                    document.body.classList.add("arcadehub-catppuccin-frappe");
+                    ArcadeHubSettings.theme = "catppuccin-frappe";
+                    ArcadeHubSettings.enableSnow = false;
+                    break;
+                case "catppuccin-macchiato":
+                    document.body.classList.add("arcadehub-catppuccin-macchiato");
+                    ArcadeHubSettings.theme = "catppuccin-macchiato";
+                    ArcadeHubSettings.enableSnow = false;
+                    break;
+                case "catppuccin-mocha":
+                    document.body.classList.add("arcadehub-catppuccin-mocha");
+                    ArcadeHubSettings.theme = "catppuccin-mocha";
+                    ArcadeHubSettings.enableSnow = false;
+                    break;
+                case "midnight":
+                    document.body.classList.add("arcadehub-midnight");
+                    ArcadeHubSettings.theme = "midnight";
+                    ArcadeHubSettings.enableSnow = false;
+                    break;
+                case "custom-theme":
+                    document.body.classList.add("arcadehub-custom-theme");
+                    themeSelect.value = "default";
+                    ArcadeHub.Utils.pushNotification("Custom theme temporarily removed, please use another theme for now.")
+                    ArcadeHubSettings.theme = "default";
+                    ArcadeHubSettings.enableSnow = false;
+            }
+
+            ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+            ArcadeHub.Utils.manageSnowflakes();
+        });
+
+
+        const gameNewTabToggle = document.getElementById("game-newtab-toggle");
+        const movieNewTabToggle = document.getElementById("movie-newtab-toggle");
+        const proxyNewTabToggle = document.getElementById("proxy-newtab-toggle");
+
+        function setJumpButton() {
+            const scrollPosition = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight;
+            const winHeight = window.innerHeight;
+
+            const atTop = scrollPosition < 100;
+            const atBottom = scrollPosition + winHeight >= docHeight - 100;
+
+            const jumpToTopButton = document.getElementById("jumpToTopButton");
+
+            if (atTop) {
+                jumpToTopButton.classList.add('flipped');
+            }
+            if (!atTop) {
+                jumpToTopButton.classList.remove('flipped');
+            }
+        }
+
+        setJumpButton();
+
+        document.addEventListener("scroll", function () {
+            const scrollPosition = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight;
+            const winHeight = window.innerHeight;
+
+            const atTop = scrollPosition < 100;
+            const atBottom = scrollPosition + winHeight >= docHeight - 100;
+
+            const jumpToTopButton = document.getElementById("jumpToTopButton");
+
+            if (atTop) {
+                jumpButton.classList.add('flipped');
+            }
+            if (!atTop) {
+                jumpButton.classList.remove('flipped');
             }
         });
-    
-        if (str.length > 0) {
-            ArcadeHub.Utils.pushNotification(str.join(", "));
-        }
-    }    
 
-    document.querySelector('.games').style.display = 'flex';
-    ArcadeHub.Utils.populate(document.querySelector('.games'), ArcadeHubItems.Games);
-    ArcadeHub.Utils.populate(document.querySelector('.movies'), ArcadeHubItems.Movies);
-    ArcadeHub.Utils.populate(document.querySelector('.proxies'), ArcadeHubItems.Proxies);
+        document.getElementById("jumpToTopButton").addEventListener("click", function () {
+            const scrollPosition = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight;
+            const winHeight = window.innerHeight;
 
-    compareLists();
+            if (scrollPosition < 100) {
+                window.scrollTo({ top: docHeight, behavior: 'smooth' });
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
 
-    ArcadeHubSettings.cachedItemsList = [
-        ArcadeHubItems.Games.length,
-        ArcadeHubItems.Movies.length,
-        ArcadeHubItems.Proxies.length
-    ];
-    ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+        const storedSettings = ArcadeHub.getCookie("ArcadeHubSettings");
+        if (storedSettings) {
+            Object.assign(ArcadeHubSettings, JSON.parse(storedSettings));
 
-    const sidebarToggles = document.querySelectorAll('.sidebar-toggle');
-    sidebarToggles.forEach(toggle => {
-        toggle.addEventListener('click', ArcadeHub.Utils.switchTab);
-    });
+            themeSelect.value = ArcadeHubSettings.theme;
 
-    document.querySelector('.search-input').addEventListener('input', ArcadeHub.Utils.searchItem);
+            switch (themeSelect.value) {
+                case "default":
+                    document.body.className = "";
+                    document.documentElement.style = '';
+                default:
+                    document.body.classList.add(`arcadehub-${ArcadeHubSettings.theme}`);
+            }
 
-    const themeSelect = document.getElementById("theme-select");
+            if (themeSelect.value === "custom-theme") {
+                ArcadeHub.Utils.applyCustomTheme();
+            }
 
-    document.getElementById("create-theme-btn").addEventListener("click", function () {
-        document.getElementById("theme-modal").style.display = "block";
-    });
-
-    document.getElementById("close-modal-btn").addEventListener("click", function () {
-        document.getElementById("theme-modal").style.display = "none";
-    });
-
-    document.getElementById("close-play-modal").addEventListener("click", function () {
-        document.getElementById("play-modal").style.display = "none";
-        document.getElementById("game-viewer").src = "";
-    });
-
-    document.getElementById("fullscreen-game-viewer").addEventListener("click", function () {
-        document.getElementById("game-viewer").requestFullscreen();
-    });
-
-    /*
-        document.getElementById("save-theme-btn").addEventListener("click", function () {
-        const bgColor = document.getElementById("bg-color").value;
-        const secondarybgColor = document.getElementById("secondarybg-color").value;
-        const textColor = document.getElementById("text-color").value;
-        const buttonColor = document.getElementById("button-color").value;
-        const buttonHoverColor = document.getElementById("button-hover-color").value;
-
-        const customTheme = {
-            "--bg-color": bgColor,
-            "--secondary-bg-color": secondarybgColor,
-            "--text-color": textColor,
-            "--button-bg-color": buttonColor,
-            "--button-hover-bg-color": buttonHoverColor,
-        };
-
-        ArcadeHubSettings.customTheme = customTheme;
-
-        ArcadeHub.Utils.applyCustomTheme();
-
-        document.getElementById("theme-modal").style.display = "none";
-        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
-    });
-    */
-    themeSelect.addEventListener("change", function () {
-        const selectedTheme = themeSelect.value;
-        document.body.className = "";
-        document.documentElement.style = '';
-
-        ArcadeHubSettings.theme = "default";
-        ArcadeHubSettings.enableSnow = false;
-
-        switch (selectedTheme) {
-            case "dark":
-                document.body.classList.add("arcadehub-dark");
-                ArcadeHubSettings.theme = "dark";
-                ArcadeHubSettings.enableSnow = false;
-                break;
-            case "fall":
-                document.body.classList.add("arcadehub-fall");
-                ArcadeHubSettings.theme = "fall";
-                ArcadeHubSettings.enableSnow = false;
-                break;
-            case "winter":
-                document.body.classList.add("arcadehub-winter");
-                ArcadeHubSettings.theme = "winter";
-                ArcadeHubSettings.enableSnow = true;
-                break;
-            case "oxocarbon-dark":
-                document.body.classList.add("arcadehub-oxocarbon-dark");
-                ArcadeHubSettings.theme = "oxocarbon-dark";
-                ArcadeHubSettings.enableSnow = false;
-                break;
-            case "oxocarbon-light":
-                document.body.classList.add("arcadehub-oxocarbon-light");
-                ArcadeHubSettings.theme = "oxocarbon-light";
-                ArcadeHubSettings.enableSnow = false;
-                break;
-            case "catppuccin-latte":
-                document.body.classList.add("arcadehub-catppuccin-latte");
-                ArcadeHubSettings.theme = "catppuccin-latte";
-                ArcadeHubSettings.enableSnow = false;
-                break;
-            case "catppuccin-frappe":
-                document.body.classList.add("arcadehub-catppuccin-frappe");
-                ArcadeHubSettings.theme = "catppuccin-frappe";
-                ArcadeHubSettings.enableSnow = false;
-                break;
-            case "catppuccin-macchiato":
-                document.body.classList.add("arcadehub-catppuccin-macchiato");
-                ArcadeHubSettings.theme = "catppuccin-macchiato";
-                ArcadeHubSettings.enableSnow = false;
-                break;
-            case "catppuccin-mocha":
-                document.body.classList.add("arcadehub-catppuccin-mocha");
-                ArcadeHubSettings.theme = "catppuccin-mocha";
-                ArcadeHubSettings.enableSnow = false;
-                break;
-            case "midnight":
-                document.body.classList.add("arcadehub-midnight");
-                ArcadeHubSettings.theme = "midnight";
-                ArcadeHubSettings.enableSnow = false;
-                break;
-            case "custom-theme":
-                document.body.classList.add("arcadehub-custom-theme");
-                themeSelect.value = "default";
-                ArcadeHub.Utils.pushNotification("Custom theme temporarily removed, please use another theme for now.")
-                ArcadeHubSettings.theme = "default";
-                ArcadeHubSettings.enableSnow = false;
+            ArcadeHub.Utils.manageSnowflakes();
         }
 
-        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
-        ArcadeHub.Utils.manageSnowflakes();
-    });
+        gameNewTabToggle.checked = ArcadeHubSettings.gameNewTab;
+        movieNewTabToggle.checked = ArcadeHubSettings.movieNewTab;
+        proxyNewTabToggle.checked = ArcadeHubSettings.proxyNewTab;
 
+        const cloakingToggle = document.getElementById("cloaking-toggle");
+        cloakingToggle.addEventListener("change", function () {
+            ArcadeHubSettings.cloakingToggle = cloakingToggle.checked;
+            if (cloakingToggle.checked) {
+                document.title = "Google Drive";
+                document.getElementById("favicon").href = "https://www.gstatic.com/images/branding/product/2x/drive_48dp.png";
+                ArcadeHub.Utils.cloakPage();
+            } else {
+                document.title = "Arcade Hub v4";
+                document.getElementById("favicon").href = "";
+            }
+            ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+        });
 
-    const gameNewTabToggle = document.getElementById("game-newtab-toggle");
-    const movieNewTabToggle = document.getElementById("movie-newtab-toggle");
-    const proxyNewTabToggle = document.getElementById("proxy-newtab-toggle");
+        const jumpToggle = document.getElementById("jump-toggle");
+        const jumpButton = document.getElementById("jumpToTopButton");
+        jumpToggle.addEventListener("change", function () {
+            ArcadeHubSettings.jumpButton = jumpToggle.checked;
+            if (jumpToggle.checked) {
+                jumpButton.style = "display: block";
+            } else {
+                jumpButton.style = "display: none";
+            }
+            ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+        });
 
-    function setJumpButton() {
-        const scrollPosition = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight;
-        const winHeight = window.innerHeight;
+        gameNewTabToggle.addEventListener("change", function () {
+            ArcadeHubSettings.gameNewTab = gameNewTabToggle.checked;
+            ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+        });
 
-        const atTop = scrollPosition < 100;
-        const atBottom = scrollPosition + winHeight >= docHeight - 100;
+        movieNewTabToggle.addEventListener("change", function () {
+            ArcadeHubSettings.movieNewTab = movieNewTabToggle.checked;
+            ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+        });
 
-        const jumpToTopButton = document.getElementById("jumpToTopButton");
+        proxyNewTabToggle.addEventListener("change", function () {
+            ArcadeHubSettings.proxyNewTab = proxyNewTabToggle.checked;
+            ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+        });
 
-        if (atTop) {
-            jumpToTopButton.classList.add('flipped');
-        }
-        if (!atTop) {
-            jumpToTopButton.classList.remove('flipped');
-        }
-    }
-
-    setJumpButton();
-
-    document.addEventListener("scroll", function () {
-        const scrollPosition = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight;
-        const winHeight = window.innerHeight;
-
-        const atTop = scrollPosition < 100;
-        const atBottom = scrollPosition + winHeight >= docHeight - 100;
-
-        const jumpToTopButton = document.getElementById("jumpToTopButton");
-
-        if (atTop) {
-            jumpButton.classList.add('flipped');
-        }
-        if (!atTop) {
-            jumpButton.classList.remove('flipped');
-        }
-    });
-
-    document.getElementById("jumpToTopButton").addEventListener("click", function () {
-        const scrollPosition = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight;
-        const winHeight = window.innerHeight;
-
-        if (scrollPosition < 100) {
-            window.scrollTo({ top: docHeight, behavior: 'smooth' });
-        } else {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    });
-
-    const storedSettings = ArcadeHub.getCookie("ArcadeHubSettings");
-    if (storedSettings) {
-        Object.assign(ArcadeHubSettings, JSON.parse(storedSettings));
-
-        themeSelect.value = ArcadeHubSettings.theme;
-
-        switch (themeSelect.value) {
-            case "default":
-                document.body.className = "";
-                document.documentElement.style = '';
-            default:
-                document.body.classList.add(`arcadehub-${ArcadeHubSettings.theme}`);
+        if (ArcadeHubSettings.jumpButton) {
+            jumpToggle.checked = true;
+            jumpButton.style = "display: block";
         }
 
-        if (themeSelect.value === "custom-theme") {
-            ArcadeHub.Utils.applyCustomTheme();
-        }
-
-        ArcadeHub.Utils.manageSnowflakes();
-    }
-
-    gameNewTabToggle.checked = ArcadeHubSettings.gameNewTab;
-    movieNewTabToggle.checked = ArcadeHubSettings.movieNewTab;
-    proxyNewTabToggle.checked = ArcadeHubSettings.proxyNewTab;
-
-    const cloakingToggle = document.getElementById("cloaking-toggle");
-    cloakingToggle.addEventListener("change", function () {
-        ArcadeHubSettings.cloakingToggle = cloakingToggle.checked;
-        if (cloakingToggle.checked) {
+        if (ArcadeHubSettings.cloakingToggle) {
             document.title = "Google Drive";
             document.getElementById("favicon").href = "https://www.gstatic.com/images/branding/product/2x/drive_48dp.png";
+            cloakingToggle.checked = true;
             ArcadeHub.Utils.cloakPage();
         } else {
             document.title = "Arcade Hub v4";
             document.getElementById("favicon").href = "";
         }
-        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
-    });
 
-    const jumpToggle = document.getElementById("jump-toggle");
-    const jumpButton = document.getElementById("jumpToTopButton");
-    jumpToggle.addEventListener("change", function () {
-        ArcadeHubSettings.jumpButton = jumpToggle.checked;
-        if (jumpToggle.checked) {
-            jumpButton.style = "display: block";
-        } else {
-            jumpButton.style = "display: none";
-        }
-        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
-    });
-
-    gameNewTabToggle.addEventListener("change", function () {
-        ArcadeHubSettings.gameNewTab = gameNewTabToggle.checked;
-        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
-    });
-
-    movieNewTabToggle.addEventListener("change", function () {
-        ArcadeHubSettings.movieNewTab = movieNewTabToggle.checked;
-        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
-    });
-
-    proxyNewTabToggle.addEventListener("change", function () {
-        ArcadeHubSettings.proxyNewTab = proxyNewTabToggle.checked;
-        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
-    });
-
-    if (ArcadeHubSettings.jumpButton) {
-        jumpToggle.checked = true;
-        jumpButton.style = "display: block";
-    }
-
-    if (ArcadeHubSettings.cloakingToggle) {
-        document.title = "Google Drive";
-        document.getElementById("favicon").href = "https://www.gstatic.com/images/branding/product/2x/drive_48dp.png";
-        cloakingToggle.checked = true;
-        ArcadeHub.Utils.cloakPage();
-    } else {
-        document.title = "Arcade Hub v4";
-        document.getElementById("favicon").href = "";
-    }
-
-    if (!ArcadeHub.getCookie("hasVisited")) {
-        ArcadeHub.createPopup("Welcome to Arcade Hub!", `\
+        if (!ArcadeHub.getCookie("hasVisited")) {
+            ArcadeHub.createPopup("Welcome to Arcade Hub!", `\
             Welcome to Arcade Hub, here we host tons of games, movies, proxies, and other cool content that we hope you'd enjoy!\n\
             If you see any issues or want to give any feedback, make a suggestion on our [Google Form](https://forms.gle/bQTVfmNK4pKtxk9W9) or on our [Github](https://github.com/arcadehubgaming/v4).\n\
         `);
-    }
+        }
 
-    if (lastVersion && String(lastVersion) !== String(ArcadeHub.currentVersion)) {
-        ArcadeHub.createUpdatePopup("Update Changelog", ArcadeHub.updates);
+        if (lastVersion && String(lastVersion) !== String(ArcadeHub.currentVersion)) {
+            ArcadeHub.createUpdatePopup("Update Changelog", ArcadeHub.updates);
+        }
+    } catch (error) {
+        if (document.cookie === "") {
+            ArcadeHub.Utils.pushNotification("Please report this bug to the feedback section!");
+        } else {
+            ArcadeHub.Utils.pushNotification("Error detected, try clearing cookies by clicking here.", 5000, function() {
+                ArcadeHub.Utils.deleteAllCookies();
+                location.reload();
+            });
+        }
+        setTimeout(() => {
+            ArcadeHub.Utils.pushNotification("JavaScript " + error, 7000);
+        }, 1000)
     }
 
 });
