@@ -430,6 +430,7 @@ var ArcadeHub = {
             var win = window.open();
             win.location.href = "https://www.google.com";
             win.focus();
+            ArcadeHub.Utils.pushNotification("Panic Key deployed.");
             var interval = setInterval(function () {
                 if (win.closed) {
                     clearInterval(interval);
