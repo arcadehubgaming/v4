@@ -1,5 +1,5 @@
 var ArcadeHubSettings = {
-    theme: "light",
+    theme: "default",
     enableSnow: false,
     cloakingToggle: false,
     jumpButton: true,
@@ -15,9 +15,9 @@ var ArcadeHub = {
     isDisplaying: false,
     snowInterval: null,
     currentTab: "Games",
-    currentVersion: "1.0.9",
+    currentVersion: "1.0.91",
     updates: [
-        "Debugging fixes.."
+        "Theme fix, still no custom themes yet"
     ],
 
     createPopup: function (title, content) {
@@ -484,7 +484,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             ArcadeHubItems.Movies.length,
             ArcadeHubItems.Proxies.length
         ];
-        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
 
         const sidebarToggles = document.querySelectorAll('.sidebar-toggle');
         sidebarToggles.forEach(toggle => {
@@ -597,7 +596,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     break;
                 case "custom-theme":
                     document.body.classList.add("arcadehub-custom-theme");
-                    themeSelect.value = "default";
+                    themeSelect.selectedIndex = 0;
                     ArcadeHub.Utils.pushNotification("Custom theme temporarily removed, please use another theme for now.")
                     ArcadeHubSettings.theme = "default";
                     ArcadeHubSettings.enableSnow = false;
@@ -606,7 +605,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
             ArcadeHub.Utils.manageSnowflakes();
         });
-
 
         const gameNewTabToggle = document.getElementById("game-newtab-toggle");
         const movieNewTabToggle = document.getElementById("movie-newtab-toggle");
@@ -753,6 +751,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (lastVersion && String(lastVersion) !== String(ArcadeHub.currentVersion)) {
             ArcadeHub.createUpdatePopup("Update Changelog", ArcadeHub.updates);
         }
+        
+        ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
     } catch (error) {
         if (document.cookie === "") {
             ArcadeHub.Utils.pushNotification("Please report this bug to the feedback section!");
