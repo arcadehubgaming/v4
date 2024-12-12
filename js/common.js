@@ -6,6 +6,8 @@ var ArcadeHubSettings = {
     gameNewTab: true,
     movieNewTab: true,
     proxyNewTab: true,
+    panicKeyToggle: false,
+    panicKeyCode: -1,
     customTheme: {},
     cachedItemsList: [0, 0, 0]
 };
@@ -15,9 +17,10 @@ var ArcadeHub = {
     isDisplaying: false,
     snowInterval: null,
     currentTab: "Games",
-    currentVersion: "1.0.91",
+    currentVersion: "1.0.92",
     updates: [
-        "Theme fix, still no custom themes yet"
+        "Panic Key Added",
+        "Custom Theme Revamp Started"
     ],
 
     createPopup: function (title, content) {
@@ -389,14 +392,14 @@ var ArcadeHub = {
                 }, 300);
             }, duration);
         },
-        deleteAllCookies: function() {
+        deleteAllCookies: function () {
             var cookies = document.cookie.split(";");
-        
+
             for (var i = 0; i < cookies.length; i++) {
                 var cookie = cookies[i];
                 var eqPos = cookie.indexOf("=");
                 var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        
+
                 document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
             }
         },
@@ -412,6 +415,33 @@ var ArcadeHub = {
             }
 
             return true;
+        },
+
+        panicKeyDetector: function (event) {
+            ArcadeHubSettings.panicKeyCode = event.keyCode;
+            ArcadeHub.Utils.pushNotification("Key recieved, your panic key is \"" + event.key + "\"");
+            ArcadeHubSettings.panicKeyToggle = true;
+            document.removeEventListener("keypress", ArcadeHub.Utils.panicKeyDetector);
+            document.addEventListener("keypress", ArcadeHub.Utils.panicKeyHandler);
+            ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+        },
+
+        panicKey: function () {
+            var win = window.open();
+            win.location.href = "https://www.google.com";
+            win.focus();
+            var interval = setInterval(function () {
+                if (win.closed) {
+                    clearInterval(interval);
+                    win = undefined;
+                }
+            }, 500);
+        },
+
+        panicKeyHandler: function (event) {
+            if (event.keyCode === ArcadeHubSettings.panicKeyCode) {
+                ArcadeHub.Utils.panicKey();
+            }
         }
     }
 };
@@ -609,6 +639,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         const gameNewTabToggle = document.getElementById("game-newtab-toggle");
         const movieNewTabToggle = document.getElementById("movie-newtab-toggle");
         const proxyNewTabToggle = document.getElementById("proxy-newtab-toggle");
+        const panicKeyToggle = document.getElementById("panic-key-toggle");
 
         function setJumpButton() {
             const scrollPosition = window.scrollY;
@@ -678,12 +709,17 @@ document.addEventListener("DOMContentLoaded", async function () {
                 ArcadeHub.Utils.applyCustomTheme();
             }
 
+            if (ArcadeHubSettings.panicKeyToggle == true) {
+                document.addEventListener("keypress", ArcadeHub.Utils.panicKeyHandler);
+            } 
+
             ArcadeHub.Utils.manageSnowflakes();
         }
 
         gameNewTabToggle.checked = ArcadeHubSettings.gameNewTab;
         movieNewTabToggle.checked = ArcadeHubSettings.movieNewTab;
         proxyNewTabToggle.checked = ArcadeHubSettings.proxyNewTab;
+        panicKeyToggle.checked = ArcadeHubSettings.panicKeyToggle;
 
         const cloakingToggle = document.getElementById("cloaking-toggle");
         cloakingToggle.addEventListener("change", function () {
@@ -725,6 +761,36 @@ document.addEventListener("DOMContentLoaded", async function () {
             ArcadeHubSettings.proxyNewTab = proxyNewTabToggle.checked;
             ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
         });
+        panicKeyToggle.addEventListener("change", function () {
+            if (panicKeyToggle.checked) {
+                ArcadeHub.Utils.pushNotification("Listening for panic key.... (5 seconds)");
+                let panicKeyTimeout = setTimeout(function () {
+                    ArcadeHub.Utils.pushNotification("Failed to set panic key within 5 seconds.");
+                    panicKeyToggle.checked = false;
+                    ArcadeHubSettings.panicKeyToggle = false;
+                    document.removeEventListener("keypress", ArcadeHub.Utils.panicKeyDetector);
+                    document.removeEventListener("keypress", ArcadeHub.Utils.panicKeyHandler);
+                    ArcadeHubSettings.panicKeyCode = -1;
+                    ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+                }, 5000);
+                if (!ArcadeHubSettings.panicKeyToggle) {
+                    document.addEventListener("keypress", ArcadeHub.Utils.panicKeyDetector);
+                    document.addEventListener("keypress", function onKey(){
+                        clearTimeout(panicKeyTimeout);
+                        document.removeEventListener("keypress", onKey);
+                    });
+                    ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+                }
+            } else {
+                ArcadeHubSettings.panicKeyToggle = false;
+                document.removeEventListener("keypress", ArcadeHub.Utils.panicKeyDetector);
+                document.removeEventListener("keypress", ArcadeHub.Utils.panicKeyHandler);
+                ArcadeHubSettings.panicKeyCode = -1;
+                ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+            }
+            ArcadeHubSettings.panicKeyToggle = panicKeyToggle.checked;
+            ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+        });
 
         if (ArcadeHubSettings.jumpButton) {
             jumpToggle.checked = true;
@@ -751,13 +817,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (lastVersion && String(lastVersion) !== String(ArcadeHub.currentVersion)) {
             ArcadeHub.createUpdatePopup("Update Changelog", ArcadeHub.updates);
         }
-        
+
         ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
     } catch (error) {
         if (document.cookie === "") {
             ArcadeHub.Utils.pushNotification("Please report this bug to the feedback section!");
         } else {
-            ArcadeHub.Utils.pushNotification("Error detected, try clearing cookies by clicking here.", 5000, function() {
+            ArcadeHub.Utils.pushNotification("Error detected, try clearing cookies by clicking here.", 5000, function () {
                 ArcadeHub.Utils.deleteAllCookies();
                 location.reload();
             });
