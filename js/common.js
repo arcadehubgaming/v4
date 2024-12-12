@@ -17,10 +17,9 @@ var ArcadeHub = {
     isDisplaying: false,
     snowInterval: null,
     currentTab: "Games",
-    currentVersion: "1.0.92",
+    currentVersion: "1.0.93",
     updates: [
-        "Panic Key Added",
-        "Custom Theme Revamp Started"
+        "Panic Key now implemented in Games, Movies, and Proxies"
     ],
 
     createPopup: function (title, content) {
@@ -163,6 +162,131 @@ var ArcadeHub = {
             iframe.style.width = '100%';
             iframe.style.height = '100%';
             iframe.src = url;
+            if (ArcadeHubSettings.panicKeyToggle) {
+                var style = win.document.createElement("style");
+                var script = win.document.createElement("script");
+
+                style.innerHTML = `
+                    @import url('https://cdn.jsdelivr.net/gh/arcadehubgaming/v4@v4/fonts/Inter-Regular.woff2');
+
+                    .push-notification-container {
+                        position: fixed;
+                        bottom: 10px;
+                        left: 10px;
+                        z-index: 9999;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        transition: transform 0.3s ease-in-out;
+                    }
+
+                    .push-notification {
+                        background-color: rgba(23, 23, 23, 0.6);
+                        backdrop-filter: blur(5px);
+                        color: #ffffff;
+                        padding: 10px 20px;
+                        border-radius: 5px;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        box-shadow: 1px 2px 2px rgba(17, 24, 39, .3);
+                        position: relative;
+                        width: max-content;
+                        animation: slide-in 0.3s ease-in-out;
+                        transition: padding 0.2s;
+                        font-family: Inter, sans-serif;
+                    }
+
+                    .push-notification:hover {
+                        padding: 11px 21px;
+                    }
+
+                    .push-notification .progress-bar {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        height: 3px;
+                        width: 0;
+                        background-color: rgba(23, 23, 23, 0.6);
+                        border-radius: 0 0 5px 5px;
+                    }
+
+                    .push-notification.hide {
+                        animation: slide-out 0.3s ease-in-out;
+                        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+                        transform: translateY(-20px);
+                    }
+
+                    @keyframes slide-in {
+                        0% {
+                            transform: translateX(-100px);
+                            opacity: 0;
+                        }
+                        100% {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
+
+                    @keyframes slide-out {
+                        0% {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                        100% {
+                            transform: translateX(-100px);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                script.innerHTML = `
+                    let notificationContainer = document.querySelector(".push-notification-container");
+                    if (!notificationContainer) {
+                        notificationContainer = document.createElement("div");
+                        notificationContainer.className = "push-notification-container";
+                        document.body.appendChild(notificationContainer);
+                    }
+
+                    const notification = document.createElement("div");
+                    notification.className = "push-notification";
+                    notification.textContent = "Panic Key Enabled";
+
+                    const progressBar = document.createElement("div");
+                    progressBar.className = "progress-bar";
+
+                    notification.appendChild(progressBar);
+                    notificationContainer.appendChild(notification);
+
+                    setTimeout(() => {
+                        progressBar.style.transition = "width 2000ms linear";
+                        progressBar.style.width = "100%";
+                    }, 30);
+
+                    setTimeout(() => {
+                        notification.classList.add("hide");
+                        setTimeout(() => {
+                            notification.remove();
+                        }, 300);
+                    }, 2000);
+
+                    document.addEventListener("keypress", function(event){
+                        if(event.keyCode === ${ArcadeHubSettings.panicKeyCode}) {
+                            var win = window.open();
+                            win.location.href = "https://www.google.com";
+                            win.focus();
+                            var interval = setInterval(function () {
+                                if (win.closed) {
+                                    clearInterval(interval);
+                                    win = undefined;
+                                }
+                            }, 500);
+                        }
+                    });
+                `;
+                win.document.body.appendChild(style);
+                win.document.body.appendChild(script);
+            }
             win.document.body.appendChild(iframe);
             var interval = setInterval(function () {
                 if (win.closed) {
@@ -470,7 +594,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             if (ArcadeHubSettings.panicKeyToggle == true) {
                 document.addEventListener("keypress", ArcadeHub.Utils.panicKeyHandler);
-            } 
+            }
 
             ArcadeHub.Utils.manageSnowflakes();
         }
@@ -778,7 +902,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 }, 5000);
                 if (!ArcadeHubSettings.panicKeyToggle) {
                     document.addEventListener("keypress", ArcadeHub.Utils.panicKeyDetector);
-                    document.addEventListener("keypress", function onKey(){
+                    document.addEventListener("keypress", function onKey() {
                         clearTimeout(panicKeyTimeout);
                         document.removeEventListener("keypress", onKey);
                     });
