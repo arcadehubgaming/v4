@@ -485,7 +485,10 @@ input:disabled ~ .toggle-label {
     border-radius: 5px;
     border: none;
     background: var(--button-bg-color);
-    
+}
+
+.panic-key-input {
+    width: 30vw;
 }
 
 @keyframes slide-in {

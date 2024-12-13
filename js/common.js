@@ -8,6 +8,7 @@ var ArcadeHubSettings = {
     proxyNewTab: true,
     panicKeyToggle: false,
     panicKeyCode: -1,
+    panicKeyURL: "https://www.google.com",
     customTheme: {},
     cachedItemsList: [0, 0, 0]
 };
@@ -273,7 +274,7 @@ var ArcadeHub = {
                     document.addEventListener("keypress", function(event){
                         if(event.keyCode === ${ArcadeHubSettings.panicKeyCode}) {
                             var win = window.open();
-                            win.location.href = "https://www.google.com";
+                            win.location.href = ${ArcadeHubSettings.panicKeyURL};
                             win.focus();
                             var interval = setInterval(function () {
                                 if (win.closed) {
@@ -282,6 +283,27 @@ var ArcadeHub = {
                                 }
                             }, 500);
                         }
+                        const notification = document.createElement("div");
+                        notification.className = "push-notification";
+                        notification.textContent = "Panic Key Deployed";
+
+                        const progressBar = document.createElement("div");
+                        progressBar.className = "progress-bar";
+
+                        notification.appendChild(progressBar);
+                        notificationContainer.appendChild(notification);
+
+                        setTimeout(() => {
+                            progressBar.style.transition = "width 2000ms linear";
+                            progressBar.style.width = "100%";
+                        }, 30);
+
+                        setTimeout(() => {
+                            notification.classList.add("hide");
+                            setTimeout(() => {
+                                notification.remove();
+                            }, 300);
+                        }, 2000);
                     });
                 `;
                 win.document.body.appendChild(style);
@@ -552,7 +574,7 @@ var ArcadeHub = {
 
         panicKey: function () {
             var win = window.open();
-            win.location.href = "https://www.google.com";
+            win.location.href = ArcadeHubSettings.panicKeyURL;
             win.focus();
             ArcadeHub.Utils.pushNotification("Panic Key deployed.");
             var interval = setInterval(function () {
@@ -670,6 +692,14 @@ document.addEventListener("DOMContentLoaded", async function () {
         ];
 
         const sidebarToggles = document.querySelectorAll('.sidebar-toggle');
+        const panicKeyInput = document.querySelector("#panic-key-input");
+        
+        panicKeyInput.value = ArcadeHubSettings.panicKeyURL;
+
+        panicKeyInput.addEventListener("blur", function(){
+            ArcadeHubSettings.panicKeyURL = panicKeyInput.value;
+            ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+        })
         sidebarToggles.forEach(toggle => {
             toggle.addEventListener('click', ArcadeHub.Utils.switchTab);
         });
