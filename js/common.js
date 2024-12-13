@@ -18,9 +18,10 @@ var ArcadeHub = {
     isDisplaying: false,
     snowInterval: null,
     currentTab: "Games",
-    currentVersion: "1.0.94",
+    currentVersion: "1.0.95",
     updates: [
-        "Panic Key now implemented in Games, Movies, and Proxies"
+        "Panic Key URL",
+        "Fixed bug"
     ],
 
     createPopup: function (title, content) {
@@ -274,7 +275,7 @@ var ArcadeHub = {
                     document.addEventListener("keypress", function(event){
                         if(event.keyCode === ${ArcadeHubSettings.panicKeyCode}) {
                             var win = window.open();
-                            win.location.href = ${ArcadeHubSettings.panicKeyURL};
+                            win.location.href = \"${ArcadeHubSettings.panicKeyURL}\";
                             win.focus();
                             var interval = setInterval(function () {
                                 if (win.closed) {
