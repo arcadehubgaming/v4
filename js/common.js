@@ -10,7 +10,8 @@ var ArcadeHubSettings = {
     panicKeyCode: -1,
     panicKeyURL: "https://www.google.com",
     customTheme: {},
-    cachedItemsList: [0, 0, 0]
+    cachedItemsList: [0, 0, 0],
+    favorites: [],
 };
 
 var ArcadeHub = {
@@ -18,10 +19,9 @@ var ArcadeHub = {
     isDisplaying: false,
     snowInterval: null,
     currentTab: "Games",
-    currentVersion: "1.0.95",
+    currentVersion: "1.1",
     updates: [
-        "Panic Key URL",
-        "Fixed bug"
+        "Favorite Button"
     ],
 
     createPopup: function (title, content) {
@@ -321,15 +321,61 @@ var ArcadeHub = {
 
         populate: function (element, items) {
             element.innerHTML = '';
+            
+            const hasFavorites = items.some(item => ArcadeHubSettings.favorites.includes(item.name));
 
-            items.sort((a, b) => a.name.localeCompare(b.name));
+            /*
+            var isGames = (items === ArcadeHubItems.Games);
+            var isMovies = (items === ArcadeHubItems.Movies);
+            var isProxies = (items === ArcadeHubItems.Proxies);
+            */
+            
+            var favorites = document.createElement("p");
+            var gameseperator = document.createElement("p");
+            if (ArcadeHubSettings.favorites.length > 0 && hasFavorites) {
+                favorites.setAttribute("class", "favorites-seperator");
+                favorites.innerHTML = "Favorites";
+                element.appendChild(favorites);
+            }
+
+            items.sort((a, b) => {
+                if (ArcadeHubSettings.favorites.includes(a.name) && ArcadeHubSettings.favorites.includes(b.name)) {
+                    return a.name.localeCompare(b.name);
+                }
+                if (ArcadeHubSettings.favorites.includes(a.name)) {
+                    return -1;
+                }
+                if (ArcadeHubSettings.favorites.includes(b.name)) {
+                    return 1;
+                }
+                return a.name.localeCompare(b.name);
+            });
 
             items.forEach(item => {
                 const itemDiv = document.createElement('div');
                 itemDiv.setAttribute("class", "item-container");
 
+                const btnDiv = document.createElement("div");
+                btnDiv.setAttribute("class", "item-btn-container");
+
                 const nameSpan = document.createElement('span');
                 nameSpan.textContent = item.name;
+
+                const favoriteButton = document.createElement('div');
+                if (ArcadeHubSettings.favorites.includes(item.name)) {
+                    favoriteButton.setAttribute("class", "btn favorite-button selected");
+                } else {
+                    favoriteButton.setAttribute("class", "btn favorite-button");
+                }
+
+                favoriteButton.innerHTML = '<i class="fa fa-star"></i>';
+                
+                if (ArcadeHubSettings.favorites.length > 0 && !ArcadeHubSettings.favorites.includes(item.name) &&
+                    element.querySelectorAll(".game-seperator").length === 0 && hasFavorites) {
+                    gameseperator.setAttribute("class", "favorites-seperator game-seperator");
+                    gameseperator.innerHTML = "Non-Favorites";
+                    element.appendChild(gameseperator);
+                }
 
                 const playButton = document.createElement('div');
                 playButton.setAttribute("class", "btn");
@@ -340,8 +386,22 @@ var ArcadeHub = {
                     ArcadeHub.Utils.openGame(item.url, openinaboutblank);
                 });
 
+                favoriteButton.addEventListener("click", () => {
+                    if (ArcadeHubSettings.favorites.includes(item.name)) {
+                        ArcadeHubSettings.favorites = ArcadeHubSettings.favorites.filter(fav => fav !== item.name);
+                    } else {
+                        ArcadeHubSettings.favorites.push(item.name);
+                    }
+                    ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
+                    favoriteButton.classList.toggle("selected");
+                    ArcadeHub.Utils.searchItem();
+                });
+
                 itemDiv.appendChild(nameSpan);
-                itemDiv.appendChild(playButton);
+                btnDiv.appendChild(favoriteButton);
+                btnDiv.appendChild(playButton);
+                itemDiv.appendChild(btnDiv);
+
                 element.appendChild(itemDiv);
             });
         },
@@ -694,10 +754,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         const sidebarToggles = document.querySelectorAll('.sidebar-toggle');
         const panicKeyInput = document.querySelector("#panic-key-input");
-        
+
         panicKeyInput.value = ArcadeHubSettings.panicKeyURL;
 
-        panicKeyInput.addEventListener("blur", function(){
+        panicKeyInput.addEventListener("blur", function () {
             ArcadeHubSettings.panicKeyURL = panicKeyInput.value;
             ArcadeHub.setCookie("ArcadeHubSettings", JSON.stringify(ArcadeHubSettings), 32767);
         })

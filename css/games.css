@@ -35,6 +35,27 @@
     width: 100%;
 }
 
+.btn.favorite-button {
+    margin-right: 0.5em;
+    background: var(--favorite-button);
+    color: black;
+}
+
+.btn.favorite-button:hover {
+    background: var(--favorite-selected-button);
+}
+
+.btn.favorite-button.selected {
+    background: var(--favorite-selected-button);
+}
+
+.favorites-seperator {
+    font-size: 24px;
+    margin: 0;
+    padding: 4px 2em;
+    border-bottom: solid 4px var(--button-hover-bg-color);
+}
+
 @media (max-width: 768px) {
     .item-container {
         padding: 1rem;

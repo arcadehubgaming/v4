@@ -14,6 +14,8 @@
     --button-hover-bg-color: #354287;
     --shadow: 1px 2px 2px rgba(17, 24, 39, .15);
     --notification-color: rgba(232, 232, 232, 0.6);
+    --favorite-selected-button: rgb(223, 192, 53);
+    --favorite-button: rgb(235, 218, 141);
 }
 
 .arcadehub-dark {
