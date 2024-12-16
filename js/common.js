@@ -277,6 +277,29 @@ var ArcadeHub = {
                             var win = window.open();
                             win.location.href = \"${ArcadeHubSettings.panicKeyURL}\";
                             win.focus();
+
+                            const notification = document.createElement("div");
+                            notification.className = "push-notification";
+                            notification.textContent = "Panic Key Deployed";
+
+                            const progressBar = document.createElement("div");
+                            progressBar.className = "progress-bar";
+
+                            notification.appendChild(progressBar);
+                            notificationContainer.appendChild(notification);
+
+                            setTimeout(() => {
+                                progressBar.style.transition = "width 2000ms linear";
+                                progressBar.style.width = "100%";
+                            }, 30);
+
+                            setTimeout(() => {
+                                notification.classList.add("hide");
+                                setTimeout(() => {
+                                    notification.remove();
+                                }, 300);
+                            }, 2000);
+
                             var interval = setInterval(function () {
                                 if (win.closed) {
                                     clearInterval(interval);
@@ -284,27 +307,6 @@ var ArcadeHub = {
                                 }
                             }, 500);
                         }
-                        const notification = document.createElement("div");
-                        notification.className = "push-notification";
-                        notification.textContent = "Panic Key Deployed";
-
-                        const progressBar = document.createElement("div");
-                        progressBar.className = "progress-bar";
-
-                        notification.appendChild(progressBar);
-                        notificationContainer.appendChild(notification);
-
-                        setTimeout(() => {
-                            progressBar.style.transition = "width 2000ms linear";
-                            progressBar.style.width = "100%";
-                        }, 30);
-
-                        setTimeout(() => {
-                            notification.classList.add("hide");
-                            setTimeout(() => {
-                                notification.remove();
-                            }, 300);
-                        }, 2000);
                     });
                 `;
                 win.document.body.appendChild(style);
