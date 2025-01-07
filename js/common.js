@@ -380,7 +380,7 @@ var ArcadeHub = {
                 }
 
                 const playButton = document.createElement('div');
-                playButton.setAttribute("class", "btn");
+                playButton.setAttribute("class", "btn play-button");
                 playButton.textContent = 'Play Now';
 
                 playButton.addEventListener('click', () => {

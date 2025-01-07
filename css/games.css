@@ -67,8 +67,15 @@
         padding: 0.25rem 0;
     }
 
-    .item-container .btn {
-        margin: auto;
+    .item-btn-container {
+        width: 100%;
+        display: flex;
+        grid-template-columns: 1fr;
+        flex-direction: row;
+    }
+
+    .item-container .btn.play-button {
+        flex-grow: 1;
     }
 
     .item-list {
