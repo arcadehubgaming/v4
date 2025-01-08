@@ -64,7 +64,7 @@
     .item-container span {
         text-align: center;
         width: 100%;
-        padding: 0.25rem 0;
+        padding: 0.5rem 0;
     }
 
     .item-btn-container {
@@ -76,6 +76,7 @@
 
     .item-container .btn.play-button {
         flex-grow: 1;
+        text-align: center;
     }
 
     .item-list {
