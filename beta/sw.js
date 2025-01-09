@@ -1,9 +1,9 @@
 const CACHE_NAME = "arcadehub-v4-cache";
-const OFFLINE_URL = "/beta/offline.html";
+const OFFLINE_URL = "/v4/beta/offline.html";
 const ASSETS = [
-    "/beta/",
-    "/beta/css/app.css",
-    "/beta/js/app.js",
+    "/v4/beta/",
+    "/v4/beta/css/app.css",
+    "/v4/beta/js/app.js",
     OFFLINE_URL
 ];
 
