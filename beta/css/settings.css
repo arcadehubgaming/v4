@@ -1,0 +1,28 @@
+#settings-container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.settings-modal {
+    width: 50%;
+    height: 70%;
+    box-shadow: var(--shadow);
+    border-radius: 0.5em;
+    background: var(--background);
+}
+
+.settings-header {
+    width: 100%;
+    padding: 0.5em 1em;
+    background: var(--surface);
+    border-bottom: solid 2px var(--border);
+}

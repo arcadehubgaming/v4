@@ -21,19 +21,7 @@ export default class ArcadeHubApp {
         this.app.classList.add("theme-" + this.settingsHandler.get("theme"));
 
         this.notificationHandler = new NotificationHandler();
-        this.registerServiceWorker();
-    }
-
-    registerServiceWorker() {
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("/v4/beta/sw.js")
-                .then(() => {
-                    this.notificationHandler.add("This site will now load in offline mode.", "success");
-                })
-                .catch((error) => {
-                    this.notificationHandler.error("Service worker could not register. " + error, "error");
-                });
-        }
+        this.notificationHandler.add("hi");
     }
 
     onSettingChange() {
