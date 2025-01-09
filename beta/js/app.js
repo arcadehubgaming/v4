@@ -26,7 +26,7 @@ export default class ArcadeHubApp {
 
     registerServiceWorker() {
         if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("/beta/sw.js")
+            navigator.serviceWorker.register("/v4/beta/sw.js")
                 .then(() => {
                     this.notificationHandler.add("This site will now load in offline mode.", "success");
                 })
