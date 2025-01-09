@@ -1,0 +1,125 @@
+@font-face {
+	font-display: swap;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 400;
+	src: url(../fonts/Inter-Regular.woff2) format("woff2");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 500;
+	src: url(../fonts/Inter-Medium.woff2) format("woff2");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 600;
+	src: url(../fonts/Inter-SemiBold.woff2) format("woff2");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 700;
+	src: url(../fonts/Inter-Bold.woff2) format("woff2");
+}
+
+:root {
+	--primary: #000000;
+	--secondary: #333333;
+	--success: #34C759;
+	--warning: #FF9500;
+	--error: #FF3B30;
+	--background: #F2F2F7;
+	--surface: #FFFFFF;
+	--on-surface: #000000;
+	--on-surface-variant: #6C6C70;
+	--border: #C6C6C8;
+	--shadow: rgba(0, 0, 0, 0.1);
+}
+
+.theme-dark {
+	--primary: #FFFFFF;
+	--secondary: #CCCCCC;
+	--background: #1C1C1E;
+	--surface: #2C2C2E;
+	--on-surface: #FFFFFF;
+	--on-surface-variant: #8E8E93;
+	--border: #3A3A3C;
+	--shadow: rgba(0, 0, 0, 0.3);
+}
+
+body {
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	background-color: var(--background);
+	color: var(--on-surface);
+	font-size: 14px;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#notification-holder {
+	z-index: 99;
+	position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 99;
+    gap: 10px;
+}
+
+.notification.success {
+	background: var(--success);
+}
+
+.notification.warning {
+	background: var(--warning);
+}
+
+.notification.error {
+	background: var(--error);
+}
+
+.notification {
+    color: var(--surface);
+    background-color: var(--primary);
+    padding: 12px 20px;
+    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: var(--shadow);
+    animation: slide-up 0.5s ease;
+	font-weight: bold;
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+}

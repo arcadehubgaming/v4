@@ -1,3 +1,5 @@
+import EventHandler from "./events.js"
+
 export default class SettingsHandler {
     constructor () {
         this.settings = {};
@@ -5,10 +7,13 @@ export default class SettingsHandler {
 
     update () {
         localStorage.setItem("settings", JSON.stringify(this.settings));
+        EventHandler.dispatch("settingsChange");
     }
 
     load () {
-        this.settings = JSON.parse(localStorage.getItem("settings"));
+        if (localStorage.getItem("settings")) {
+            this.settings = JSON.parse(localStorage.getItem("settings"));
+        }
     }
 
     clear () {
@@ -22,10 +27,6 @@ export default class SettingsHandler {
     }
 
     get (name) {
-        if (this.settings[name]) {
-            return this.settings[name];
-        }
-
-        return undefined;
+        return this.settings[name];
     }
 };
