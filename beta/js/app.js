@@ -2,6 +2,8 @@ import SettingsHandler from "./handlers/settings.js"
 import NotificationHandler from "./handlers/notification.js"
 import EventHandler from "./handlers/events.js"
 
+import SettingsModal from "./ui/settings_modal.js"
+
 export default class ArcadeHubApp {
     constructor () {
         this.app = document.getElementById("root");
@@ -9,7 +11,7 @@ export default class ArcadeHubApp {
         this.settingsHandler = new SettingsHandler();
         this.settingsHandler.load();
 
-        EventHandler.subscribe("settingsChange", this.onSettingChange);
+        EventHandler.subscribe("settingsChange", this.onSettingChange.bind(this));
 
         if (!this.settingsHandler.get("theme")) {
             this.settingsHandler.set("theme", "light");
@@ -22,6 +24,10 @@ export default class ArcadeHubApp {
 
         this.notificationHandler = new NotificationHandler();
         this.notificationHandler.add("hi");
+
+
+        this.settingsModal = new SettingsModal(this.settingsHandler, this.notificationHandler);
+        this.settingsModal.open();
     }
 
     onSettingChange() {

@@ -13,6 +13,40 @@
         <div class="settings-modal">
             <div class="settings-header">
                 <span>Settings</span>
+                <div class="seperator"></div>
+                <i class="fa fa-close" id="settings-close"></i>
+            </div>
+            <div class="settings-inner-container">
+                <div class="settings-sidebar">
+                    <div class="sidebar-item active">
+                        <i class="fa fa-cog"></i>
+                        <span>General</span>
+                    </div>
+                    <div class="sidebar-item">
+                        <i class="fa fa-paintbrush"></i>
+                        <span>Theme</span>
+                    </div>
+                    <div class="sidebar-item">
+                        <i class="fa fa-circle-info"></i>
+                        <span>About</span>
+                    </div>
+                </div>
+                <div class="settings-content">
+                    <div class="settings-page">
+                        <div class="settings-page-title">General</div>
+                    </div>
+                    <div class="settings-page">
+                        <div class="settings-page-title">Theme</div>
+                        <select id="theme-selector">
+                            <option value="system-default">System Default</option>
+                            <option value="light">Light Mode</option>
+                            <option value="dark">Dark Mode</option>
+                        </select>
+                    </div>
+                    <div class="settings-page">
+                        <div class="settings-page-title">About</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

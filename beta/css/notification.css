@@ -32,7 +32,6 @@
     align-items: center;
     box-shadow: var(--shadow);
     animation: slide-up 0.5s ease;
-	font-weight: bold;
 }
 
 @keyframes slide-up {
