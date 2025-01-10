@@ -5,7 +5,7 @@ import EventHandler from "./handlers/events.js"
 import SettingsModal from "./ui/settings_modal.js"
 
 export default class ArcadeHubApp {
-    constructor () {
+    constructor() {
         this.app = document.getElementById("root");
 
         this.settingsHandler = new SettingsHandler();
@@ -25,9 +25,12 @@ export default class ArcadeHubApp {
         this.notificationHandler = new NotificationHandler();
         this.notificationHandler.add("hi");
 
-
         this.settingsModal = new SettingsModal(this.settingsHandler, this.notificationHandler);
         this.settingsModal.open();
+
+        document.getElementById("reset-cdn-list").addEventListener("click", () => {
+            this.notificationHandler.add("CDN list has been reset", "success");
+        });
     }
 
     onSettingChange() {

@@ -6,22 +6,24 @@ export default class NotificationHandler {
 
     update() {
         const holder = document.getElementById("notification-holder");
-        holder.innerHTML = "";
-
+        
         this.notifications.forEach(notification => {
-            const div = document.createElement("div");
-            div.classList.add("notification");
-            if (notification.type) {
-                div.classList.add(notification.type);
+            if (!document.getElementById(notification.id)) {
+                const div = document.createElement("div");
+                div.classList.add("notification");
+                div.id = notification.id;
+                if (notification.type) {
+                    div.classList.add(notification.type);
+                }
+                div.textContent = notification.content;
+
+                holder.appendChild(div);
+
+                setTimeout(() => {
+                    div.style.animation = `slide-out 0.5s ease forwards`;
+                    setTimeout(() => this.remove(notification.id), 500);
+                }, notification.duration);
             }
-            div.textContent = notification.content;
-
-            holder.appendChild(div);
-
-            setTimeout(() => {
-                div.style.animation = `slide-out 0.5s ease forwards`;
-                setTimeout(() => this.remove(notification.id), 500);
-            }, notification.duration);
         });
     }
 
@@ -33,6 +35,13 @@ export default class NotificationHandler {
 
     remove(id) {
         this.notifications = this.notifications.filter(n => n.id !== id);
-        this.update();
+
+        const notification = document.getElementById(id);
+        if (notification) {
+            notification.addEventListener('animationend', () => {
+                notification.remove();
+                this.update();
+            });
+        }
     }
 }
