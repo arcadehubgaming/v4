@@ -35,6 +35,7 @@ export default class ArcadeHubApp {
 
             document.getElementById("reset-cdn-list").addEventListener("click", () => {
                 this.loadCDN();
+                this.items.populate();
             });
         }).catch(error => {
             this.notificationHandler.add("Failed to load CDN, please ensure connection to the internet and retry!", "error");
