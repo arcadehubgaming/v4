@@ -50,5 +50,8 @@
     --on-surface: #E0E0E0;
     --on-surface-variant: #AAAAAA;
     --border: #707070;
+    --success: #42be65;
+	--warning: #ff6f00;
+	--error: #ee5353;
     --shadow: rgba(0, 0, 0, 0.3);
 }

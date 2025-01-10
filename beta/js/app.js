@@ -3,6 +3,9 @@ import NotificationHandler from "./handlers/notification.js"
 import EventHandler from "./handlers/events.js"
 
 import SettingsModal from "./ui/settings_modal.js"
+import ItemsUI from "./ui/items.js"
+
+window.ArcadeHubItems = window.ArcadeHubSettings || {};
 
 export default class ArcadeHubApp {
     constructor() {
@@ -10,8 +13,6 @@ export default class ArcadeHubApp {
 
         this.settingsHandler = new SettingsHandler();
         this.settingsHandler.load();
-
-        EventHandler.subscribe("settingsChange", this.onSettingChange.bind(this));
 
         if (!this.settingsHandler.get("theme")) {
             this.settingsHandler.set("theme", "light");
@@ -23,19 +24,67 @@ export default class ArcadeHubApp {
         this.app.classList.add("theme-" + this.settingsHandler.get("theme"));
 
         this.notificationHandler = new NotificationHandler();
-        this.notificationHandler.add("hi");
 
-        this.settingsModal = new SettingsModal(this.settingsHandler, this.notificationHandler);
-        this.settingsModal.open();
+        this.loadCDN().then(() => {
+            this.items = new ItemsUI(ArcadeHubItems, this.settingsHandler);
 
-        document.getElementById("reset-cdn-list").addEventListener("click", () => {
-            this.notificationHandler.add("CDN list has been reset", "success");
+            EventHandler.subscribe("settingsChange", this.onSettingChange.bind(this));
+
+            this.settingsModal = new SettingsModal(this.settingsHandler, this.notificationHandler);
+            this.settingsModal.open();
+
+            document.getElementById("reset-cdn-list").addEventListener("click", () => {
+                this.loadCDN();
+            });
+        }).catch(error => {
+            this.notificationHandler.add("Failed to load CDN, please ensure connection to the internet and retry!", "error");
         });
     }
 
     onSettingChange() {
         this.app.className = "";
         this.app.classList.add("theme-" + this.settingsHandler.get("theme"));
+    }
+
+    async fetchScript(url) {
+        var isError = false;
+        try {
+            const response = await fetch(url + "?" + Math.random());
+            const data = await response.text();
+            const script = document.createElement("script");
+            script.innerHTML = data;
+            document.body.appendChild(script);
+        } catch (error) {
+            console.error(error);
+            isError = true;
+            throw new Error("Error fetching script");
+        }
+    }
+
+    async loadCDN() {
+        let gamesFetched = false;
+        let moviesFetched = false;
+        let proxiesFetched = false;
+
+        try {
+            await Promise.all([
+                this.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/games.js"),
+                this.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/movies.js"),
+                this.fetchScript("https://raw.githubusercontent.com/arcadehubgaming/cdn-list/refs/heads/main/proxies.js")
+            ]);
+            gamesFetched = true;
+            moviesFetched = true;
+            proxiesFetched = true;
+            this.notificationHandler.add("CDN successfully fetched!", "success");
+        } catch (error) {
+            this.notificationHandler.add("Fetch failed, please ensure connection to the internet and retry!", "error");
+            throw error;
+        }
+
+        if (!gamesFetched || !moviesFetched || !proxiesFetched) {
+            this.notificationHandler.add("Fetch failed, please ensure connection to the internet and retry!", "error");
+            throw new Error("CDN fetch failed");
+        }
     }
 };
 

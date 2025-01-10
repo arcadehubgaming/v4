@@ -1,6 +1,7 @@
 @import url(./notification.css);
 @import url(./settings.css);
 @import url(./themes.css);
+@import url(./items.css);
 
 @font-face {
 	font-display: swap;
