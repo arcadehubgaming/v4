@@ -32,7 +32,15 @@
             <input class="search-input" placeholder="Search" id="search">
         </div>
     </header>
-    
+    <div class="floating-media-container">
+        <div class="floating-media">
+            <div class="floating-media-header">
+                <div class="button" id="floating-media-fullscreen">Fullscreen</div>
+                <div class="button" id="floating-media-close">Close</div>
+            </div>
+            <iframe src="" class="floating-media-iframe"></iframe>
+        </div>
+    </div>
     <div class="floating-button-container">
         <div class="button floating-button" id="add-item-button">
             <i class="fa fa-plus"></i>
@@ -122,7 +130,16 @@
                         <div class="slider-container">
                             Panic Key URL:
                             <input class="search-input" id="panic-key-url" value="https://www.google.com">
-                        </div>   
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="slider-container">
+                            Open Media in Mini-Window:
+                            <label class="slider">
+                                <input type="checkbox" id="mini-window-toggle" />
+                                <span class="slider-track"></span>
+                            </label>
+                        </div>
                     </div>
                     <div class="settings-page">
                         <div class="settings-page-title">Theme</div>

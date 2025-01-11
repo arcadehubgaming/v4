@@ -21,21 +21,34 @@ export default class ItemUI {
     }
 
     openURL(url) {
-        var win = window.open();
-        win.document.body.style.margin = '0';
-        win.document.body.style.height = '100vh';
-        var iframe = win.document.createElement('iframe');
-        iframe.style.border = 'none';
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        iframe.src = url;
-        win.document.body.appendChild(iframe);
-        var interval = setInterval(function () {
-            if (win.closed) {
-                clearInterval(interval);
-                win = undefined;
-            }
-        }, 500);
+        if (this.settingsHandler.get("miniWindow")) {
+            document.querySelector(".floating-media-container").style.display = "flex";
+            document.querySelector(".floating-media-iframe").src = url;
+            document.querySelector(".floating-media-iframe").focus();
+            document.getElementById("floating-media-fullscreen").addEventListener("click", () => {
+                document.querySelector(".floating-media-iframe").requestFullscreen();
+            });
+            document.getElementById("floating-media-close").addEventListener("click", () => {
+                document.querySelector(".floating-media-container").style.display = "none";
+                document.querySelector(".floating-media-iframe").src = "";
+            });
+        } else {
+            var win = window.open();
+            win.document.body.style.margin = '0';
+            win.document.body.style.height = '100vh';
+            var iframe = win.document.createElement('iframe');
+            iframe.style.border = 'none';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.src = url;
+            win.document.body.appendChild(iframe);
+            var interval = setInterval(function () {
+                if (win.closed) {
+                    clearInterval(interval);
+                    win = undefined;
+                }
+            }, 500);
+        }
     }
 
     populate(list) {

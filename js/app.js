@@ -43,6 +43,10 @@ export default class ArcadeHubApp {
             }
         }
 
+        if (this.settingsHandler.get("miniWindow")) {
+            document.getElementById("mini-window-toggle").checked = true;
+        }
+
         this.app.classList.add("theme-" + this.settingsHandler.get("theme"));
 
         this.settingsModal = new SettingsModal(this.settingsHandler, this.notificationHandler);
@@ -99,6 +103,11 @@ export default class ArcadeHubApp {
 
         document.getElementById("panic-key-url").addEventListener("input", (event) => {
             this.settingsHandler.set("panicKeyUrl", event.target.value);
+        });
+
+        
+        document.getElementById("mini-window-toggle").addEventListener("change", (event) => {
+            this.settingsHandler.set("miniWindow", event.target.checked);
         });
 
         this.loadCDN().then(() => {

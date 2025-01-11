@@ -306,3 +306,49 @@ a {
         font-size: 0.9em;
     }
 }
+
+.floating-media-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 98;
+}
+
+.floating-media {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+    box-shadow: var(--shadow);
+    border-radius: 0.5em;
+    background: var(--background);
+}
+
+.floating-media-header {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    width: 100%;
+    padding: 0.5em;
+    gap: 0.5em;
+    box-shadow: var(--shadow);
+    border-radius: 0.5em;
+    background: var(--background);
+    z-index: 98;
+}
+
+.floating-media-header .button {
+    width: 50%;
+}
+
+.floating-media iframe {
+    flex-grow: 1;
+}
