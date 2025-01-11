@@ -36,6 +36,10 @@ export default class ArcadeHubApp {
             document.getElementById("panic-key").value = this.settingsHandler.get("panicKey");
         }
 
+        if (this.settingsHandler.get("gridView")) {
+            document.getElementById("grid-view-toggle").checked = this.settingsHandler.get("gridView");
+        }
+
         if (!this.settingsHandler.get("theme")) {
             this.settingsHandler.set("theme", "light");
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -110,9 +114,15 @@ export default class ArcadeHubApp {
             this.settingsHandler.set("miniWindow", event.target.checked);
         });
 
+
         this.loadCDN().then(() => {
             this.items = new ItemsUI(ArcadeHubItems, this.notificationHandler, this.settingsHandler);
             this.addItemModal = new AddItemModal(this.items, this.settingsHandler, this.notificationHandler);
+
+            document.getElementById("grid-view-toggle").addEventListener("change", (event) => {
+                this.settingsHandler.set("gridView", event.target.checked);
+                this.items.populate(ArcadeHubItems);
+            });
 
             EventHandler.subscribe("settingsChange", this.onSettingChange.bind(this));
 

@@ -74,6 +74,11 @@ export default class ItemUI {
         var container = document.getElementById("list-container");
         container.innerHTML = "";
 
+        container.className = "";
+        if (this.settingsHandler.get("gridView")) {
+            container.className = "grid";
+        }
+
         var favorites = this.settingsHandler.get("favorites");
         if (!favorites) {
             this.settingsHandler.set("favorites", JSON.stringify([]));
@@ -112,7 +117,7 @@ export default class ItemUI {
             favoritebtn.innerHTML = `<i class="fa fa-star"></i>`;
 
             var playbtn = document.createElement("div");
-            playbtn.className = "button";
+            playbtn.className = "button play-button";
             playbtn.innerHTML = "Play Now";
 
             trashbtn.addEventListener("click", () => {
@@ -149,13 +154,18 @@ export default class ItemUI {
                 }
             });
 
+            var buttonContainer = document.createElement("div");
+            buttonContainer.className = "button-container";
+
             item.appendChild(title);
             item.appendChild(seperator);
             if (customItem.some(citem => citem.name === element.name)) {
-                item.appendChild(trashbtn);
+                buttonContainer.appendChild(trashbtn);
             }
-            item.appendChild(favoritebtn);
-            item.appendChild(playbtn);
+            buttonContainer.appendChild(favoritebtn);
+            buttonContainer.appendChild(playbtn);
+
+            item.appendChild(buttonContainer);
 
             container.appendChild(item);
         });
