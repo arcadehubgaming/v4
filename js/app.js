@@ -19,6 +19,10 @@ export default class ArcadeHubApp {
 
         this.panicKeyHandler = new PanicKeyHandler(this.notificationHandler, this.settingsHandler);
 
+        if (!this.settingsHandler.get("panicKeyEnabled")) {
+            this.settingsHandler.set("panicKeyEnabled", true);
+        }
+
         if (this.settingsHandler.get("panicKeyEnabled")) {
             document.getElementById("panic-key-toggle").checked = true;
             this.panicKeyHandler.enable();
