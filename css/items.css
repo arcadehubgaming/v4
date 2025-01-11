@@ -43,17 +43,34 @@
     color: var(--surface);
 }
 
+#list-container .favorite-button.active {
+    border: none;
+    color: var(--surface);
+    background-color: var(--warning);
+}
+
+#list-container .trash-button {
+    margin-right: 0.5em;
+    padding: 10px 12px;
+    border-radius: 0.5em;
+    border: 2px solid var(--border);
+    box-shadow: var(--shadow);
+    color: var(--on-surface);
+    cursor: pointer;
+}
+
+#list-container .trash-button:hover {
+    background-color: var(--error);
+    color: var(--surface);
+}
+
 #list-container .button {
     margin-right: 1em;
 }
 
-#list-container .favorite-button.active {
-    background-color: var(--warning);
-}
-
 #list-container span {
     padding-left: 1em;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 #list-container .seperator {

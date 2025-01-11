@@ -15,26 +15,12 @@ export default class SettingsModal {
 
                 let settingsTabs = document.querySelectorAll(".settings-page");
                 const content = document.querySelector(".settings-content");
-                const targetScrollTop = content.scrollHeight * (index) / settingsTabs.length;
 
-                const speedMultiplier = 0.25;
+                settingsTabs.forEach((tab) => {
+                    tab.style.display = "none";
+                });
 
-                let start = content.scrollTop;
-                let startTime = null;
-
-                function smoothScroll(currentTime) {
-                    if (!startTime) startTime = currentTime;
-                    let elapsedTime = currentTime - startTime;
-                    let progress = elapsedTime / (500 * speedMultiplier);
-                    progress = Math.min(progress, 1);
-                    content.scrollTop = start + (targetScrollTop - start) * progress;
-
-                    if (progress < 1) {
-                        window.requestAnimationFrame(smoothScroll);
-                    }
-                }
-
-                window.requestAnimationFrame(smoothScroll);
+                settingsTabs[index].style.display = "block";
             });
         });
 
@@ -62,8 +48,6 @@ export default class SettingsModal {
             }
         });
 
-
-
         document.getElementById("settings-close").addEventListener("click", this.close);
     }
 
@@ -72,6 +56,12 @@ export default class SettingsModal {
     }
 
     close() {
+        let sidebarItems = document.querySelectorAll(".sidebar-item");
+        sidebarItems.forEach((item) => {
+            item.classList.remove("active");
+        });
+        sidebarItems[0].classList.add("active");
+
         document.getElementById("settings-container").style.display = "none";
     }
 }

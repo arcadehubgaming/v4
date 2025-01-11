@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link id="favicon" rel="icon" href="" type="image/png">
+</head>
+<body>
+    <div class="site-container">
+        <header class="topbar-container">
+            <div class="topbar">
+                <div class="logo">Arcade Hub</div>
+                <div class="sidebar-toggle sidebar-toggle-selected">
+                    <i class="fas fa-gamepad"></i>
+                    Games
+                </div>
+                <div class="sidebar-toggle">
+                    <i class="fas fa-film"></i>
+                    Movies
+                </div>
+                <div class="sidebar-toggle">
+                    <i class="fas fa-user"></i>
+                    Proxies
+                </div>
+                <div class="sidebar-toggle">
+                    <i class="fas fa-gear"></i>
+                    Settings
+                </div>
+                <a href="https://forms.gle/fADC7cR7Jv6T2ZYu8" target="_blank" style="text-decoration: none;">
+                    <div class="sidebar-toggle">
+                        <i class="fas fa-comments"></i>
+                        Feedback
+                    </div>
+                </a>
+                <input class="search-input" placeholder="Search">
+            </div>
+        </header>
+        <br/>
+        <main class="body">
+            <div id="play-modal" class="modal play-modal">
+                <div id="play-modal-content" class="play-modal-content">
+                    <div style="display: flex; flex-direction: row;">
+                        <div class="btn poppins-btn" id="fullscreen-game-viewer" style="text-align:center; width: 48%">FULLSCREEN</div>
+                        <div style="width: 2%"></div>
+                        <div class="btn poppins-btn" id="close-play-modal" style="text-align:center; width: 48%">CLOSE</div>
+                    </div>
+                    <div style="height: 1rem"></div>
+                    <iframe frameborder="0" src="" id="game-viewer"></iframe>
+                </div>
+            </div>
+            <div class="games item-list">
+            </div>
+            <div class="movies item-list">
+            </div>
+            <div class="proxies item-list">
+            </div>
+            <div class="settings item-list">
+                <div class="theme-selector">
+                    <select id="theme-select">
+                        <option value="default">Light Mode</option>
+                        <option value="dark">Dark</option>
+                        <option value="fall">Fall</option>
+                        <option value="winter">Winter</option>
+                        <option value="oxocarbon-dark">Oxocarbon Dark</option>
+                        <option value="oxocarbon-light">Oxocarbon</option>
+                        <option value="catppuccin-latte">Catppuccin Latte</option>
+                        <option value="catppuccin-frappe">Catppuccin Frappe</option>
+                        <option value="catppuccin-macchiato">Catppuccin Macchiato</option>
+                        <option value="catppuccin-mocha">Catppuccin Mocha</option>
+                        <option value="midnight">Midnight</option>
+                        <option value="custom-theme">Custom Theme</option>
+                    </select>
+                    <div style="width: 1em"></div>
+                    <div id="create-theme-btn" class="btn poppins-btn">
+                        <i class="fas fa-plus"></i> Create Theme
+                    </div>
+                </div>
+                <div class="cloaker toggle-container">
+                    <label class="toggle">
+                        <input type="checkbox" id="cloaking-toggle">
+                        <span class="slider"></span>
+                        <span class="toggle-label">Enable Cloaking</span>
+                    </label>
+                </div>
+                <div class="jumper toggle-container">
+                    <label class="toggle">
+                        <input type="checkbox" id="jump-toggle">
+                        <span class="slider"></span>
+                        <span class="toggle-label">Jump Button</span>
+                    </label>
+                </div>
+                <div class="game-newtab toggle-container">
+                    <label class="toggle">
+                        <input type="checkbox" id="game-newtab-toggle">
+                        <span class="slider"></span>
+                        <span class="toggle-label">Open Games in New Tab</span>
+                    </label>
+                </div>
+                <div class="movie-newtab toggle-container">
+                    <label class="toggle">
+                        <input type="checkbox" id="movie-newtab-toggle">
+                        <span class="slider"></span>
+                        <span class="toggle-label">Open Movies in New Tab</span>
+                    </label>
+                </div>
+                <div class="proxy-newtab toggle-container">
+                    <label class="toggle">
+                        <input type="checkbox" id="proxy-newtab-toggle">
+                        <span class="slider"></span>
+                        <span class="toggle-label">Open Proxies in New Tab</span>
+                    </label>
+                </div>
+                <div class="panic-key toggle-container">
+                    <label class="toggle">
+                        <input type="checkbox" id="panic-key-toggle">
+                        <span class="slider"></span>
+                        <span class="toggle-label">Panic Key</span>
+                    </label>
+                </div>
+                <div class="panic-key-url">
+                    <input class="search-input panic-key-input" id="panic-key-input" placeholder="Panic Key URL" value="https://www.google.com/">
+                </div>
+                <div class="history-wiper">
+                    <a href="misc/history-clearer/chrome.bat" onclick="alert('Close Chrome before using this script.')">
+                        <div class="btn poppins-btn">Delete History Manually (Chrome)</div>
+                    </a>
+                    <a href="misc/history-clearer/edge.bat" onclick="alert('Close Edge before using this script. ')">
+                        <div class="btn poppins-btn">Delete History Manually (Edge)</div>
+                    </a>
+                </div>                      
+            </div>
+            <div id="theme-modal" class="modal">
+                <div class="modal-content">
+                    <h2>Create Your Custom Theme</h2>
+                    
+                    <label for="bg-color">Background Color:</label>
+                    <input type="color" id="bg-color" class="color-picker" value="#fafafa">
+
+                    <label for="secondarybg-color">Secondary Background Color:</label>
+                    <input type="color" id="secondarybg-color" class="color-picker" value="#fafafa">
+            
+                    <label for="text-color">Text Color:</label>
+                    <input type="color" id="text-color" class="color-picker" value="#000000">
+            
+                    <label for="button-color">Button Color:</label>
+                    <input type="color" id="button-color" class="color-picker" value="#4758b5">
+            
+                    <label for="button-hover-color">Button Hover Color:</label>
+                    <input type="color" id="button-hover-color" class="color-picker" value="#354287">
+                    
+                    <br/><br/>
+                    <div id="save-theme-btn" class="btn poppins-btn">Save Theme</div>
+                    <div id="close-modal-btn" class="btn poppins-btn">Cancel</div>
+                </div>
+            </div>
+            <div id="jumpToTopButton" class="jump-to-top-btn">
+                <span>&#8593;</span>
+            </div>
+        </main>
+    </div>
+    <div id="snowTarget" style="background:transparent; color:transparent; height: 1px; width: 100%"></div>
+
+    <script>var ArcadeHubItems = {};</script>
+    <script src="js/common.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2Y1V4TGEX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-W2Y1V4TGEX');
+    </script>
+</body>
+</html>

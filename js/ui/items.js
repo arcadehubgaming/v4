@@ -1,11 +1,23 @@
+Array.prototype.remove = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+};
+
 export default class ItemUI {
-    constructor(items, settingsHandler) {
+    constructor(items, notificationHandler, settingsHandler) {
         this.games = items.Games;
         this.movies = items.Movies;
         this.proxies = items.Proxies;
 
+        this.notificationHandler = notificationHandler;
         this.settingsHandler = settingsHandler;
-        this.populate(this.games);
+        this.populate(ArcadeHubItems);
     }
 
     openURL(url) {
@@ -27,7 +39,27 @@ export default class ItemUI {
     }
 
     populate(list) {
+        var selectors = document.querySelectorAll(".topbar-toggle");
+        var customItem = eval(this.settingsHandler.get("customItem")) || [];
+        var displayedList = [];
+        selectors.forEach(selector => {
+            if (selector.classList.contains("topbar-toggle-selected")) {
+                list = list[selector.querySelector("span").textContent];
+                displayedList = [...list];
+                displayedList = displayedList.filter(item =>
+                    item.name.toLowerCase().includes(document.getElementById("search").value.toLowerCase())
+                );
+
+                customItem.forEach(element => {
+                    if (element.type.toLowerCase() === selector.querySelector("span").textContent.toLowerCase()) {
+                        displayedList.push(element);
+                    }
+                });
+            }
+        });
+
         var container = document.getElementById("list-container");
+        container.innerHTML = "";
 
         var favorites = this.settingsHandler.get("favorites");
         if (!favorites) {
@@ -37,14 +69,14 @@ export default class ItemUI {
 
         favorites = eval(favorites);
 
-        list.sort((a, b) => {
+        displayedList.sort((a, b) => {
             if (favorites.includes(a.name) === favorites.includes(b.name)) {
                 return a.name.localeCompare(b.name);
             }
             return favorites.includes(b.name) - favorites.includes(a.name);
         });
 
-        list.forEach(element => {
+        displayedList.forEach(element => {
             var item = document.createElement("div");
             item.className = "item-container";
 
@@ -53,6 +85,10 @@ export default class ItemUI {
 
             var seperator = document.createElement("div");
             seperator.className = "seperator";
+
+            var trashbtn = document.createElement("div");
+            trashbtn.className = "trash-button";
+            trashbtn.innerHTML = `<i class="fa fa-trash"></i>`;
 
             var favoritebtn = document.createElement("div");
             if (favorites.includes(element.name)) {
@@ -66,10 +102,30 @@ export default class ItemUI {
             playbtn.className = "button";
             playbtn.innerHTML = "Play Now";
 
+            trashbtn.addEventListener("click", () => {
+                const index = customItem.findIndex(citem => citem.name === element.name);
+                if (index > -1) {
+                    customItem.splice(index, 1);
+                }
+
+                this.settingsHandler.set("customItem", JSON.stringify(customItem));
+
+                this.notificationHandler.add("Item removed: " + element.name);
+                this.populate(ArcadeHubItems);
+            });
+
             favoritebtn.addEventListener("click", () => {
-                favorites.push(element.name);
+                if (favoritebtn.classList.contains("active")) {
+                    favorites.remove(element.name);
+                } else {
+                    if (!favorites.includes(element.name)) {
+                        favorites.push(element.name);
+                    }
+                }
                 this.settingsHandler.set("favorites", JSON.stringify(favorites));
-                this.populate();
+                favoritebtn.classList.toggle("active");
+
+                this.populate(ArcadeHubItems);
             });
 
             playbtn.addEventListener("click", () => {
@@ -82,6 +138,9 @@ export default class ItemUI {
 
             item.appendChild(title);
             item.appendChild(seperator);
+            if (customItem.some(citem => citem.name === element.name)) {
+                item.appendChild(trashbtn);
+            }
             item.appendChild(favoritebtn);
             item.appendChild(playbtn);
 
