@@ -160,6 +160,7 @@
     width: 90%;
     position: absolute;
     padding: 1em 0;
+    padding-bottom: 5em;
     top: 380px;
     left: 5.25%;
     background-color: var(--surface);
