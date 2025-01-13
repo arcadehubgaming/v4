@@ -44,7 +44,7 @@
 }
 
 #list-container .favorite-button.active {
-    border: none;
+    border: 2px var(--warning);
     color: var(--surface);
     background-color: var(--warning);
 }
