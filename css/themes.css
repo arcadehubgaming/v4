@@ -148,6 +148,10 @@
     z-index: 5;
 }
 
+.theme-arcadehub-v1 .topbar .feedback-a {
+    z-index: 5;
+}
+
 .theme-arcadehub-v1 .topbar .search-input::placeholder {
     color: white;
 }
