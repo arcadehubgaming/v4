@@ -41,7 +41,18 @@ export default class ItemUI {
             iframe.style.width = '100%';
             iframe.style.height = '100%';
             iframe.src = url;
+            var script1 = win.document.createElement('script');
+            script1.async = true;
+            script1.src = "https://www.googletagmanager.com/gtag/js?id=G-W2Y1V4TGEX";
+            var script2 = win.document.createElement('script');
+            script2.innerHTML = `window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-W2Y1V4TGEX');`;
             win.document.body.appendChild(iframe);
+            win.document.body.appendChild(script1);
+            win.document.body.appendChild(script2);
             var interval = setInterval(function () {
                 if (win.closed) {
                     clearInterval(interval);
