@@ -92,6 +92,7 @@ export default class ArcadeHubApp {
                 }
                 toggles.forEach(toggle => toggle.classList.remove("topbar-toggle-selected"));
                 event.currentTarget.classList.add("topbar-toggle-selected");
+                document.getElementById("search").value = "";
                 this.items.populate(ArcadeHubItems);
             });
         });
